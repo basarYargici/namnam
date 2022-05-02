@@ -16,30 +16,32 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author İ. BAŞAR YARGICI
  */
-public class Admin {
+public class Visitor {
 
     private int id;
     private String name;
     private String surname;
-    private String description;
     private String username;
     private String password;
     private String mail;
     private String imageLink;
+    private List<Integer> recipeList;
 
-    public Admin(int id, String name, String surname, String description, String username, String password, String mail, String imageLink) {
+    public Visitor(int id, String name, String surname, String username, String password, String mail, String imageLink, List<Integer> recipeList) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.description = description;
         this.username = username;
         this.password = password;
         this.mail = mail;
         this.imageLink = imageLink;
+        this.recipeList = recipeList;
     }
 
     public int getId() {
@@ -66,14 +68,6 @@ public class Admin {
         this.surname = surname;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -96,6 +90,14 @@ public class Admin {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public List<Integer> getRecipeList() {
+        return recipeList;
+    }
+
+    public void setRecipeList(List<Integer> recipeList) {
+        this.recipeList = recipeList;
     }
 
     public String getImageLink() {
