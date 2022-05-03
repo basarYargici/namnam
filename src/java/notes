@@ -1,4 +1,21 @@
+PROJE KURALLARI
+1. Geliştirilecek yazılım web tabanlı olmalı, istenen bir veri tabanı yönetim sistemi kullanılabilir. Dil olarak dersle paralel gitmesi gerektiğinden Java Server Faces kullanılacaktır.
+2. Login sayfası bulunmalı
+3. En az 6 ekran (web sayfası) olmalı
+4. En az 5 tablo olmalı
+5. Inline, Internal ve External CSS kullanılmalı
+6. Ekleme (insert), güncelleme (update), silme (delete) ve listeleme (select) gibi temel veritabanı işlemleri olmalıdır.
+Ancak tüm sayfalarda sadece ekleme, silme, güncelleme gibi tekrara düşülmemeli. Sayfalarda probleme uygun gerekli başka işlemler de yapılmalı. 
+Örneğin bir öğrenci işleri sitesi yapıyorsanız siteniz sadece bir sayfada öğrenci ekle-çıkar diğer sayfada öğretim üyesi ekle-çıkar gibi tekrarlayan işlemlerden oluşmamalı. Öğrencinin ders seçmesi, çakışma bildirimi gibi başka işlemleri de yapmanız gerekir.
+7. UX açısından responsive olsun: Örneğin, üyelik tamamlanınca ekran öylece kalmasın.( "Üyeliğiniz tamamlandı" uyarısı verilebilir)
+8. 5 tane gelişmiş SQL sorgusu yazılmalı (İç içe select, in, group by gibi SQL ifadeleri ile birkaç tablonun birbirine bağlandığı sorgular- örneğin 1995 yılı ile 2016 yılı arasında kredi çeken müşteriler arasında en yüksek miktarda kredi çeken en genç müşteri)
+9. Sitede resim, tablo, menü gibi görsel elemanlar kullanılmalı.
+10. Web sitesi temel amacına hizmet ediyor olmalı. Kullanıcıya ihtiyaç duyacağı asgari hizmetleri
+sunmalı.
 
+
+
+SQL Queries:
 -- Add new visitor
 INSERT INTO APP.VISITOR 
 (ID,USERNAME,PASSWORD,MAIL,"NAME",SURNAME)
