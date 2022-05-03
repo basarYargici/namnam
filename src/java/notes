@@ -1,0 +1,5 @@
+
+-- Add new visitor
+INSERT INTO APP.VISITOR 
+(ID,USERNAME,PASSWORD,MAIL,"NAME",SURNAME)
+VALUES (2,'Basar','111','amail','BaşarName','Yargıcı');

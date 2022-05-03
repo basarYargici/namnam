@@ -41,4 +41,18 @@ public class Error<T> extends Result {
         this.message = "[ERROR] :" + message;
         this.data = data;
     }
+
+    public boolean isIsSuccess() {
+        return isSuccess;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public Object getData() {
+        return data;
+    }
+    
+    
 }

@@ -7,18 +7,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-    <h:head>
-        <title>asd</title>
-    </h:head>
-    <h:body>
-        <h3>Musteri Sipariş Detay</h3> 
-        <small> (Lütfen gelen verilerin doğruluğunu Netbeans sample veritabanına gidip Purchase_Order tablosundan
-            kontrol ediniz)</small>
-        <!--bul() metodu resultset dönmelidir-->
-        <h:outputText value="#{visitor.getAll().isSuccess}" >
-
-        </h:outputText>
-
-
-    </h:body>
+    
+    <head></head>
+    <body>
+        <h1>
+        #{visitor.all.data[0]}
+        </h1>
+    </body>
+    
+    
 </html>

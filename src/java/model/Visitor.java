@@ -44,6 +44,9 @@ public class Visitor {
         this.recipeList = recipeList;
     }
 
+    public Visitor() {
+    }
+
     public int getId() {
         return id;
     }

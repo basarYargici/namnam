@@ -17,12 +17,15 @@
 package domain;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.sql.DataSource;
 import javax.sql.rowset.CachedRowSet;
+import model.Visitor;
 
 /**
  *
@@ -32,20 +35,30 @@ import javax.sql.rowset.CachedRowSet;
 @SessionScoped
 public class VisitorDomain {
 
-    DataSource dataSource;
-    Connection connection;
-    Result dataSourceResult;
-    Result connectionResult;
+    Result<DataSource> dataSourceResult;
+    Result<Connection> connectionResult;
     CachedRowSet rowSet = null;
     Result s;
+    Success success;
+    Error error;
+    ArrayList<Visitor> visitorList;
+    String query;
 
     public VisitorDomain() {
+        this.visitorList = new ArrayList();
         DataSourceUtil.getInstance();
         dataSourceResult = getDataSource();
         connectionResult = getConnection();
     }
 
-    // check isSuccess in UI. if it is false, pop up the message.
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message. You can get
+     * data in HTML with visitor.all.data
+     *
+     * @return Success if no error occurs, with data of List of Visitors. Error
+     * if any error occurs, with error message.
+     *
+     */
     public Result getAll() {
         if (dataSourceResult.isSuccess == false) {
             return dataSourceResult;
@@ -54,24 +67,27 @@ public class VisitorDomain {
             return connectionResult;
         }
 
-        try {
-            PreparedStatement ps = connection.
-                    prepareStatement("SELECT * FROM APP.VISITOR FETCH FIRST 5 ROWS ONLY");
-            rowSet = new com.sun.rowset.CachedRowSetImpl();
-            rowSet.populate(ps.executeQuery());
-                    
-            s = new Success(rowSet);
-            return s;
+        query = "SELECT * FROM APP.VISITOR";
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            ResultSet rs = statement.executeQuery(query);
+            Visitor temp;
+
+            while (rs.next()) {
+                temp = new Visitor();
+                toVisitor(temp, rs);
+                visitorList.add(temp);
+            }
+            return new Success(visitorList);
         } catch (SQLException e) {
-            s = new Error(e.getMessage());
-            return s;
+            return new Error(e.getMessage());
         }
+
     }
 
     private Result getDataSource() {
         try {
-            dataSource = DataSourceUtil.getDataSource();
-            return new Success(dataSource);
+            return new Success(DataSourceUtil.getDataSource());
         } catch (SQLException e) {
             return new Error(e.getLocalizedMessage());
         }
@@ -79,10 +95,18 @@ public class VisitorDomain {
 
     private Result<Connection> getConnection() {
         try {
-            connection = DataSourceUtil.getConnection();
-            return new Success(connection);
+            return new Success(DataSourceUtil.getConnection());
         } catch (SQLException e) {
             return new Error(e.getLocalizedMessage());
         }
+    }
+
+    private void toVisitor(Visitor temp, ResultSet rs) throws SQLException {
+        temp.setId(rs.getInt("ID"));
+        temp.setUsername(rs.getString("USERNAME"));
+        temp.setPassword(rs.getString("PASSWORD"));
+        temp.setName(rs.getString("NAME"));
+        temp.setSurname(rs.getString("SURNAME"));
+        temp.setMail(rs.getString("MAIL"));
     }
 }
