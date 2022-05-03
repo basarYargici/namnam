@@ -35,7 +35,7 @@ public class Error<T> extends Result {
         isSuccess = false;
         this.message = "[ERROR] :" + message;
     }
-    
+
     public Error(String message, T data) {
         isSuccess = false;
         this.message = "[ERROR] :" + message;
@@ -53,6 +53,5 @@ public class Error<T> extends Result {
     public Object getData() {
         return data;
     }
-    
-    
+
 }

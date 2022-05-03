@@ -52,12 +52,42 @@ public class VisitorDomain {
     }
 
     /**
+     * Check isSuccess in UI. if it is false, pop up the message. I have tested
+     * the method in code. It works as expected, but do not know how can we use
+     * in HTML. Should check.
+     *
+     * @param visitor
+     * @return Success if no error occurs, with no extra data. Error if any
+     * error occurs, with error message.
+     */
+    public Result save(Visitor visitor) {
+        if (dataSourceResult.isSuccess == false) {
+            return dataSourceResult;
+        }
+        if (connectionResult.isSuccess == false) {
+            return connectionResult;
+        }
+
+        query = "INSERT INTO APP.VISITOR"
+                + "(ID,USERNAME,PASSWORD,MAIL,\"NAME\",SURNAME)"
+                + "VALUES (" + visitor.getId() + ",'" + visitor.getUsername() + "',"
+                + "'" + visitor.getPassword() + "','" + visitor.getMail() + "',"
+                + "'" + visitor.getName() + "','" + visitor.getSurname() + "')";
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            statement.executeUpdate(query);
+            return new Success();
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
+    }
+
+    /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with visitor.all.data
      *
      * @return Success if no error occurs, with data of List of Visitors. Error
      * if any error occurs, with error message.
-     *
      */
     public Result getAll() {
         if (dataSourceResult.isSuccess == false) {
@@ -83,6 +113,98 @@ public class VisitorDomain {
             return new Error(e.getMessage());
         }
 
+    }
+
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message. You can get
+     * data in HTML with visitor.getById(id).data
+     *
+     * @param id
+     * @return Success if no error occurs, with data is Visitor with id =: id .
+     * Error if any error occurs, with error message.
+     */
+    public Result getById(int id) {
+        if (dataSourceResult.isSuccess == false) {
+            return dataSourceResult;
+        }
+        if (connectionResult.isSuccess == false) {
+            return connectionResult;
+        }
+
+        query = "SELECT * FROM APP.VISITOR WHERE ID =" + id;
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            ResultSet rs = statement.executeQuery(query);
+            Visitor temp = new Visitor();
+
+            while (rs.next()) {
+                toVisitor(temp, rs);
+            }
+            return new Success(temp);
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
+    }
+
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message.
+     *
+     * I have tested the method in code. It works as expected, but do not know
+     * how can we use in HTML. Should check.
+     *
+     * @param visitor
+     * @return Success if no error occurs, with no extra data. Error if any
+     * error occurs, with error message.
+     */
+    public Result update(Visitor visitor) {
+        if (dataSourceResult.isSuccess == false) {
+            return dataSourceResult;
+        }
+        if (connectionResult.isSuccess == false) {
+            return connectionResult;
+        }
+
+        query = "UPDATE APP.VISITOR "
+                + "SET USERNAME = '" + visitor.getUsername() + "', PASSWORD = "
+                + "'" + visitor.getPassword() + "', MAIL = '" + visitor.getMail() + "', \"NAME\" = "
+                + "'" + visitor.getName() + "', SURNAME = '" + visitor.getSurname() + "' "
+                + "WHERE id = " + visitor.getId();
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            statement.executeUpdate(query);
+            return new Success();
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
+    }
+
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message.
+     *
+     * I have tested the method in code. It works as expected, but do not know
+     * how can we use in HTML. Should check.
+     *
+     * @param visitor
+     * @return Success if no error occurs, with no extra data. Error if any
+     * error occurs, with error message.
+     */
+    public Result delete(int id) {
+        if (dataSourceResult.isSuccess == false) {
+            return dataSourceResult;
+        }
+        if (connectionResult.isSuccess == false) {
+            return connectionResult;
+        }
+
+        query = "DELETE FROM APP.VISITOR WHERE id = " + id;
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            statement.executeUpdate(query);
+            statement.close();
+            return new Success();
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
     }
 
     private Result getDataSource() {

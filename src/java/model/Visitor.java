@@ -33,6 +33,16 @@ public class Visitor {
     private String imageLink;
     private List<Integer> recipeList;
 
+    public Visitor(int id, String name, String surname, String username, String password, String mail, String imageLink) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.username = username;
+        this.password = password;
+        this.mail = mail;
+        this.imageLink = imageLink;
+    }
+
     public Visitor(int id, String name, String surname, String username, String password, String mail, String imageLink, List<Integer> recipeList) {
         this.id = id;
         this.name = name;
