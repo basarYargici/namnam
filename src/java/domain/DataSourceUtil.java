@@ -53,14 +53,14 @@ public final class DataSourceUtil {
         return INSTANCE;
     }
 
-    public static Connection getConnection() throws SQLException {
+    public Connection getConnection() throws SQLException {
         if (connection == null) {
             connection = dataSource.getConnection();
         }
         return connection;
     }
 
-    public static DataSource getDataSource() throws SQLException {
+    public DataSource getDataSource() throws SQLException {
         if (dataSource == null) {
             throw new SQLException("Unable to obtain DataSource");
         }

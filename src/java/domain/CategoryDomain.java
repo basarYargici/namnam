@@ -20,28 +20,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.sql.rowset.CachedRowSet;
-import model.Visitor;
+import model.Category;
 
 /**
  *
  * @author İ. BAŞAR YARGICI
  */
-@ManagedBean(name = "visitor")
-@SessionScoped
-public class VisitorDomain extends BaseDomain {
+public class CategoryDomain extends BaseDomain {
 
     CachedRowSet rowSet = null;
     Result s;
     Success success;
     Error error;
-    ArrayList<Visitor> visitorList;
+    ArrayList<Category> categoryList;
     String query;
 
-    public VisitorDomain() {
-        this.visitorList = new ArrayList();
+    public CategoryDomain() {
+        this.categoryList = new ArrayList();
     }
 
     /**
@@ -49,11 +45,11 @@ public class VisitorDomain extends BaseDomain {
      * the method in code. It works as expected, but do not know how can we use
      * in HTML. Should check.
      *
-     * @param visitor
+     * @param category
      * @return Success if no error occurs, with no extra data. Error if any
      * error occurs, with error message.
      */
-    public Result save(Visitor visitor) {
+    public Result save(Category category) {
         if (dataSourceResult.isSuccess == false) {
             return dataSourceResult;
         }
@@ -61,11 +57,10 @@ public class VisitorDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "INSERT INTO APP.VISITOR"
-                + "(ID,USERNAME,PASSWORD,MAIL,\"NAME\",SURNAME)"
-                + "VALUES (" + visitor.getId() + ",'" + visitor.getUsername() + "',"
-                + "'" + visitor.getPassword() + "','" + visitor.getMail() + "',"
-                + "'" + visitor.getName() + "','" + visitor.getSurname() + "')";
+        query = "INSERT INTO APP.CATEGORY"
+                + "(ID,\"NAME\",IMAGELINK)"
+                + "VALUES (" + category.getId() + ",'" + category.getName()
+                + "', '" + category.getImageLink() + "')";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             statement.executeUpdate(query);
@@ -90,18 +85,18 @@ public class VisitorDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "SELECT * FROM APP.VISITOR";
+        query = "SELECT * FROM APP.CATEGORY";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
-            Visitor temp;
+            Category temp;
 
             while (rs.next()) {
-                temp = new Visitor();
-                toVisitor(temp, rs);
-                visitorList.add(temp);
+                temp = new Category();
+                toCategory(temp, rs);
+                categoryList.add(temp);
             }
-            return new Success(visitorList);
+            return new Success(categoryList);
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
@@ -124,14 +119,14 @@ public class VisitorDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "SELECT * FROM APP.VISITOR WHERE ID =" + id;
+        query = "SELECT * FROM APP.CATEGORY WHERE ID =" + id;
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
-            Visitor temp = new Visitor();
+            Category temp = new Category();
 
             while (rs.next()) {
-                toVisitor(temp, rs);
+                toCategory(temp, rs);
             }
             return new Success(temp);
         } catch (SQLException e) {
@@ -145,11 +140,11 @@ public class VisitorDomain extends BaseDomain {
      * I have tested the method in code. It works as expected, but do not know
      * how can we use in HTML. Should check.
      *
-     * @param visitor
+     * @param category
      * @return Success if no error occurs, with no extra data. Error if any
      * error occurs, with error message.
      */
-    public Result update(Visitor visitor) {
+    public Result update(Category category) {
         if (dataSourceResult.isSuccess == false) {
             return dataSourceResult;
         }
@@ -157,11 +152,9 @@ public class VisitorDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "UPDATE APP.VISITOR "
-                + "SET USERNAME = '" + visitor.getUsername() + "', PASSWORD = "
-                + "'" + visitor.getPassword() + "', MAIL = '" + visitor.getMail() + "', \"NAME\" = "
-                + "'" + visitor.getName() + "', SURNAME = '" + visitor.getSurname() + "' "
-                + "WHERE id = " + visitor.getId();
+        query = "UPDATE APP.CATEGPRY "
+                + "SET \"NAME\" = '" + category.getName() + "', IMAGELINK = "
+                + "'" + category.getImageLink() + "' WHERE id = " + category.getId();
 
         try (Statement statement = connectionResult.data.createStatement()) {
             statement.executeUpdate(query);
@@ -177,7 +170,7 @@ public class VisitorDomain extends BaseDomain {
      * I have tested the method in code. It works as expected, but do not know
      * how can we use in HTML. Should check.
      *
-     * @param visitor
+     * @param id
      * @return Success if no error occurs, with no extra data. Error if any
      * error occurs, with error message.
      */
@@ -189,7 +182,7 @@ public class VisitorDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "DELETE FROM APP.VISITOR WHERE id = " + id;
+        query = "DELETE FROM APP.CATEGPRY WHERE id = " + id;
 
         try (Statement statement = connectionResult.data.createStatement()) {
             statement.executeUpdate(query);
@@ -200,12 +193,10 @@ public class VisitorDomain extends BaseDomain {
         }
     }
 
-    private void toVisitor(Visitor temp, ResultSet rs) throws SQLException {
+    private void toCategory(Category temp, ResultSet rs) throws SQLException {
         temp.setId(rs.getInt("ID"));
-        temp.setUsername(rs.getString("USERNAME"));
-        temp.setPassword(rs.getString("PASSWORD"));
+        temp.setImageLink(rs.getString("IMAGELIK"));
         temp.setName(rs.getString("NAME"));
-        temp.setSurname(rs.getString("SURNAME"));
-        temp.setMail(rs.getString("MAIL"));
     }
+
 }

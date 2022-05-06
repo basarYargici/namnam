@@ -41,6 +41,8 @@ public class Recipe {
         this.userId = userId;
     }
 
+    public Recipe() {   }
+
     public int getId() {
         return id;
     }

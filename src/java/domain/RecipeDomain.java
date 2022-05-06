@@ -23,37 +23,36 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.sql.rowset.CachedRowSet;
-import model.Visitor;
+import model.Recipe;
 
 /**
+ * //TODO: May dateOfCreation be a problem in queries, should be checked.
  *
  * @author İ. BAŞAR YARGICI
  */
 @ManagedBean(name = "visitor")
 @SessionScoped
-public class VisitorDomain extends BaseDomain {
+public class RecipeDomain extends BaseDomain {
 
     CachedRowSet rowSet = null;
     Result s;
     Success success;
     Error error;
-    ArrayList<Visitor> visitorList;
+    ArrayList<Recipe> recipeList;
     String query;
 
-    public VisitorDomain() {
-        this.visitorList = new ArrayList();
+    public RecipeDomain() {
+        this.recipeList = new ArrayList();
     }
 
     /**
-     * Check isSuccess in UI. if it is false, pop up the message. I have tested
-     * the method in code. It works as expected, but do not know how can we use
-     * in HTML. Should check.
+     * Check isSuccess in UI. if it is false, pop up the message.
      *
-     * @param visitor
+     * @param recipe
      * @return Success if no error occurs, with no extra data. Error if any
      * error occurs, with error message.
      */
-    public Result save(Visitor visitor) {
+    public Result save(Recipe recipe) {
         if (dataSourceResult.isSuccess == false) {
             return dataSourceResult;
         }
@@ -61,11 +60,11 @@ public class VisitorDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "INSERT INTO APP.VISITOR"
-                + "(ID,USERNAME,PASSWORD,MAIL,\"NAME\",SURNAME)"
-                + "VALUES (" + visitor.getId() + ",'" + visitor.getUsername() + "',"
-                + "'" + visitor.getPassword() + "','" + visitor.getMail() + "',"
-                + "'" + visitor.getName() + "','" + visitor.getSurname() + "')";
+        query = "INSERT INTO APP.RECIPE"
+                + "(ID,SCORE,DESCRIPTION,DATEOFCREATION,\"NAME\")"
+                + "VALUES (" + recipe.getId() + ",'" + recipe.getScore() + "',"
+                + "'" + recipe.getDescription() + "','" + recipe.getDateOfCreation() + "',"
+                + "'" + recipe.getName() + "')";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             statement.executeUpdate(query);
@@ -77,7 +76,7 @@ public class VisitorDomain extends BaseDomain {
 
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
-     * data in HTML with visitor.all.data
+     * data in HTML with recipe.all.data
      *
      * @return Success if no error occurs, with data of List of Visitors. Error
      * if any error occurs, with error message.
@@ -90,18 +89,18 @@ public class VisitorDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "SELECT * FROM APP.VISITOR";
+        query = "SELECT * FROM APP.RECIPE";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
-            Visitor temp;
+            Recipe temp;
 
             while (rs.next()) {
-                temp = new Visitor();
-                toVisitor(temp, rs);
-                visitorList.add(temp);
+                temp = new Recipe();
+                toRecipe(temp, rs);
+                recipeList.add(temp);
             }
-            return new Success(visitorList);
+            return new Success(recipeList);
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
@@ -110,7 +109,7 @@ public class VisitorDomain extends BaseDomain {
 
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
-     * data in HTML with visitor.getById(id).data
+     * data in HTML with recipe.getById(id).data
      *
      * @param id
      * @return Success if no error occurs, with data is Visitor with id =: id .
@@ -124,14 +123,14 @@ public class VisitorDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "SELECT * FROM APP.VISITOR WHERE ID =" + id;
+        query = "SELECT * FROM APP.RECIPE WHERE ID =" + id;
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
-            Visitor temp = new Visitor();
+            Recipe temp = new Recipe();
 
             while (rs.next()) {
-                toVisitor(temp, rs);
+                toRecipe(temp, rs);
             }
             return new Success(temp);
         } catch (SQLException e) {
@@ -145,11 +144,11 @@ public class VisitorDomain extends BaseDomain {
      * I have tested the method in code. It works as expected, but do not know
      * how can we use in HTML. Should check.
      *
-     * @param visitor
+     * @param recipe
      * @return Success if no error occurs, with no extra data. Error if any
      * error occurs, with error message.
      */
-    public Result update(Visitor visitor) {
+    public Result update(Recipe recipe) {
         if (dataSourceResult.isSuccess == false) {
             return dataSourceResult;
         }
@@ -157,11 +156,11 @@ public class VisitorDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "UPDATE APP.VISITOR "
-                + "SET USERNAME = '" + visitor.getUsername() + "', PASSWORD = "
-                + "'" + visitor.getPassword() + "', MAIL = '" + visitor.getMail() + "', \"NAME\" = "
-                + "'" + visitor.getName() + "', SURNAME = '" + visitor.getSurname() + "' "
-                + "WHERE id = " + visitor.getId();
+        query = "UPDATE APP.RECIPE "
+                + "SET SCORE = '" + recipe.getScore() + "', DESCRIPTION = "
+                + "'" + recipe.getDescription() + "', DATEOFCREATION = '"
+                + recipe.getDateOfCreation() + "', \"NAME\" = " + "'"
+                + recipe.getName() + "' WHERE id = " + recipe.getId();
 
         try (Statement statement = connectionResult.data.createStatement()) {
             statement.executeUpdate(query);
@@ -177,7 +176,7 @@ public class VisitorDomain extends BaseDomain {
      * I have tested the method in code. It works as expected, but do not know
      * how can we use in HTML. Should check.
      *
-     * @param visitor
+     * @param id
      * @return Success if no error occurs, with no extra data. Error if any
      * error occurs, with error message.
      */
@@ -200,12 +199,12 @@ public class VisitorDomain extends BaseDomain {
         }
     }
 
-    private void toVisitor(Visitor temp, ResultSet rs) throws SQLException {
+    private void toRecipe(Recipe temp, ResultSet rs) throws SQLException {
         temp.setId(rs.getInt("ID"));
-        temp.setUsername(rs.getString("USERNAME"));
-        temp.setPassword(rs.getString("PASSWORD"));
+        temp.setScore(rs.getString("SCORE"));
+        temp.setDescription(rs.getString("DESCRIPTION"));
+        temp.setDateOfCreation(rs.getDate("DATEOFCREATION"));
         temp.setName(rs.getString("NAME"));
-        temp.setSurname(rs.getString("SURNAME"));
-        temp.setMail(rs.getString("MAIL"));
     }
+
 }
