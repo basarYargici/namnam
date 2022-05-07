@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- index.html -->
+<!-- Displays an h:dataTable of the addresses in the address book -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="bootstrap.min.js"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+        <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
+        <h:outputScript library="js" name="jquery.min.js"/>
+        <title>Validating Form Data</title>
+        <style>
+            .recipe:hover {
+                background-color: #c7c8ff; 
+                border-color: #fff;
+
+            }
+            .login:hover {
+                background-color: #96ff66;
+                border-color: #fff;
+            }
+            .signup:hover {
+                background-color: #ffec98; 
+                border-color: #fff;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container-fuly" style="background-color: #fff;">
+            <h:form>
+                <div class="container" style="background-color: #fff;">
+                    <div class="row align-items-center">
+                        <div class="col-md-9">                
+                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage url="/images/nam-nam-02.png"/></h:commandLink></div>
+                        <div class="col-md-3">
+                            <h:form class="d-flex">
+                                <h:commandButton class="btn recipe" id="recipebutton" action="login" image="/images/recipe.png"  ></h:commandButton>
+                                <h:commandButton class="btn login" id="loginbutton" action="login" image="/images/login.png"  ></h:commandButton>
+                                <h:commandButton class="btn signup" id="signupbutton" action="signup" image="/images/signup.png"  ></h:commandButton>                                
+                            </h:form>	 
+                        </div>	
+                    </div>
+                </div>
+                <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light" style="background-color: rgb(255, 97, 40);">
+                    <div class="container justify-content-between ">
+                        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="index"> Ana Sayfa </h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="#">Trendler</h:commandLink>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <h:commandLink class="nav-link dropdown-toggle" action="#" id="navbarDropdown" role="button">
+                                        Kategoriler
+                                    </h:commandLink>
+
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="#">Biz Kimiz?</h:commandLink>
+                                </li>
+                            </ul>
+                            <form class="d-flex">
+                                <h:inputText class="form-control me-2" value="#"/>
+                                <button class="btn btn-outline-light" type="submit">Ara</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- HEADER AND NAVBAR END-->
+            </h:form>
+        </div>
+        <br/><br/><br/>
+        <h:form>
+            <div class="container mt-5 mb-5 d-flex justify-content-center">
+                <div class="card px-1 py-4 col-sm-5  ">
+                    <div class="card-body">
+                        <h1 style="text-align: center;"> Kayıt Ol </h1> <br/>  
+                        <h:form>
+                            <div class="mb-3 col-sm-12 ">
+                                <h:outputText value="Ad"/>
+                                <h:inputText class="form-control me-2" value="" id="nameInput"/>
+                            </div>
+                            <div class="mb-3 col-sm-12 ">
+                                <h:outputText value="Soyad"/>
+                                <h:inputText class="form-control me-2" value="" id="surnameInput"/>
+                            </div>       
+                            <div class="mb-3 col-sm-12 ">
+                                <h:outputText value="Kullanıcı Adı"/>
+                                <h:inputText class="form-control me-2" value="" id="usernameInput"/>
+                            </div>    
+                            <div class="mb-3 col-sm-12 ">
+                                <h:outputText value="E-posta Adresi"/>
+                                <h:inputText class="form-control me-2" value="" id="emailInput" validatorMessage="Geçersiz e-posta adresi formatı">
+                                    <f:validateRegex pattern= "\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" /> 
+                                </h:inputText>
+                            </div>    
+                            <div class="mb-3 col-sm-12 ">
+                                <h:outputText value="Şifre"/>
+                                <h:inputText class="form-control me-2" value="" id="passwordInput">
+                                    <f:validateLength minimum='6' maximum='18'/>
+                                </h:inputText>
+                            </div>    
+
+                            <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+
+
+</html>

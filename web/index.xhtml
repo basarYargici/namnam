@@ -8,12 +8,308 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 
-    <head></head>
-    <body>
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="js" name="bootstrap.min.js"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+        <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
+        <h:outputScript library="js" name="jquery.min.js"/>
+        <title>Validating Form Data</title>
+        <style>
+            .recipe:hover {
+                background-color: #c7c8ff; 
+                border-color: #fff;
+
+            }
+            .recipe{
+
+            }
+            .login:hover {
+                background-color: #96ff66;
+                border-color: #fff;
+            }
+            .signup:hover {
+                background-color: #ffec98; 
+                border-color: #fff;
+            }
+            .carousel .carousel-inner {	
+                text-align: center;
+                min-height: 200px;
+            }
+            .carousel .carousel-inner img {
+                max-width: 100%;
+                margin: 0 auto; /* Align slide image horizontally center in Bootstrap v3 */
+            }
+            .carousel {
+                margin: 25px 0 50px;
+                background: #fff;
+                position: relative;
+                padding: 8px;
+                box-shadow: 0 0 1px rgba(0,0,0,0.3);
+            }
+            .carousel:before, .carousel:after {
+                z-index: -1; 
+                position: absolute; 
+                content: "";
+                bottom: 15px;
+                left: 10px;
+                width: 50%; 
+                top: 80%;
+                max-width: 400px;
+                background: rgba(0, 0, 0, 0.7); 
+                box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+                transform: rotate(-3deg);
+            }
+            .carousel:after {
+                transform: rotate(3deg);
+                right: 10px;
+                left: auto;
+            }
+            .padded {
+                padding: 100px 0;
+            }
+            .wrapper-grey {
+                background: #F4F4F4;
+            }
+            .avatar {
+                width: 30px;
+                border-radius: 50%;
+            }
+            .avatar-bordered {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+                border: white 1px solid;
+            }
+            .avatar-large {
+                width: 50px;
+            }
+
+            .card {
+                height: 250px;
+                text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+                background-size: cover !important;
+                color: white;
+                position: relative;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .card-user {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
+            .card-category {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                font-size: 20px;
+            }
+            .card-description {
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+            }
+            .card-description h2 {
+                font-size: 22px;
+            }
+            .card-description p {
+                font-size: 15px;
+            }
+            .card-link {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                z-index:2;
+                background: black;
+                opacity: 0;
+            }
+
+            .card-link:hover{
+                opacity: 0.1;
+            }
+            .features img {
+                width: 100px;
+            }
+            .features h2 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            .features p {
+                font-size: 15px;
+                font-weight: lighter;
+            }
+        </style>
+    </h:head>
+    <h:body>
         <h1>
             #{visitor.getAll().data}
         </h1>
-    </body>
+        <div class="container-fuly" style="background-color: #fff;">
+            <h:form>
+                <div class="container" style="background-color: #fff;">
+                    <div class="row align-items-center">
+                        <div class="col-md-9">                
+                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage url="/images/nam-nam-02.png"/></h:commandLink></div>
+                        <div class="col-md-3">
+                            <h:form class="d-flex">
+                                <h:commandButton class="btn recipe" id="recipebutton" action="login" image="/images/recipe.png"  ></h:commandButton>
+                                <h:commandButton class="btn login" id="loginbutton" action="login" image="/images/login.png"  ></h:commandButton>
+                                <h:commandButton class="btn signup" id="signupbutton" action="signup" image="/images/signup.png"  ></h:commandButton>                                
+                            </h:form>	 
+                        </div>	
+                    </div>
+                </div>
+                <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light" style="background-color: rgb(255, 97, 40);">
+                    <div class="container justify-content-between ">
+                        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="index"> Ana Sayfa </h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="#">Trendler</h:commandLink>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <h:commandLink class="nav-link dropdown-toggle" action="#" id="navbarDropdown" role="button">
+                                        Kategoriler
+                                    </h:commandLink>
 
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="#">Biz Kimiz?</h:commandLink>
+                                </li>
+                            </ul>
+                            <form class="d-flex">
+                                <h:inputText class="form-control me-2" value=""/>
+                                <button class="btn btn-outline-light" type="submit">Ara</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>                
+            </h:form>
+        </div>
+        <!-- HEADER AND NAVBAR END-->
+
+    </h:body>
+    <br/>
+    <h:form>
+        <div class="container justify-content-between ">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <h:graphicImage class="d-block w-100" url="/images/sliderornek1.png" height="500"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <h:graphicImage class="d-block w-100" url="/images/sliderornek2.png" height="500"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <h:graphicImage class="d-block w-100" url="/images/sliderornek3.jpg" height="500"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                    </div>
+                </div>		
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </h:form>
+    <!--SLIDER END-->
+    <h:form>
+        <div class="container mt-5">
+            <div class="wrapper-grey ">
+                <br/><h2 class="text-center">En Popüler Tarifler</h2>
+                <div class="container">
+                    <br/>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 ">
+                            <div class="card"  style="background-image: url('/images/sliderornek1.png');" >
+                                <div class="card-category">kategori adı</div>
+                                <div class="card-description">
+                                    <h2>yemekadı</h2>
+                                    <p>yazar</p>
+                                </div>	
+                                <h:commandLink class="card-link" action="#"></h:commandLink>
+                            </div>  
+                        </div>
+                        <div class="col-xs-12 col-sm-4 ">
+                            <div class="card" style="background-image: url('/images/sliderornek2.png');">
+                                <div class="card-category">kategori adı</div>
+                                <div class="card-description">
+                                    <h2>yemekadı</h2>
+                                    <p>yazar </p>
+                                </div>		
+                                <h:commandLink class="card-link" action="#"></h:commandLink>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="card" style="background-image: url('/images/sliderornek3.jpg');">
+                                <div class="card-category">kategori adı</div>
+                                <div class="card-description">
+                                    <h2>yemekadı</h2>
+                                    <p>yazar </p>
+                                </div>	
+                                <h:commandLink class="card-link" action="#"></h:commandLink>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 ">
+                            <div class="card" style="background-image: url('/images/sliderornek1.png');">
+                                <div class="card-category">kategori adı</div>
+                                <div class="card-description">
+                                    <h2>yemekadı</h2>
+                                    <p>yazar</p>
+                                </div>	
+                                <h:commandLink class="card-link" action="#"></h:commandLink>
+                            </div>  
+                        </div>
+                        <div class="col-xs-12 col-sm-4 ">
+                            <div class="card" style="background-image: url('/images/sliderornek2.png');">
+                                <div class="card-category">kategori adı</div>
+                                <div class="card-description">
+                                    <h2>yemekadı</h2>
+                                    <p>yazar </p>
+                                </div>
+                                <h:commandLink class="card-link" action="#"></h:commandLink>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="card" style="background-image: url('/images/sliderornek3.jpg');">
+                                <div class="card-category">kategori adı</div>
+                                <div class="card-description">
+                                    <h2>yemekadı</h2>
+                                    <p>yazar </p>
+                                </div>
+                                <h:commandLink class="card-link" action="#"></h:commandLink>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- en popüler tarifler end-->
+
+    </h:form>
 
 </html>
