@@ -14,7 +14,7 @@
         <h:outputScript library="js" name="bootstrap.js"/>
         <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
         <h:outputScript library="js" name="jquery.min.js"/>
-        <title>Validating Form Data</title>
+        <title>Nam Nam Yemek Tarifleri </title>
         <style>
             .recipe:hover {
                 background-color: #c7c8ff; 
@@ -39,14 +39,14 @@
                             <h:commandLink class="navbar-brand" action="index"> <h:graphicImage url="/images/nam-nam-02.png"/></h:commandLink></div>
                         <div class="col-md-3">
                             <h:form class="d-flex">
-                                <h:commandButton class="btn recipe" id="recipebutton" action="login" image="/images/recipe.png"  ></h:commandButton>
+                                <h:commandButton class="btn recipe" id="recipebutton" action="recipe" image="/images/recipe.png"  ></h:commandButton>
                                 <h:commandButton class="btn login" id="loginbutton" action="login" image="/images/login.png"  ></h:commandButton>
                                 <h:commandButton class="btn signup" id="signupbutton" action="signup" image="/images/signup.png"  ></h:commandButton>                                
                             </h:form>	 
                         </div>	
                     </div>
                 </div>
-                <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light" style="background-color: rgb(255, 97, 40);">
+                <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light"  style="background-color: #f08819;">
                     <div class="container justify-content-between ">
                         <div class="collapse navbar-collapse " id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -99,5 +99,40 @@
                 </div>
             </div>
         </h:form>
+        <footer style="background-color:#F08819;">
+                <div class=" container justify-content-around ">
+                    <div class="col-10">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
+                                <h5><span>
+                                        <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
+                                <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
+                                <small>Copyright.All Rights Resered. </small>
+                            </div>
+                            <div class="col-md-2 col-12  my-sm-0 mt-5">
+                                <br/>
+                            </div>
+                            <div class="col-md-3 col-12 my-sm-0 mt-5">
+                                <ul class="list-unstyled">
+                                    <li class="mt-md-3 mt-4"><br/></li>
+                                    <li>Intergrated Security Platform</li>
+                                    <li>Core Features</li>
+                                    <li>Product Features</li>
+                                    <li>Pricing</li>
+                                </ul>
+                            </div>
+                            <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
+                                <ul class="list-unstyled">
+                                    <li class="mt-md-3 mt-4"><br/></li>
+                                    <li>Intergrated Security Platform</li>
+                                    <li>Core Features</li>
+                                    <li>Product Features</li>
+                                    <li>Pricing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
     </h:body>
 </html>
