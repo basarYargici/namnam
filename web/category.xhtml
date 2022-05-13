@@ -19,7 +19,6 @@
             .recipe:hover {
                 background-color: #c7c8ff; 
                 border-color: #fff;
-
             }
             .login:hover {
                 background-color: #96ff66;
@@ -80,60 +79,85 @@
                         </div>
                     </div>
                 </nav> 
-                <h:form>
-                    <br/><br/><br/>
-                    <div class="container ">
-                        <div class="card px-1 py-4 ">
-                            <div class="card-body">
-                                <h1 style="text-align: center;"> Tarif Ekle </h1> <br/>  
-                                <h:form id="form1" styleClass="form" enctype="multipart/form-data">
-                                    <div class="mb-3 col-sm-12 ">
-                                        <div class="row">
-                                            <div class="mb-3 col-sm-2 "> 
-                                                <h:outputText value="Kategori "/></div>
-                                            <div class="mb-3 col-sm-10 ">
-                                                <h:selectOneMenu id="booksSelectOneMenu" value="">
-                                                    <f:selectItem itemValue="corba" itemLabel="Çorba Tarifleri " />
-                                                    <f:selectItem itemValue="arasicak" itemLabel="Ara Sıcak Yemek Tarifleri " />
-                                                    <f:selectItem itemValue="yemek" itemLabel="Ana Yemek Tarifleri" />
-                                                    <f:selectItem itemValue="salata" itemLabel="Salata Tarifleri" />
-                                                    <f:selectItem itemValue="tatli" itemLabel="Tatlı Tarifleri " />   
-                                                    <f:selectItem itemValue="hamur" itemLabel="Hamur İşi Tarifleri " />    
-                                                </h:selectOneMenu> 
-                                            </div>  
-                                            </div>   
-                                            <br/>   
-                                            <div class="row"> 
-                                                <div class="mb-3 col-sm-2 "> 
-                                                    <h:outputText value="Yemek Adı "/> </div>
-                                                <div class="mb-3 col-sm-10 "> 
-                                                    <h:inputText class="form-control me-2" value="" id="recipename"/> </div>
-                                            </div>  
-                                            <div class="row">
-                                                <div class="mb-3 col-sm-2 ">
-                                                    <h:outputText value="Açıklama "/></div>
-                                                <div class="mb-3 col-sm-10 ">
-                                                    <h:inputTextarea class="form-control me-2" value="" rows="10" cols="50" id="description" /> </div>
-
-                                            </div>
-                                            <div class="row">
-                                                <div class="mb-3 col-sm-2 ">
-                                                    <h:outputText value="Görsel "/></div>
-                                                <div class="mb-3 col-sm-10 ">
-                                                    <h:inputFile id="file1" styleClass="inputFile"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-danger">Tarif Gönder </button>
-                                </h:form>
+            </h:form>
+        </div>
+        <h:form>
+            <div class="container-fuly mt-5 pt-5 pb-5">
+                <div class="wrapper-grey" style= " background-image: url('images/wallpaper.png');">
+                    <br/><h2 class="text-center">Kategoriler </h2>
+                    <div class="container">
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 ">
+                                <div class="card"  style="background-image: url('/images/sliderornek1.png');" >
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar</p>
+                                    </div>	
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>  
+                            </div>
+                            <div class="col-xs-12 col-sm-4 ">
+                                <div class="card" style="background-image: url('/images/sliderornek2.png');">
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar </p>
+                                    </div>		
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="card" style="background-image: url('/images/sliderornek3.jpg');">
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar </p>
+                                    </div>	
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-4 ">
+                                <div class="card" style="background-image: url('/images/sliderornek1.png');">
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar</p>
+                                    </div>	
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>  
+                            </div>
+                            <div class="col-xs-12 col-sm-4 ">
+                                <div class="card" style="background-image: url('/images/sliderornek2.png');">
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar </p>
+                                    </div>
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="card" style="background-image: url('/images/sliderornek3.jpg');">
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar </p>
+                                    </div>
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </h:form>
-                <!-- HEADER AND NAVBAR END-->
-            </h:form>
-            <footer style="background-color:#F08819;">
-                <div class=" container justify-content-around mt-5">
+                </div>
+            </div>
+        </h:form>
+        <!-- HEADER AND NAVBAR END-->
+        <footer style="background-color:#F08819;">
+                <div class=" container justify-content-around ">
                     <div class="col-10">
                         <div class="row justify-content-center">
                             <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
@@ -167,8 +191,5 @@
                     </div>
                 </div>
             </footer>
-        </div>
     </h:body>
-
-
 </html>
