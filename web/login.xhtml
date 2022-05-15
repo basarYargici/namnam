@@ -57,19 +57,19 @@
                                     <h:commandLink class="nav-link " action="category"> Kategoriler </h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="#">Trendler</h:commandLink>
+                                    <h:commandLink class="nav-link " action="trends">Trendler</h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="#">Yeni Eklenenler </h:commandLink>
+                                    <h:commandLink class="nav-link " action="newrecipes">Yeni Eklenenler </h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="#">Ne Pişirsem?</h:commandLink>
+                                    <h:commandLink class="nav-link " action="whatdoicook">Ne Pişirsem?</h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="#">Tarif Defteri</h:commandLink>
+                                    <h:commandLink class="nav-link " action="recipebooks">Tarif Defteri</h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="#">Biz Kimiz?</h:commandLink>
+                                    <h:commandLink class="nav-link " action="whoarewe">Biz Kimiz?</h:commandLink>
                                 </li>
                             </ul>
                             <form class="d-flex">
@@ -103,8 +103,8 @@
                 </div>
             </div>
         </h:form>
-        <footer style="background-color:#F08819;">
-                <div class=" container justify-content-around ">
+      <footer style="background-color:#F08819;">
+                <div class=" container justify-content-around mt-5">
                     <div class="col-10">
                         <div class="row justify-content-center">
                             <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
@@ -117,21 +117,19 @@
                                 <br/>
                             </div>
                             <div class="col-md-3 col-12 my-sm-0 mt-5">
-                                <ul class="list-unstyled">
+                                <ul class="list-unstyled" >
                                     <li class="mt-md-3 mt-4"><br/></li>
-                                    <li>Intergrated Security Platform</li>
-                                    <li>Core Features</li>
-                                    <li>Product Features</li>
-                                    <li>Pricing</li>
+                                    <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
+                                    <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
+                                    <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
                                 </ul>
                             </div>
                             <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
                                 <ul class="list-unstyled">
                                     <li class="mt-md-3 mt-4"><br/></li>
-                                    <li>Intergrated Security Platform</li>
-                                    <li>Core Features</li>
-                                    <li>Product Features</li>
-                                    <li>Pricing</li>
+                                    <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
+                                    <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
+                                    <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
                                 </ul>
                             </div>
                         </div>
