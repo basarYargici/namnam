@@ -29,6 +29,7 @@
                 background-color: #ffec98; 
                 border-color: #fff;
             }
+
         </style>
     </h:head>
     <h:body>
@@ -37,7 +38,7 @@
                 <div class="container" style="background-color: #fff;">
                     <div class="row align-items-center">
                         <div class="col-md-9">                
-                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage url="/images/nam-nam-02.png"/></h:commandLink></div>
+                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
                         <div class="col-md-3">
                             <h:form class="d-flex">
                                 <h:commandButton class="btn recipe" id="recipebutton" action="recipe" image="/images/recipe.png"  ></h:commandButton>
@@ -80,39 +81,122 @@
                         </div>
                     </div>
                 </nav> 
-                 <footer style="background-color:#F08819;">
-                <div class=" container justify-content-around mt-5">
-                    <div class="col-10">
-                        <div class="row justify-content-center">
-                            <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
-                                <h5><span>
-                                        <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
-                                <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
-                                <small>Copyright.All Rights Resered. </small>
+                <div class="row px-1 py-5">
+                    <div class="container col-md-1"> &nbsp;</div>
+                    <div class="container col-md-8"> <h3> En Popüler Tarifler</h3> <br/>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h5 class="card-title">Special title treatment</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg"/>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-2 col-12  my-sm-0 mt-5">
-                                <br/>
+
+                        </div> 
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h5 class="card-title">Special title treatment</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg"/>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-3 col-12 my-sm-0 mt-5">
-                                <ul class="list-unstyled" >
-                                    <li class="mt-md-3 mt-4"><br/></li>
-                                    <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
-                                    <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
-                                    <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
-                                </ul>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h5 class="card-title">Special title treatment</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg"/>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
-                                <ul class="list-unstyled">
-                                    <li class="mt-md-3 mt-4"><br/></li>
-                                    <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                    <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
-                                    <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
-                                </ul>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h5 class="card-title">Special title treatment</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="container col-md-2">
+                        <h3> Önerilenler </h3> <br/>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row ">           
+                                    <h:graphicImage width="180" url="/images/anayemek.jpg"/> 
+                                    <p> İsmi </p> 
+                                </div><br/> 
+                                <div class="row ">           
+                                    <h:graphicImage  width="180" url="/images/anayemek.jpg"/> 
+                                    <p> İsmi </p> 
+                                </div> 
+                                <br/> <div class="row ">           
+                                    <h:graphicImage  width="180" url="/images/anayemek.jpg"/> 
+                                    <p> İsmi </p> 
+                                </div>
+                                <br/> <div class="row ">           
+                                    <h:graphicImage  width="180" url="/images/anayemek.jpg"/> 
+                                    <p> İsmi </p> 
+                                </div> 
+                               
                             </div>
                         </div>
                     </div>
+                    <div class="container col-md-1"> &nbsp;</div>
                 </div>
-            </footer>
+                <footer style="background-color:#F08819;">
+                    <div class=" container justify-content-around mt-5">
+                        <div class="col-10">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
+                                    <h5><span>
+                                            <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
+                                    <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
+                                    <small>Copyright.All Rights Resered. </small>
+                                </div>
+                                <div class="col-md-2 col-12  my-sm-0 mt-5">
+                                    <br/>
+                                </div>
+                                <div class="col-md-3 col-12 my-sm-0 mt-5">
+                                    <ul class="list-unstyled" >
+                                        <li class="mt-md-3 mt-4"><br/></li>
+                                        <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
+                                        <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
+                                        <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
+                                    <ul class="list-unstyled">
+                                        <li class="mt-md-3 mt-4"><br/></li>
+                                        <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
+                                        <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
+                                        <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </h:form>
         </div>
     </h:body>
