@@ -16,25 +16,21 @@
  */
 package domain;
 
-import model.Error;
-import model.Result;
-import model.Success;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.sql.rowset.CachedRowSet;
+import model.Error;
 import model.Recipe;
+import model.Result;
+import model.Success;
 
 /**
  * //TODO: May dateOfCreation be a problem in queries, should be checked.
  *
  * @author İ. BAŞAR YARGICI
  */
-@ManagedBean(name = "visitor")
-@SessionScoped
 public class RecipeDomain extends BaseDomain {
 
     CachedRowSet rowSet = null;
@@ -43,9 +39,11 @@ public class RecipeDomain extends BaseDomain {
     Error error;
     ArrayList<Recipe> recipeList;
     String query;
+    CategoryDomain categoryDomain;
 
     public RecipeDomain() {
         this.recipeList = new ArrayList();
+        this.categoryDomain = new CategoryDomain();
     }
 
     /**
@@ -197,6 +195,31 @@ public class RecipeDomain extends BaseDomain {
             statement.executeUpdate(query);
             statement.close();
             return new Success();
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
+    }
+
+    public Result getAllByCategoryId(int id) {
+        if (dataSourceResult.isSuccess == false) {
+            return dataSourceResult;
+        }
+        if (connectionResult.isSuccess == false) {
+            return connectionResult;
+        }
+
+        query = "SELECT * FROM APP.RECIPE WHERE CATEGORY_ID = " + id;
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            ResultSet rs = statement.executeQuery(query);
+            Recipe temp;
+
+            while (rs.next()) {
+                temp = new Recipe();
+                toRecipe(temp, rs);
+                recipeList.add(temp);
+            }
+            return new Success(recipeList);
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
