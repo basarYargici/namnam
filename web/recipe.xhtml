@@ -18,25 +18,22 @@
         <style>
             .recipe:hover {
                 background-color: #c7c8ff; 
-                border-color: #fff;
-
             }
             .login:hover {
                 background-color: #96ff66;
-                border-color: #fff;
             }
             .signup:hover {
                 background-color: #ffec98; 
-                border-color: #fff;
             }
         </style>
     </h:head>
-    <h:body>
-        <div class="container-fuly" style="background-color: #fff;">
-            <h:form>
-                <div class="container" style="background-color: #fff;">
+    <h:body  >
+        <h:form >
+            <div class="container-fuly" style="background-color: #FEE6CE;">
+
+                <div class="container" style="background-color: #FEE6CE;">
                     <div class="row align-items-center">
-                         <div class="col-md-9">                
+                        <div class="col-md-9">                
                             <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
                         <div class="col-md-3">
                             <h:form class="d-flex">
@@ -75,63 +72,62 @@
                             </ul>
                             <form class="d-flex">
                                 <h:inputText class="form-control me-2" value=""/>
-                                        <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
+                                <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
                             </form>
                         </div>
                     </div>
                 </nav> 
-                <h:form>
-                    <br/><br/><br/>
-                    <div class="container ">
-                        <div class="card px-1 py-4 ">
-                            <div class="card-body">
-                                <h1 style="text-align: center;"> Tarif Ekle </h1> <br/>  
-                                <h:form id="form1" styleClass="form" enctype="multipart/form-data">
-                                    <div class="mb-3 col-sm-12 ">
-                                        <div class="row">
-                                            <div class="mb-3 col-sm-2 "> 
-                                                <h:outputText value="Kategori "/></div>
-                                            <div class="mb-3 col-sm-10 ">
-                                                <h:selectOneMenu id="booksSelectOneMenu" value="">
-                                                    <f:selectItem itemValue="corba" itemLabel="Çorba Tarifleri " />
-                                                    <f:selectItem itemValue="arasicak" itemLabel="Ara Sıcak Yemek Tarifleri " />
-                                                    <f:selectItem itemValue="yemek" itemLabel="Ana Yemek Tarifleri" />
-                                                    <f:selectItem itemValue="salata" itemLabel="Salata Tarifleri" />
-                                                    <f:selectItem itemValue="tatli" itemLabel="Tatlı Tarifleri " />   
-                                                    <f:selectItem itemValue="hamur" itemLabel="Hamur İşi Tarifleri " />    
-                                                </h:selectOneMenu> 
-                                            </div>  
-                                            </div>   
-                                            <br/>   
-                                            <div class="row"> 
-                                                <div class="mb-3 col-sm-2 "> 
-                                                    <h:outputText value="Yemek Adı "/> </div>
-                                                <div class="mb-3 col-sm-10 "> 
-                                                    <h:inputText class="form-control me-2" value="" id="recipename"/> </div>
-                                            </div>  
-                                            <div class="row">
-                                                <div class="mb-3 col-sm-2 ">
-                                                    <h:outputText value="Açıklama "/></div>
-                                                <div class="mb-3 col-sm-10 ">
-                                                    <h:inputTextarea class="form-control me-2" value="" rows="10" cols="50" id="description" /> </div>
+            </div>
+            <div class="container-fuly"  style="background-color: #fff;"> 
+                <br/><br/><br/>
+                <div class="container " >
+                    <div class="card px-1 py-4 ">
+                        <div class="card-body">
+                            <h1 style="text-align: center;"> Tarif Ekle </h1> <br/>  
+                            <h:form id="form1" styleClass="form" enctype="multipart/form-data">
+                                <div class="mb-3 col-sm-12 ">
+                                    <div class="row">
+                                        <div class="mb-3 col-sm-2 "> 
+                                            <h:outputText value="Kategori "/></div>
+                                        <div class="mb-3 col-sm-10 ">
+                                            <h:selectOneMenu id="booksSelectOneMenu" value="">
+                                                <f:selectItem itemValue="corba" itemLabel="Çorba Tarifleri " />
+                                                <f:selectItem itemValue="arasicak" itemLabel="Ara Sıcak Yemek Tarifleri " />
+                                                <f:selectItem itemValue="yemek" itemLabel="Ana Yemek Tarifleri" />
+                                                <f:selectItem itemValue="salata" itemLabel="Salata Tarifleri" />
+                                                <f:selectItem itemValue="tatli" itemLabel="Tatlı Tarifleri " />   
+                                                <f:selectItem itemValue="hamur" itemLabel="Hamur İşi Tarifleri " />    
+                                            </h:selectOneMenu> 
+                                        </div>  
+                                    </div>   
+                                    <br/>   
+                                    <div class="row"> 
+                                        <div class="mb-3 col-sm-2 "> 
+                                            <h:outputText value="Yemek Adı "/> </div>
+                                        <div class="mb-3 col-sm-10 "> 
+                                            <h:inputText class="form-control me-2" value="" id="recipename"/> </div>
+                                    </div>  
+                                    <div class="row">
+                                        <div class="mb-3 col-sm-2 ">
+                                            <h:outputText value="Açıklama "/></div>
+                                        <div class="mb-3 col-sm-10 ">
+                                            <h:inputTextarea class="form-control me-2" value="" rows="10" cols="50" id="description" /> </div>
 
-                                            </div>
-                                            <div class="row">
-                                                <div class="mb-3 col-sm-2 ">
-                                                    <h:outputText value="Görsel "/></div>
-                                                <div class="mb-3 col-sm-10 ">
-                                                    <h:inputFile id="file1" styleClass="inputFile"/>
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col-sm-2 ">
+                                            <h:outputText value="Görsel "/></div>
+                                        <div class="mb-3 col-sm-10 ">
+                                            <h:inputFile id="file1" styleClass="inputFile"/>
                                         </div>
-                                        <button type="submit" class="btn btn-danger">Tarif Gönder </button>
-                                </h:form>
-                            </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-danger">Tarif Gönder </button>
+                            </h:form>
                         </div>
                     </div>
-                </h:form>
-                <!-- HEADER AND NAVBAR END-->
-            </h:form>
+                </div>
+            </div>
             <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
                     <div class="col-10">
@@ -165,7 +161,8 @@
                     </div>
                 </div>
             </footer>
-        </div>
+        </h:form>
+
     </h:body>
 
 
