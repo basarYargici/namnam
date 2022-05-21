@@ -14,39 +14,39 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package domain;
+package controller;
+
+import domain.CategoryDomain;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import model.Result;
 
 /**
  *
  * @author İ. BAŞAR YARGICI
  */
-public class Success<T> extends Result {
+@ManagedBean(name = "category")
+@SessionScoped
+public class CategoryController {
 
-    public Success() {
-        isSuccess = true;
+    private final CategoryDomain categoryDomain;
+
+    public CategoryController() {
+        this.categoryDomain = new CategoryDomain();
     }
 
-    public Success(T data) {
-        isSuccess = true;
-        this.data = data;
+    public CategoryController(CategoryDomain categoryDomain) {
+        this.categoryDomain = categoryDomain;
     }
 
-    public Success(String message, T data) {
-        isSuccess = true;
-        this.message = "[Success] :" + message;
-        this.data = data;
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message.
+     *
+     * This method should be called when categories tab is clicked.
+     *
+     * @return
+     */
+    private Result getAll() {
+        return categoryDomain.getAll();
     }
-
-    public boolean isIsSuccess() {
-        return isSuccess;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
 }

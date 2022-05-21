@@ -14,44 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package domain;
+package model;
 
 /**
  *
  * @author İ. BAŞAR YARGICI
+ * @param <T>
  */
-public class Error<T> extends Result {
+abstract public class Result<T> {
 
-    public Error() {
-        isSuccess = false;
-    }
-
-    public Error(T data) {
-        isSuccess = false;
-        this.data = data;
-    }
-
-    public Error(String message) {
-        isSuccess = false;
-        this.message = "[ERROR] :" + message;
-    }
-
-    public Error(String message, T data) {
-        isSuccess = false;
-        this.message = "[ERROR] :" + message;
-        this.data = data;
-    }
-
-    public boolean isIsSuccess() {
-        return isSuccess;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
+    public boolean isSuccess;
+    public String message;
+    public T data;
 }

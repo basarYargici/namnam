@@ -23,6 +23,9 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.sql.rowset.CachedRowSet;
+import model.Error;
+import model.Result;
+import model.Success;
 import model.Visitor;
 
 /**
@@ -62,8 +65,8 @@ public class VisitorDomain extends BaseDomain {
         }
 
         query = "INSERT INTO APP.VISITOR"
-                + "(ID,USERNAME,PASSWORD,MAIL,\"NAME\",SURNAME)"
-                + "VALUES (" + visitor.getId() + ",'" + visitor.getUsername() + "',"
+                + "(USERNAME,PASSWORD,MAIL,\"NAME\",SURNAME)"
+                + "VALUES ('" + visitor.getUsername() + "',"
                 + "'" + visitor.getPassword() + "','" + visitor.getMail() + "',"
                 + "'" + visitor.getName() + "','" + visitor.getSurname() + "')";
 
@@ -118,22 +121,25 @@ public class VisitorDomain extends BaseDomain {
      */
     public Result getById(int id) {
         if (dataSourceResult.isSuccess == false) {
-            return dataSourceResult;
+            return new Error("dataSourceResult is null");
         }
         if (connectionResult.isSuccess == false) {
-            return connectionResult;
+            return new Error("connectionResult is null");
         }
 
         query = "SELECT * FROM APP.VISITOR WHERE ID =" + id;
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
-            Visitor temp = new Visitor();
+            Visitor visitor = new Visitor();
 
-            while (rs.next()) {
-                toVisitor(temp, rs);
+            if (!rs.next()) {
+                return new Error("Visitor could not found");
             }
-            return new Success(temp);
+            while (rs.next()) {
+                toVisitor(visitor, rs);
+            }
+            return new Success(visitor);
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
@@ -195,6 +201,41 @@ public class VisitorDomain extends BaseDomain {
             statement.executeUpdate(query);
             statement.close();
             return new Success();
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
+    }
+
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message. You can get
+     * data in HTML with visitor.getById(id).data
+     *
+     * @param visitor
+     * @return Success if no error occurs, with data is Visitor with id =: id .
+     * Error if any error occurs, with error message.
+     */
+    public Result getByCredentials(Visitor visitor) {
+        if (dataSourceResult.isSuccess == false) {
+            return new Error("dataSourceResult is null");
+        }
+        if (connectionResult.isSuccess == false) {
+            return new Error("connectionResult is null");
+        }
+
+        query = "SELECT * FROM APP.VISITOR WHERE NAME =" + visitor.getUsername()
+                + " AND PASSWORD =" + visitor.getPassword();
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            ResultSet rs = statement.executeQuery(query);
+            Visitor temp = new Visitor();
+
+            if (!rs.next()) {
+                return new Error("Visitor could not found");
+            }
+            while (rs.next()) {
+                toVisitor(temp, rs);
+            }
+            return new Success(temp);
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
