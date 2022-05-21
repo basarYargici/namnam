@@ -16,6 +16,9 @@
  */
 package domain;
 
+import model.Error;
+import model.Result;
+import model.Success;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
