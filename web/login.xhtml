@@ -14,7 +14,7 @@
         <h:outputScript library="js" name="bootstrap.js"/>
         <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
         <h:outputScript library="js" name="jquery.min.js"/>
-        <title>Validating Form Data</title>
+        <title>Nam Nam Yemek Tarifleri </title>
         <style>
             .recipe:hover {
                 background-color: #c7c8ff; 
@@ -36,17 +36,17 @@
                 <div class="container" style="background-color: #fff;">
                     <div class="row align-items-center">
                         <div class="col-md-9">                
-                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage url="/images/nam-nam-02.png"/></h:commandLink></div>
+                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
                         <div class="col-md-3">
                             <h:form class="d-flex">
-                                <h:commandButton class="btn recipe" id="recipebutton" action="login" image="/images/recipe.png"  ></h:commandButton>
+                                <h:commandButton class="btn recipe" id="recipebutton" action="recipe" image="/images/recipe.png"  ></h:commandButton>
                                 <h:commandButton class="btn login" id="loginbutton" action="login" image="/images/login.png"  ></h:commandButton>
                                 <h:commandButton class="btn signup" id="signupbutton" action="signup" image="/images/signup.png"  ></h:commandButton>                                
                             </h:form>	 
                         </div>	
                     </div>
                 </div>
-                <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light" style="background-color: rgb(255, 97, 40);">
+                <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light"  style="background-color: #f08819;">
                     <div class="container justify-content-between ">
                         <div class="collapse navbar-collapse " id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -54,27 +54,31 @@
                                     <h:commandLink class="nav-link " action="index"> Ana Sayfa </h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="#">Trendler</h:commandLink>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <h:commandLink class="nav-link dropdown-toggle" action="#" id="navbarDropdown" role="button">
-                                        Kategoriler
-                                    </h:commandLink>
-
+                                    <h:commandLink class="nav-link " action="category"> Kategoriler </h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="#">Biz Kimiz?</h:commandLink>
+                                    <h:commandLink class="nav-link " action="trends">Trendler</h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="newrecipes">Yeni Eklenenler </h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="whatdoicook">Ne Pişirsem?</h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="recipebooks">Tarif Defteri</h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="whoarewe">Biz Kimiz?</h:commandLink>
                                 </li>
                             </ul>
                             <form class="d-flex">
-                                <h:inputText class="form-control me-2" value="#"/>
+                                <h:inputText class="form-control me-2" value=""/>
                                 <button class="btn btn-outline-light" type="submit">Ara</button>
                             </form>
                         </div>
                     </div>
-                </nav>
-
-                <!-- HEADER AND NAVBAR END-->
+                </nav> 
             </h:form>
         </div>
         <!-- HEADER AND NAVBAR END-->
@@ -99,5 +103,38 @@
                 </div>
             </div>
         </h:form>
+      <footer style="background-color:#F08819;">
+                <div class=" container justify-content-around mt-5">
+                    <div class="col-10">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
+                                <h5><span>
+                                        <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
+                                <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
+                                <small>Copyright.All Rights Resered. </small>
+                            </div>
+                            <div class="col-md-2 col-12  my-sm-0 mt-5">
+                                <br/>
+                            </div>
+                            <div class="col-md-3 col-12 my-sm-0 mt-5">
+                                <ul class="list-unstyled" >
+                                    <li class="mt-md-3 mt-4"><br/></li>
+                                    <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
+                                    <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
+                                    <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
+                                </ul>
+                            </div>
+                            <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
+                                <ul class="list-unstyled">
+                                    <li class="mt-md-3 mt-4"><br/></li>
+                                    <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
+                                    <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
+                                    <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
     </h:body>
 </html>
