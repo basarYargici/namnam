@@ -25,6 +25,7 @@ import model.Error;
 import model.Recipe;
 import model.Result;
 import model.Success;
+import util.TimeUtil;
 
 /**
  * //TODO: May dateOfCreation be a problem in queries, should be checked.
@@ -64,7 +65,7 @@ public class RecipeDomain extends BaseDomain {
         query = "INSERT INTO APP.RECIPE"
                 + "(ID,SCORE,DESCRIPTION,DATEOFCREATION,\"NAME\")"
                 + "VALUES (" + recipe.getId() + ",'" + recipe.getScore() + "',"
-                + "'" + recipe.getDescription() + "','" + recipe.getDateOfCreation() + "',"
+                + "'" + recipe.getDescription() + "','" + TimeUtil.getTime() + "',"
                 + "'" + recipe.getName() + "')";
 
         try (Statement statement = connectionResult.data.createStatement()) {
@@ -79,7 +80,7 @@ public class RecipeDomain extends BaseDomain {
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with recipe.all.data
      *
-     * @return Success if no error occurs, with data of List of Visitors. Error
+     * @return Success if no error occurs, with data of List of Recipes. Error
      * if any error occurs, with error message.
      */
     public Result getAll() {
@@ -105,6 +106,76 @@ public class RecipeDomain extends BaseDomain {
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
+    }
+
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message. You can get
+     * data in HTML with recipe.all.data
+     *
+     *
+     *
+     * @return Success if no error occurs, with data of List of Recipes. Error
+     * if any error occurs, with error message.
+     */
+    public Result getPopular() {
+        if (dataSourceResult.isSuccess == false) {
+            return dataSourceResult;
+        }
+        if (connectionResult.isSuccess == false) {
+            return connectionResult;
+        }
+
+        // TODO: Select top 5 randrom
+        query = "SELECT * FROM APP.RECIPE";
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            ResultSet rs = statement.executeQuery(query);
+            Recipe temp;
+
+            while (rs.next()) {
+                temp = new Recipe();
+                toRecipe(temp, rs);
+                recipeList.add(temp);
+            }
+            return new Success(recipeList);
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
+    }
+
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message. You can get
+     * data in HTML with recipe.all.data
+     *
+     *
+     *
+     * @return Success if no error occurs, with data of List of Recipes. Error
+     * if any error occurs, with error message.
+     */
+    public Result getDailyMenu() {
+        if (dataSourceResult.isSuccess == false) {
+            return dataSourceResult;
+        }
+        if (connectionResult.isSuccess == false) {
+            return connectionResult;
+        }
+
+        // TODO: Select one recipe for each category
+        query = "SELECT * FROM APP.RECIPE";
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            ResultSet rs = statement.executeQuery(query);
+            Recipe temp;
+
+            while (rs.next()) {
+                temp = new Recipe();
+                toRecipe(temp, rs);
+                recipeList.add(temp);
+            }
+            return new Success(recipeList);
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
 
     }
 
@@ -113,7 +184,7 @@ public class RecipeDomain extends BaseDomain {
      * data in HTML with recipe.getById(id).data
      *
      * @param id
-     * @return Success if no error occurs, with data is Visitor with id =: id .
+     * @return Success if no error occurs, with data is Recipe with id =: id .
      * Error if any error occurs, with error message.
      */
     public Result getById(int id) {
@@ -125,6 +196,37 @@ public class RecipeDomain extends BaseDomain {
         }
 
         query = "SELECT * FROM APP.RECIPE WHERE ID =" + id;
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            ResultSet rs = statement.executeQuery(query);
+            Recipe temp = new Recipe();
+
+            while (rs.next()) {
+                toRecipe(temp, rs);
+            }
+            return new Success(temp);
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
+    }
+
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message. You can get
+     * data in HTML with recipe.getById(id).data
+     *
+     * @return Success if no error occurs, with data is Recipe with id =: id .
+     * Error if any error occurs, with error message.
+     */
+    public Result getLatestList() {
+        if (dataSourceResult.isSuccess == false) {
+            return dataSourceResult;
+        }
+        if (connectionResult.isSuccess == false) {
+            return connectionResult;
+        }
+
+        // TODO Select top 10 latest recipe 
+        query = "SELECT * FROM APP.RECIPE";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
