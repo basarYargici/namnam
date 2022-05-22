@@ -16,15 +16,15 @@
  */
 package domain;
 
-import model.Error;
-import model.Result;
-import model.Success;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.sql.rowset.CachedRowSet;
 import model.Category;
+import model.Error;
+import model.Result;
+import model.Success;
 
 /**
  *
@@ -198,7 +198,7 @@ public class CategoryDomain extends BaseDomain {
 
     private void toCategory(Category temp, ResultSet rs) throws SQLException {
         temp.setId(rs.getInt("ID"));
-        temp.setImageLink(rs.getString("IMAGELIK"));
+        temp.setImageLink(rs.getString("IMAGE_LINK"));
         temp.setName(rs.getString("NAME"));
     }
 
