@@ -8,7 +8,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 
-    <h:head>
+       <h:head>
         <h:outputStylesheet library="css" name="style.css"/>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputScript library="js" name="bootstrap.min.js"/>
@@ -16,8 +16,14 @@
         <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
-         <style>
-            
+        <style>
+            h5, p,li{
+                font-family: govde;
+                color:black;
+            }
+            h1{
+                font-family: baslik;
+            }
         </style>
     </h:head>
     <h:body>
@@ -71,6 +77,47 @@
                     </div>
                 </nav> 
        </div>
+             <h:form>
+              <div class="container py-5">
+                    <h1> Tarif Defteri</h1> <hr/>
+                    <div class="container col-md-8" > 
+                        <h:commandLink class="nav-link " action="recipedetail.xhtml">
+                            <div class="card">                      
+                                <div class="card-body">  
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                            <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                            <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg" />
+                                        </div>
+                                    </div>                                  
+                                </div>
+                            </div> 
+                        </h:commandLink> 
+                        <br/> <br/> 
+                        <h:commandLink class="nav-link " action="recipedetail.xhtml">
+                            <div class="card">                      
+                                <div class="card-body">  
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                            <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                              <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg" />
+                                        </div>
+                                    </div>                                  
+                                </div>
+                            </div> 
+                        </h:commandLink> 
+
+                        </div>
+                </div>
+             </h:form>
                 <footer style="background-color:#F08819;">
                     <div class=" container justify-content-around mt-5">
                         <div class="col-10">

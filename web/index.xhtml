@@ -10,6 +10,7 @@
 
     <h:head>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputStylesheet library="css" name="style.css"/>
         <h:outputScript library="css" name="bootstrap.min2.css"/>
         <h:outputScript library="js" name="bootstrap.min2.js"/>
         <h:outputScript library="js" name="bootstrap.js"/>
@@ -18,14 +19,15 @@
         <h:outputScript library="js" name="jquery.min2.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
         <style>
-            .recipe:hover {
-                background-color: #c7c8ff; 
+            li,h4{
+                font-family: govde;
+                color:black;
             }
-            .login:hover {
-                background-color: #96ff66;
+            .font,h2,p{
+                font-family: govde;
             }
-            .signup:hover {
-                background-color: #ffec98; 
+            h1{
+                font-family: baslik;
             }
             .carousel .carousel-inner {	
                 text-align: center;
@@ -175,12 +177,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <h:commandLink class="nav-link " action="whoarewe">Biz Kimiz?</h:commandLink>
-                                </li>
-                                <li class="nav-item">
-                                    <h:outputLink value="https://www.linkedin.com/in/fatih-sal%C4%B1nmaz/">
-                                        armut
-                                        </h:outputLink>
-                                </li>
+                                </li>                    
                             </ul>
                             <form class="d-flex">
                                 <h:inputText class="form-control me-2" value=""/>
@@ -206,23 +203,19 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <h:graphicImage class="d-block w-100" url="/images/sliderornek1.png" height="500"/>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
+                            <div class="carousel-caption d-none d-md-block">    
                             </div>
                         </div>
                         <div class="carousel-item">
                             <h:graphicImage class="d-block w-100" url="/images/sliderornek2.png" height="500"/>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <h:graphicImage class="d-block w-100" url="/images/sliderornek3.jpg" height="500"/>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
+
                             </div>
                         </div>
                     </div>		
@@ -241,70 +234,64 @@
         <h:form>
             <div class="container-fuly mt-5 pt-5 pb-5">
                 <div class="wrapper-grey" style= " background-image: url('images/wallpaper.png');">
-                    <br/><h2 class="text-center">En Popüler Tarifler</h2>
+                    <br/><h1 class="text-center"> En Popüler Tarifler</h1>
                     <div class="container">
                         <br/>
                         <div class="row">
                             <div class="col-xs-12 col-sm-4 ">
                                 <div class="card"  style="background-image: url('images/sliderornek1.png');" >
-                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-category font"><h:outputText value="Kategori Adı" /></div>
                                     <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar</p>
+                                        <h2><h:outputText value="Yemek Adı" /></h2>
                                     </div>	
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                    <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
                                 </div>  
                             </div>
                             <div class="col-xs-12 col-sm-4 ">
                                 <div class="card" style="background-image: url('images/sliderornek2.png');">
-                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-category font"><h:outputText value="Kategori Adı" /></div>
                                     <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar </p>
+                                        <h2><h:outputText value="Yemek Adı" /></h2>
                                     </div>		
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                    <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-4">
                                 <div class="card" style="background-image: url('images/sliderornek3.jpg');">
-                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-category font "><h:outputText value="Kategori Adı" /></div>
                                     <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar </p>
+                                        <h2><h:outputText value="Yemek Adı" /></h2>
                                     </div>	
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                    <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
                                 </div>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-xs-12 col-sm-4 ">
                                 <div class="card" style="background-image: url('images/anayemek.jpg');">
-                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-category"><h:outputText value="Kategori Adı" /></div>
                                     <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar</p>
+                                        <h2><h:outputText value="Yemek Adı" /></h2>
                                     </div>	
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                    <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
                                 </div>  
                             </div>
                             <div class="col-xs-12 col-sm-4 ">
                                 <div class="card" style="background-image: url('images/corba.jpg');">
-                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-category"><h:outputText value="Kategori Adı" /></div>
                                     <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar </p>
+                                        <h2><h:outputText value="Yemek Adı" /></h2>
                                     </div>
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                    <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-4">
                                 <div class="card" style="background-image: url('images/hamurisi.jpg');">
-                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-category"><h:outputText value="Kategori Adı" /></div>
                                     <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar </p>
+                                        <h2><h:outputText value="Yemek Adı" /></h2>
                                     </div>
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                    <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
                                 </div>
                             </div>
                         </div>
@@ -314,15 +301,16 @@
             <!-- en popüler tarifler end-->
             <div class="container justify-content-between pt-5 pb-5 ">
                 <div class="wrapper-grey carousel ">	
-                    <h:graphicImage class="d-block w-100" url="/images/slider.png"/>
+                    <h:commandLink action="categorydetail"><h:graphicImage class="d-block w-100" url="/images/slider.png"/></h:commandLink>
                 </div>
             </div>
         </h:form>
+        <h:form>
         <section class="pt-5 pb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-10">
-                        <h3 class="mb-3">En Yeni Tarifler </h3>
+                        <h1 class="mb-3">En Yeni Tarifler </h1>
                     </div>
                     <div class="col-2 ">
                         <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
@@ -341,32 +329,32 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <div class="card">
+                                            <h:commandLink action="recipedetail">
                                             <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>
-                                            </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
+                                                </div>
+                                            </h:commandLink>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card">
+                                            <h:commandLink action="recipedetail">
                                             <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>
-                                            </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
+                                                </div>
+                                            </h:commandLink>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card">
+                                             <h:commandLink action="recipedetail">
                                             <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>
-                                            </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
+                                                </div>
+                                            </h:commandLink>
                                         </div>
                                     </div>
                                 </div>
@@ -375,32 +363,32 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <div class="card">
+                                            <h:commandLink action="recipedetail">
                                             <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>
-                                            </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
+                                                </div>
+                                            </h:commandLink>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card">
+                                            <h:commandLink action="recipedetail">
                                             <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>
-                                            </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
+                                                </div>
+                                            </h:commandLink>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card">
+                                            <h:commandLink action="recipedetail">
                                             <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>
-                                            </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
+                                                </div>
+                                            </h:commandLink>
                                         </div>
                                     </div>
                                 </div>
@@ -408,9 +396,15 @@
                         </div>
                     </div>
                 </div>
+                 <h:commandLink action="whatdoicook">
+            <div class="wrapper-grey carousel ">	
+                    <h:graphicImage class="d-block w-100" url="/images/slider1.jpg"/>
+                </div>
+            </h:commandLink>
             </div>
         </section>
-
+           
+        </h:form>
         <h:form>
             <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">

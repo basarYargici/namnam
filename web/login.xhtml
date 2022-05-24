@@ -9,6 +9,7 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
+        <h:outputStylesheet library="css" name="style.css"/>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputScript library="js" name="bootstrap.min.js"/>
         <h:outputScript library="js" name="bootstrap.js"/>
@@ -16,18 +17,16 @@
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
         <style>
-            .recipe:hover {
-                background-color: #c7c8ff; 
+            h5, p,li{
+                font-family: govde;
+                color:black;
             }
-            .login:hover {
-                background-color: #96ff66;
-            }
-            .signup:hover {
-                background-color: #ffec98; 
+            h1{
+                font-family: baslik;
             }
         </style>
     </h:head>
-    <h:body >
+    <h:body style=" background-image: url('images/bg.png');">
        <div class="container-fuly" style="background-color: #FEE6CE;">
             <h:form>
                 <div class="container" style="background-color: #FEE6CE;">
@@ -94,11 +93,11 @@
                                 <h:outputText value="Şifre"/>
                                 <h:inputText class="form-control me-2" value="#{login.password}" id="passwordInput"/>
                             </div>                                            
-                            <h:commandButton id="cmd" value="Giris Yap" actionListener="#{login.signIn()}" action="index"  class="btn btn-primary"/>
+                            <h:commandButton id="cmd" value="Giriş Yap" actionListener="#{login.signIn()}" action="index"  class="btn btn-primary"/>
                         </h:form>
                     </div>
                 </div>
-            </div>
+            </div><br/><br/>
        
       <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">

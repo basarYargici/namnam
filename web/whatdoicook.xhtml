@@ -9,6 +9,7 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
+        <h:outputStylesheet library="css" name="style.css"/>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputScript library="js" name="bootstrap.min.js"/>
         <h:outputScript library="js" name="bootstrap.js"/>
@@ -16,14 +17,9 @@
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
         <style>
-            .recipe:hover {
-                background-color: #c7c8ff; 
-            }
-            .login:hover {
-                background-color: #96ff66;
-            }
-            .signup:hover {
-                background-color: #ffec98; 
+            h5, p,li{
+                font-family: govde;
+                color:black;
             }
         </style>
     </h:head>
@@ -82,93 +78,112 @@
                 <div class="wrapper-grey carousel ">	
                     <h:graphicImage class="d-block w-100" url="/images/slider1.jpg"/>
                 </div><br/> <br/> <br/> 
-                <div class="container ">  
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h5 class="card-title">Yemek Adı </h5>
-                                    <p class="card-text">Yazar + Puan? </p>
-                                </div>
-                                <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                    <br/> 
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h5 class="card-title">Yemek Adı</h5>
-                                    <p class="card-text">Yazar + Puan? </p>
-                                </div>
-                                <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg"/>
+               
+                    <div class="container ">  
+                         <h:commandLink action="recipedetail">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                      <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
+                                    <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg" width="300px" height="150px"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <br/> 
+                        </div> 
+                </h:commandLink>
+                <br/> 
+                <h:commandLink action="recipedetail">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <h5 class="card-title">Yemek Adı</h5>
-                                    <p class="card-text">Yazar + Puan? </p>
+                                     <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
+                                     <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
                                 </div>
                                 <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg"/>
+                                    <h:graphicImage class="img-fluid mb-1" url="/images/arasicak.jpg"  width="300px" height="150px"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br/> 
+                </h:commandLink>
+                <br/> 
+                <h:commandLink action="recipedetail">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <h5 class="card-title">Yemek Adı</h5>
-                                    <p class="card-text">Yazar + Puan? </p>
+                                    <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
+                                    <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
                                 </div>
                                 <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg"/>
+                                    <h:graphicImage class="img-fluid mb-1" url="/images/salata.jpg" width="300px" height="150px"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br/>
+                </h:commandLink>
+                <br/> 
+                <h:commandLink action="recipedetail">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <h5 class="card-title">Yemek Adı</h5>
-                                    <p class="card-text">Yazar + Puan? </p>
+                                    <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
+                                       <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
                                 </div>
                                 <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg"/>
+                                    <h:graphicImage class="img-fluid mb-1" url="/images/beyti.jpg" width="300px" height="150px"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br/> 
+                </h:commandLink>
+                <br/>
+                <h:commandLink action="recipedetail">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <h5 class="card-title">Yemek Adı</h5>
-                                    <p class="card-text">Yazar + Puan? </p>
+                                    <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
+                                   <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
                                 </div>
                                 <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg"/>
+                                    <h:graphicImage class="img-fluid mb-1" url="/images/tatli.jpg" width="300px" height="150px"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br/> 
+                </h:commandLink>
+                <br/> 
+                <h:commandLink action="recipedetail">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
+                                       <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h:graphicImage class="img-fluid mb-1" url="/images/pogaca.jpg" width="300px" height="150px"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h:commandLink>
+                <br/> 
 
-                </div>
+            </div>
             </div>
             <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">

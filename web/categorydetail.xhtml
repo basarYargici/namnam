@@ -9,6 +9,7 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
+         <h:outputStylesheet library="css" name="style.css"/>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputScript library="js" name="bootstrap.min.js"/>
         <h:outputScript library="js" name="bootstrap.js"/>
@@ -16,18 +17,12 @@
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
         <style>
-            .recipe:hover {
-                background-color: #c7c8ff; 
-                border-color: #fff;
-
+            h5, p,li{
+                font-family: govde;
+                color:black;
             }
-            .login:hover {
-                background-color: #96ff66;
-                border-color: #fff;
-            }
-            .signup:hover {
-                background-color: #ffec98; 
-                border-color: #fff;
+            h1{
+                font-family: baslik;
             }
         </style>
     </h:head>
@@ -86,83 +81,101 @@
                     <h1> Kategori Adı </h1> <hr></hr>
                     <div class="row py-3">
                         <div class="card" style="width: 19rem;">
+                            <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg"/>
-                            <div class="card-body">
-                                <h5 class="card-title"> Yemek Adı </h5>
-                                <p class="card-text">Yazar</p>
-                                <p class="card-text">Puanı</p>
-                            </div>
+                           <div class="card-body">
+                                        <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                        <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                          <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                    </div>
+                                     </h:commandLink>
                         </div> &nbsp;&nbsp;&nbsp;
                         <div class="card" style="width: 19rem;">
+                            <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg"/>
-                            <div class="card-body">
-                                <h5 class="card-title">Yemek Adı</h5>
-                                <p class="card-text">Yazar</p>
-                                <p class="card-text">Puanı</p>
-                            </div>
-                        </div>&nbsp;&nbsp;&nbsp;
+                           <div class="card-body">
+                                        <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                        <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                        <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                    </div>
+                                     </h:commandLink>
+                        </div> &nbsp;&nbsp;&nbsp;
                         <div class="card" style="width: 19rem;">
+                            <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg"/>
-                            <div class="card-body">
-                                <h5 class="card-title">Yemek Adı</h5>
-                                <p class="card-text">Yazar</p>
-                                <p class="card-text">Puanı</p>
-                            </div>
-                        </div>&nbsp;&nbsp;&nbsp;
+                           <div class="card-body">
+                                        <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                        <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                         <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                    </div>
+                                     </h:commandLink>
+                        </div> &nbsp;&nbsp;&nbsp;
                        
                     </div>
                     <div class="row py-3">
                         <div class="card" style="width: 19rem;">
+                            <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg"/>
-                            <div class="card-body">
-                                <h5 class="card-title"> Yemek Adı </h5>
-                                <p class="card-text">Yazar</p>
-                                <p class="card-text">Puanı</p>
-                            </div>
+                           <div class="card-body">
+                                        <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                        <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                        <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                    </div>
+                                     </h:commandLink>
                         </div> &nbsp;&nbsp;&nbsp;
                         <div class="card" style="width: 19rem;">
+                            <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg"/>
-                            <div class="card-body">
-                                <h5 class="card-title">Yemek Adı</h5>
-                                <p class="card-text">Yazar</p>
-                                <p class="card-text">Puanı</p>
-                            </div>
-                        </div>&nbsp;&nbsp;&nbsp;
+                           <div class="card-body">
+                                        <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                        <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                         <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                    </div>
+                                     </h:commandLink>
+                        </div> &nbsp;&nbsp;&nbsp;
                         <div class="card" style="width: 19rem;">
+                            <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg"/>
-                            <div class="card-body">
-                                <h5 class="card-title">Yemek Adı</h5>
-                                <p class="card-text">Yazar</p>
-                                <p class="card-text">Puanı</p>
-                            </div>
-                        </div>&nbsp;&nbsp;&nbsp;
+                           <div class="card-body">
+                                        <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                        <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                         <p class="card-text"><h:outputText value="Puanı" style="font-family: govde;"/></p>
+                                    </div>
+                                     </h:commandLink>
+                        </div> &nbsp;&nbsp;&nbsp;
                         
                     </div>
                     <div class="row py-3">
                         <div class="card" style="width: 19rem;">
+                            <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg"/>
-                            <div class="card-body">
-                                <h5 class="card-title"> Yemek Adı </h5>
-                                <p class="card-text">Yazar</p>
-                                <p class="card-text">Puanı</p>
-                            </div>
+                           <div class="card-body">
+                                        <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                        <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                         <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                    </div>
+                                     </h:commandLink>
                         </div> &nbsp;&nbsp;&nbsp;
                         <div class="card" style="width: 19rem;">
+                            <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg"/>
-                            <div class="card-body">
-                                <h5 class="card-title">Yemek Adı</h5>
-                                <p class="card-text">Yazar</p>
-                                <p class="card-text">Puanı</p>
-                            </div>
-                        </div>&nbsp;&nbsp;&nbsp;
-                        <div class="card" style="width: 19rem;">
+                           <div class="card-body">
+                                        <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                        <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                         <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                    </div>
+                                     </h:commandLink>
+                        </div> &nbsp;&nbsp;&nbsp;
+                       <div class="card" style="width: 19rem;">
+                            <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg"/>
-                            <div class="card-body">
-                                <h5 class="card-title">Yemek Adı</h5>
-                                <p class="card-text">Yazar</p>
-                                <p class="card-text">Puanı</p>
-                            </div>
-                        </div>&nbsp;&nbsp;&nbsp;
+                           <div class="card-body">
+                                        <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
+                                        <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                       <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                    </div>
+                                     </h:commandLink>
+                        </div> &nbsp;&nbsp;&nbsp;
                         
                     </div>
                 </div>

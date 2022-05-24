@@ -8,16 +8,22 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 
-    <h:head>
-        <h:outputStylesheet library="css" name="bootstrap.css"/>
+      <h:head>
         <h:outputStylesheet library="css" name="style.css"/>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputScript library="js" name="bootstrap.min.js"/>
         <h:outputScript library="js" name="bootstrap.js"/>
         <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
         <style>
-          
+            h5, p,li{
+                font-family: govde;
+                color:black;
+            }
+            h1{
+                font-family: baslik;
+            }
         </style>
     </h:head>
     <h:body>
@@ -73,7 +79,7 @@
                 </nav> 
        </div>
                 <div class="container py-5">
-                     Arama Sonuçları <hr/>
+                    <h1> Arama Sonuçları</h1> <hr/>
                 </div>
                 <footer style="background-color:#F08819;">
                     <div class=" container justify-content-around mt-5">
