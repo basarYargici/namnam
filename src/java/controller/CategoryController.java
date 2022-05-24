@@ -46,7 +46,7 @@ public class CategoryController {
      *
      * @return
      */
-    private Result getAll() {
+    public Result getAll() {
         return categoryDomain.getAll();
     }
 }
