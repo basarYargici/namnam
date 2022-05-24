@@ -222,19 +222,21 @@ public class VisitorDomain extends BaseDomain {
             return new Error("connectionResult is null");
         }
 
-        query = "SELECT * FROM APP.VISITOR WHERE NAME =" + visitor.getUsername()
-                + " AND PASSWORD =" + visitor.getPassword();
+        query = "SELECT * FROM APP.VISITOR WHERE USERNAME ='" + visitor.getUsername()
+                + "' AND PASSWORD ='" + visitor.getPassword() + "'";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
             Visitor temp = new Visitor();
 
-            if (!rs.next()) {
-                return new Error("Visitor could not found");
-            }
+
             while (rs.next()) {
                 toVisitor(temp, rs);
             }
+            if (temp.getUsername()==null) {
+                return new Error("Visitor could not found");
+            }
+            
             return new Success(temp);
         } catch (SQLException e) {
             return new Error(e.getMessage());

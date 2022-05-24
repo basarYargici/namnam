@@ -29,6 +29,8 @@ import model.Visitor;
 @ManagedBean(name = "login")
 @SessionScoped
 public class LoginController {
+    private String username;
+    private String password;
 
     private final VisitorDomain visitorDomain;
 
@@ -40,6 +42,23 @@ public class LoginController {
         this.visitorDomain = visitorDomain;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with login.getById(id).data
@@ -49,10 +68,10 @@ public class LoginController {
      * @return Success if no error occurs, with data is Visitor with id =: id .
      * Error if any error occurs, with error message.
      */
-    public Result signIn(String username, String password) {
+    public Result signIn() {
         Visitor temp = new Visitor();
-        temp.setName(username);
-        temp.setPassword(password);
+        temp.setUsername(getUsername());
+        temp.setPassword(getPassword());
 
         return visitorDomain.getByCredentials(temp);
     }
