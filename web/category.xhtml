@@ -11,28 +11,17 @@
     <h:head>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputScript library="js" name="bootstrap.min.js"/>
+        <h:outputStylesheet library="css" name="style.css"/>
         <h:outputScript library="js" name="bootstrap.js"/>
         <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
         <style>
-             @font-face { font-family: "baslik";  
-                         src: url('fonts/baslik.ttf'); 
-                         } 
-            @font-face { font-family: "govde";  
-                         src: url('fonts/govde.ttf'); 
-                         } 
-            .recipe:hover {
-                background-color: #c7c8ff; 
-                border-color: #fff;
+            h1{
+                  font-family: baslik;
             }
-            .login:hover {
-                background-color: #96ff66;
-                border-color: #fff;
-            }
-            .signup:hover {
-                background-color: #ffec98; 
-                border-color: #fff;
+            li,h2{
+                font-family: govde;
             }
               .card {
                 height: 250px;
@@ -145,14 +134,14 @@
         <h:form>
             <div class="container mt-5 pt-5 pb-5" >
                 <div class="wrapper-grey"  >
-                    <br/><h2 class="text-center">Kategoriler </h2>
+                    <br/><h1 class="text-center" style=" font-size: 60px;">Kategoriler </h1>
                     <div class="container">
                         <br/>
                         <div class="row">
                             <div class="col-xs-12 col-sm-4 ">
                                 <div class="card"  style="background-image: url('images/corba.jpg');" >
                                     <div class="card-description">
-                                        <h2>ÇORBALAR</h2>
+                                        <h2><h:outputText value="ÇORBALAR"> </h:outputText></h2>
                                     </div>	
                                     <h:commandLink class="card-link" action="categorydetail"></h:commandLink>
                                 </div>  
@@ -160,7 +149,7 @@
                             <div class="col-xs-12 col-sm-4 ">
                                 <div class="card" style="background-image: url('images/arasicak.jpg');">
                                     <div class="card-description">
-                                        <h2>ARA SICAKLAR</h2>
+                                       <h2><h:outputText value="ARA SICAKLAR"> </h:outputText></h2>
                                     </div>		
                                     <h:commandLink class="card-link" action="categorydetail"></h:commandLink>
                                 </div>
@@ -168,7 +157,7 @@
                             <div class="col-xs-12 col-sm-4">
                                 <div class="card" style= " background-image: url('images/anayemek.jpg');">
                                     <div class="card-description" >
-                                        <h2>ANA YEMEKLER</h2>
+                                        <h2><h:outputText value="ANA YEMEKLER"> </h:outputText></h2>
                                     </div>	
                                     <h:commandLink class="card-link" action="categorydetail"></h:commandLink>
                                 </div>
@@ -178,7 +167,7 @@
                             <div class="col-xs-12 col-sm-4 ">
                                 <div class="card" style="background-image: url('images/salata.jpg');" >
                                     <div class="card-description">
-                                        <h2>SALATALAR</h2>
+                                         <h2><h:outputText value="SALATALAR"> </h:outputText></h2>
                                     </div>	
                                     <h:commandLink class="card-link" action="categorydetail"></h:commandLink>
                                 </div>  
@@ -186,7 +175,7 @@
                             <div class="col-xs-12 col-sm-4 ">
                                 <div class="card" style="background-image: url('images/tatli.jpg');">
                                     <div class="card-description">
-                                        <h2>TATLILAR</h2>
+                                        <h2><h:outputText value="TATLILAR"> </h:outputText></h2>
                                     </div>
                                     <h:commandLink class="card-link" action="categorydetail"></h:commandLink>
                                 </div>
@@ -194,7 +183,7 @@
                             <div class="col-xs-12 col-sm-4">
                                 <div class="card" style="background-image: url('images/hamurisi.jpg');">
                                     <div class="card-description">
-                                        <h2>HAMUR İŞLERİ</h2>
+                                        <h2><h:outputText value="HAMUR İŞLERİ"> </h:outputText></h2>
                                     </div>
                                     <h:commandLink class="card-link" action="categorydetail"></h:commandLink>
                                 </div>
