@@ -38,15 +38,15 @@ public class LoginFilter implements Filter{
         String url = req.getRequestURI();
         Visitor u = (Visitor) req.getSession().getAttribute("valid_user");
         if (u == null){
-            if(url.contains("recipe")){
+            if(url.contains("recipe") || url.contains("recipebooks") || url.contains("profile")){
                 res.sendRedirect(req.getContextPath()+"/login.xhtml");
             }else{
             chain.doFilter(request, response);
             }
         }else{
             if(url.contains("login") || url.contains("signup")){
-                res.sendRedirect(req.getContextPath()+"/recipe.xhtml");
-            }else if(url.contains("recipebooks")){
+                res.sendRedirect(req.getContextPath()+"/profile.xhtml");
+            }else if(url.contains("logout")){
                 req.getSession().invalidate();
                 res.sendRedirect(req.getContextPath()+"/index.xhtml");
             }else{

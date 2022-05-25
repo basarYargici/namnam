@@ -309,3 +309,14 @@ SELECT *
 FROM recipe
 ORDER BY dateofcreation DESC
 FETCH FIRST 10 ROWS ONLY;
+
+-- her kategoriden 1 tarif ama bir tik garip
+select p.*
+from recipe p 
+inner join (
+    select categoryno, MAX(score) score
+    from   recipe
+    group by categoryno
+) sub
+on p.CATEGORYNO=sub.categoryno
+        and p.score=sub.score;
