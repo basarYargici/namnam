@@ -93,6 +93,7 @@ public class CategoryDomain extends BaseDomain {
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
             Category temp;
+            categoryList.clear();
 
             while (rs.next()) {
                 temp = new Category();
@@ -103,7 +104,6 @@ public class CategoryDomain extends BaseDomain {
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
-
     }
 
     /**

@@ -6,7 +6,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
@@ -18,12 +19,12 @@
         <title>Nam Nam Yemek Tarifleri </title>
         <style>
             h1{
-                  font-family: baslik;
+                font-family: baslik;
             }
             li,h2{
                 font-family: govde;
             }
-              .card {
+            .card {
                 height: 250px;
                 text-shadow: 0 1px 3px rgba(0,0,0,0.6);
                 background-size: cover !important;
@@ -81,7 +82,7 @@
         </style>
     </h:head>
     <h:body style= " background-image: url('images/a.jpg');">
-       <div class="container-fuly" style="background-color: #FEE6CE;">
+        <div class="container-fuly" style="background-color: #FEE6CE;">
             <h:form>
                 <div class="container" style="background-color: #FEE6CE;">
                     <div class="row align-items-center">
@@ -124,7 +125,7 @@
                             </ul>
                             <form class="d-flex">
                                 <h:inputText class="form-control me-2" value=""/>
-                                         <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
+                                <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
                             </form>
                         </div>
                     </div>
@@ -132,6 +133,21 @@
             </h:form>
         </div>
         <h:form>
+            <h:form id="dataForm" >
+                <c:forEach items="#{category.all.data}" var="item">
+                    <h:outputText value="${item.name}"  />
+                    <div class="col-xs-12 col-sm-4 ">
+                        <div class="card"  style="background-image: url('${item.imageLink}');" >
+                            <div class="card-description">
+                                <h:outputText value="${item.name}"  />
+                            </div>	
+                            <h:commandLink class="card-link" action="categorydetail"></h:commandLink>
+                        </div>  
+                    </div>
+                </c:forEach>
+            </h:form>
+
+
             <div class="container mt-5 pt-5 pb-5" >
                 <div class="wrapper-grey"  >
                     <br/><h1 class="text-center" style=" font-size: 60px;">Kategoriler </h1>
@@ -149,7 +165,7 @@
                             <div class="col-xs-12 col-sm-4 ">
                                 <div class="card" style="background-image: url('images/arasicak.jpg');">
                                     <div class="card-description">
-                                       <h2><h:outputText value="ARA SICAKLAR"> </h:outputText></h2>
+                                        <h2><h:outputText value="ARA SICAKLAR"> </h:outputText></h2>
                                     </div>		
                                     <h:commandLink class="card-link" action="categorydetail"></h:commandLink>
                                 </div>
@@ -167,7 +183,7 @@
                             <div class="col-xs-12 col-sm-4 ">
                                 <div class="card" style="background-image: url('images/salata.jpg');" >
                                     <div class="card-description">
-                                         <h2><h:outputText value="SALATALAR"> </h:outputText></h2>
+                                        <h2><h:outputText value="SALATALAR"> </h:outputText></h2>
                                     </div>	
                                     <h:commandLink class="card-link" action="categorydetail"></h:commandLink>
                                 </div>  
@@ -193,9 +209,9 @@
                 </div>
             </div>
             <br/><br/><br/><br/><br/>
-      
-        <!-- HEADER AND NAVBAR END-->
-         <footer style="background-color:#F08819;">
+
+            <!-- HEADER AND NAVBAR END-->
+            <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
                     <div class="col-10">
                         <div class="row justify-content-center">
@@ -228,6 +244,6 @@
                     </div>
                 </div>
             </footer>
-          </h:form>
+        </h:form>
     </h:body>
 </html>
