@@ -16,9 +16,14 @@
  */
 package controller;
 
+
 import domain.VisitorDomain;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 import model.Result;
 import model.Visitor;
 
@@ -29,9 +34,22 @@ import model.Visitor;
 @ManagedBean(name = "login")
 @SessionScoped
 public class LoginController {
-    private String username;
-    private String password;
+    
+    private Visitor visitor;
 
+
+    public Visitor getVisitor() {
+        if (this.visitor == null){
+            this.visitor = new Visitor();
+        }
+        return visitor;
+    }
+
+    public void setVisitor(Visitor visitor) {
+        this.visitor = visitor;
+    }
+
+    
     private final VisitorDomain visitorDomain;
 
     public LoginController() {
@@ -42,22 +60,18 @@ public class LoginController {
         this.visitorDomain = visitorDomain;
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
     
+    public String login(){
+        
+        if(this.visitor.getUsername().equals("kullanici") && this.visitor.getPassword().equals("parola123")){
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("valid_user", this.visitor);
+            return "/recipe";
+        }else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Hatali kullanici adi veya sifre!"));
+            return "/login";
+        }
+    }
 
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
@@ -68,14 +82,25 @@ public class LoginController {
      * @return Success if no error occurs, with data is Visitor with id =: id .
      * Error if any error occurs, with error message.
      */
-    public Result signIn() {
+    public Result signIn(String username, String password) {
         Visitor temp = new Visitor();
-        temp.setUsername(getUsername());
-        temp.setPassword(getPassword());
+        temp.setUsername(username);
+        temp.setPassword(password);
 
         return visitorDomain.getByCredentials(temp);
     }
-
+    
+    public boolean validatePassword(FacesContext context, UIComponent cmp, Object value) throws ValidatorException {
+        
+        String v = (String) value;
+        
+        if(v.isEmpty()){
+            throw new ValidatorException(new FacesMessage("Sifre alani bos olamaz!"));
+        }else if(v.length() < 8){
+            throw new ValidatorException(new FacesMessage("Sifre alani 8 karakterden kisa olamaz!"));
+        }
+        return true;
+    }
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with login.getById(id).data
@@ -88,6 +113,8 @@ public class LoginController {
      * @return Success if no error occurs, with data is Visitor with id =: id .
      * Error if any error occurs, with error message.
      */
+   
+    
     public Result signUp(String name, String surname, String mail, String username, String password) {
         Visitor temp = new Visitor();
         temp.setName(name);
