@@ -310,3 +310,4 @@ SELECT *
 FROM recipe
 ORDER BY date_of_creation DESC
 FETCH FIRST 10 ROWS ONLY;
+

@@ -36,7 +36,7 @@ import model.Visitor;
 public class LoginController {
     
     private Visitor visitor;
-
+    private String error_message;
 
     public Visitor getVisitor() {
         if (this.visitor == null){
@@ -49,6 +49,15 @@ public class LoginController {
         this.visitor = visitor;
     }
 
+    public String getError_message() {
+        return error_message;
+    }
+
+    public void setError_message(String error_message) {
+        this.error_message = error_message;
+    }
+    
+    
     
     private final VisitorDomain visitorDomain;
 
@@ -64,11 +73,13 @@ public class LoginController {
     
     public String login(){
         
+        
         if(this.visitor.getUsername().equals("kullanici") && this.visitor.getPassword().equals("parola123")){
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("valid_user", this.visitor);
+            setError_message("Giris Basarili");
             return "/recipe";
         }else{
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Hatali kullanici adi veya sifre!"));
+            setError_message("Hatali kullanici adi veya sifre");
             return "/login";
         }
     }
