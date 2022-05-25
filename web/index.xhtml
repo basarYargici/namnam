@@ -4,265 +4,450 @@
 <!-- Displays an h:dataTable of the addresses in the address book -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                template="/template/admin.xhtml"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputScript library="css" name="bootstrap.min2.css"/>
+        <h:outputScript library="js" name="bootstrap.min2.js"/>
+        <h:outputScript library="js" name="bootstrap.js"/>
+        <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
+        <h:outputScript library="js" name="jquery.min.js"/>
+        <h:outputScript library="js" name="jquery.min2.js"/>
+        <title>Nam Nam Yemek Tarifleri </title>
+        <style>
+            .recipe:hover {
+                background-color: #c7c8ff; 
+                border-color: #fff;
 
-    <ui:define name="content">
-        <h:body>
-            <br/>
+            }
+            .recipe{
+
+            }
+            .login:hover {
+                background-color: #96ff66;
+                border-color: #fff;
+            }
+            .signup:hover {
+                background-color: #ffec98; 
+                border-color: #fff;
+            }
+            .carousel .carousel-inner {	
+                text-align: center;
+                min-height: 200px;
+            }
+            .carousel .carousel-inner img {
+                max-width: 100%;
+                margin: 0 auto; /* Align slide image horizontally center in Bootstrap v3 */
+            }
+            .carousel {
+                margin: 25px 0 50px;
+                background: #fff;
+                position: relative;
+                padding: 8px;
+                box-shadow: 0 0 1px rgba(0,0,0,0.3);
+            }
+            .carousel:before, .carousel:after {
+                z-index: -1; 
+                position: absolute; 
+                content: "";
+                bottom: 15px;
+                left: 10px;
+                width: 50%; 
+                top: 80%;
+                max-width: 400px;
+                background: rgba(0, 0, 0, 0.7); 
+                box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+                transform: rotate(-3deg);
+            }
+            .carousel:after {
+                transform: rotate(3deg);
+                right: 10px;
+                left: auto;
+            }
+            .padded {
+                padding: 100px 0;
+            }
+            .wrapper-grey {
+                background: #F4F4F4;
+            }
+            .avatar {
+                width: 30px;
+                border-radius: 50%;
+            }
+            .avatar-bordered {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+                border: white 1px solid;
+            }
+            .avatar-large {
+                width: 50px;
+            }
+
+            .card {
+                height: 250px;
+                text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+                background-size: cover !important;
+                color: white;
+                position: relative;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .card-user {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
+            .card-category {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                font-size: 20px;
+            }
+            .card-description {
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+            }
+            .card-description h2 {
+                font-size: 22px;
+            }
+            .card-description p {
+                font-size: 15px;
+            }
+            .card-link {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                z-index:2;
+                background: black;
+                opacity: 0;
+            }
+
+            .card-link:hover{
+                opacity: 0.1;
+            }
+            .features img {
+                width: 100px;
+            }
+            .features h2 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            .features p {
+                font-size: 15px;
+                font-weight: lighter;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h1>
+            #{visitor.getAll().data}
+        </h1>
+        <div class="container-fuly" style="background-color: #fff;">
             <h:form>
-                <div class="container justify-content-between ">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <div class="container" style="background-color: #fff;">
+                    <div class="row align-items-center">
+                        <div class="col-md-9">                
+                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
+                        <div class="col-md-3">
+                            <h:form class="d-flex">
+                                <h:commandButton class="btn recipe" id="recipebutton" action="/recipe?faces-redirect=true" image="/images/recipe.png"  ></h:commandButton>
+                                <h:commandButton class="btn login" id="loginbutton" action="/login?faces-redirect=true" image="/images/login.png"  ></h:commandButton>
+                                <h:commandButton class="btn signup" id="signupbutton" action="/signup?faces-redirect=true" image="/images/signup.png"  ></h:commandButton>                                
+                            </h:form>	 
+                        </div>	
+                    </div>
+                </div>
+                <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light"  style="background-color: #f08819;">
+                    <div class="container justify-content-between ">
+                        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/index?faces-redirect=true"> Ana Sayfa </h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/category?faces-redirect=true"> Kategoriler </h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/trends?faces-redirect=true">Trendler</h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/newrecipes?faces-redirect=true">Yeni Eklenenler </h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/whatdoicook?faces-redirect=true">Ne Pişirsem?</h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/recipebooks?faces-redirect=true">Tarif Defteri</h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/whoarewe?faces-redirect=true">Biz Kimiz?</h:commandLink>
+                                </li>
+                            </ul>
+                            <form class="d-flex">
+                            <h:inputText class="form-control me-2" value=""/>
+                                 <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button>      
+                            </form>
                         </div>
+                    </div>
+                </nav>                
+            </h:form>
+        </div>
+        <!-- HEADER AND NAVBAR END-->
+
+
+        <br/>
+        <h:form>
+            <div class="container justify-content-between ">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <h:graphicImage class="d-block w-100" url="/images/sliderornek1.png" height="500"/>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <h:graphicImage class="d-block w-100" url="/images/sliderornek2.png" height="500"/>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <h:graphicImage class="d-block w-100" url="/images/sliderornek3.jpg" height="500"/>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Third slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p>
+                            </div>
+                        </div>
+                    </div>		
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </h:form>
+        <!--SLIDER END-->
+        <h:form>
+            <div class="container-fuly mt-5 pt-5 pb-5">
+                <div class="wrapper-grey" style= " background-image: url('images/wallpaper.png');">
+                    <br/><h2 class="text-center">En Popüler Tarifler</h2>
+                    <div class="container">
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 ">
+                                <div class="card"  style="background-image: url('images/sliderornek1.png');" >
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar</p>
+                                    </div>	
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>  
+                            </div>
+                            <div class="col-xs-12 col-sm-4 ">
+                                <div class="card" style="background-image: url('images/sliderornek2.png');">
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar </p>
+                                    </div>		
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="card" style="background-image: url('images/sliderornek3.jpg');">
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar </p>
+                                    </div>	
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-4 ">
+                                <div class="card" style="background-image: url('images/anayemek.jpg');">
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar</p>
+                                    </div>	
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>  
+                            </div>
+                            <div class="col-xs-12 col-sm-4 ">
+                                <div class="card" style="background-image: url('images/corba.jpg');">
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar </p>
+                                    </div>
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="card" style="background-image: url('images/hamurisi.jpg');">
+                                    <div class="card-category">kategori adı</div>
+                                    <div class="card-description">
+                                        <h2>yemekadı</h2>
+                                        <p>yazar </p>
+                                    </div>
+                                    <h:commandLink class="card-link" action="#"></h:commandLink>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- en popüler tarifler end-->
+            <div class="container justify-content-between pt-5 pb-5 ">
+                <div class="wrapper-grey carousel ">	
+                    <h:graphicImage class="d-block w-100" url="/images/slider.png"/>
+                </div>
+            </div>
+        </h:form>
+        <section class="pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <h3 class="mb-3">En Yeni Tarifler </h3>
+                    </div>
+                    <div class="col-2 ">
+                        <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                            <i class="fa fa-arrow-left">&lt; </i>
+                        </a>
+                        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                            <i class="fa fa-arrow-right">&gt;</i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <h:graphicImage class="d-block w-100" url="/images/sliderornek1.png" height="500"/>
-                                <div class="carousel-caption d-none d-md-block">    
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
+                                            <div class="card-body">
+                                                <h4 class="card-title">Special title treatment</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <h:graphicImage class="img-fluid" url="/images/sliderornek2.png" />
+                                            <div class="card-body">
+                                                <h4 class="card-title">Special title treatment</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <h:graphicImage class="img-fluid" url="/images/sliderornek3.jpg" />
+                                            <div class="card-body">
+                                                <h4 class="card-title">Special title treatment</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <h:graphicImage class="d-block w-100" url="/images/sliderornek2.png" height="500"/>
-                                <div class="carousel-caption d-none d-md-block">
-
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <h:graphicImage class="d-block w-100" url="/images/sliderornek3.jpg" height="500"/>
-                                <div class="carousel-caption d-none d-md-block">
-
-                                </div>
-                            </div>
-                        </div>		
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-            </h:form>
-            <!--SLIDER END-->
-            <h:form>
-                <div class="container-fuly mt-5 pt-5 pb-5">
-                    <div class="wrapper-grey" style= " background-image: url('images/wallpaper.png');">
-                        <br/><h1 class="text-center"> En Popüler Tarifler</h1>
-                        <div class="container">
-                            <br/>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-4 ">
-                                    <div class="card"  style="background-image: url('images/sliderornek1.png');" >
-                                        <div class="card-category font"><h:outputText value="Kategori Adı" /></div>
-                                        <div class="card-description">
-                                            <h2><h:outputText value="Yemek Adı" /></h2>
-                                        </div>	
-                                        <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
-                                    </div>  
-                                </div>
-                                <div class="col-xs-12 col-sm-4 ">
-                                    <div class="card" style="background-image: url('images/sliderornek2.png');">
-                                        <div class="card-category font"><h:outputText value="Kategori Adı" /></div>
-                                        <div class="card-description">
-                                            <h2><h:outputText value="Yemek Adı" /></h2>
-                                        </div>		
-                                        <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="card" style="background-image: url('images/sliderornek3.jpg');">
-                                        <div class="card-category font "><h:outputText value="Kategori Adı" /></div>
-                                        <div class="card-description">
-                                            <h2><h:outputText value="Yemek Adı" /></h2>
-                                        </div>	
-                                        <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-xs-12 col-sm-4 ">
-                                    <div class="card" style="background-image: url('images/anayemek.jpg');">
-                                        <div class="card-category"><h:outputText value="Kategori Adı" /></div>
-                                        <div class="card-description">
-                                            <h2><h:outputText value="Yemek Adı" /></h2>
-                                        </div>	
-                                        <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
-                                    </div>  
-                                </div>
-                                <div class="col-xs-12 col-sm-4 ">
-                                    <div class="card" style="background-image: url('images/corba.jpg');">
-                                        <div class="card-category"><h:outputText value="Kategori Adı" /></div>
-                                        <div class="card-description">
-                                            <h2><h:outputText value="Yemek Adı" /></h2>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
+                                            <div class="card-body">
+                                                <h4 class="card-title">Special title treatment</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                            </div>
                                         </div>
-                                        <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
                                     </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="card" style="background-image: url('images/hamurisi.jpg');">
-                                        <div class="card-category"><h:outputText value="Kategori Adı" /></div>
-                                        <div class="card-description">
-                                            <h2><h:outputText value="Yemek Adı" /></h2>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <h:graphicImage class="img-fluid" url="/images/sliderornek2.png" />
+                                            <div class="card-body">
+                                                <h4 class="card-title">Special title treatment</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                            </div>
                                         </div>
-                                        <h:commandLink class="card-link" action="recipedetail"></h:commandLink>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <h:graphicImage class="img-fluid" url="/images/sliderornek3.jpg" />
+                                            <div class="card-body">
+                                                <h4 class="card-title">Special title treatment</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- en popüler tarifler end-->
-                <div class="container justify-content-between pt-5 pb-5 ">
-                    <div class="wrapper-grey carousel ">	
-                        <h:commandLink action="categorydetail"><h:graphicImage class="d-block w-100" url="/images/slider.png"/></h:commandLink>
-                    </div>
-                </div>
-            </h:form>
-            <h:form>
-            <section class="pt-5 pb-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-10">
-                            <h1 class="mb-3">En Yeni Tarifler </h1>
-                        </div>
-                        <div class="col-2 ">
-                            <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
-                               data-slide="prev">
-                                <i class="fa fa-arrow-left">&lt; </i>
-                            </a>
-                            <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                                <i class="fa fa-arrow-right">&gt;</i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:commandLink action="recipedetail">
-                                                <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                                    <div class="card-body">
-                                                        <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
-                                                    </div>
-                                                </h:commandLink>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:commandLink action="recipedetail">
-                                                <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                                    <div class="card-body">
-                                                        <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
-                                                    </div>
-                                                </h:commandLink>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                 <h:commandLink action="recipedetail">
-                                                <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                                    <div class="card-body">
-                                                        <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
-                                                    </div>
-                                                </h:commandLink>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:commandLink action="recipedetail">
-                                                <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                                    <div class="card-body">
-                                                        <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
-                                                    </div>
-                                                </h:commandLink>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:commandLink action="recipedetail">
-                                                <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                                    <div class="card-body">
-                                                        <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
-                                                    </div>
-                                                </h:commandLink>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:commandLink action="recipedetail">
-                                                <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                                    <div class="card-body">
-                                                        <h4 class="card-title"><h:outputText value="Yemek Adı" /></h4>
-                                                    </div>
-                                                </h:commandLink>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <h:commandLink action="whatdoicook">
+            </div>
+        </section>
+        <h:form>
+            <div class="container justify-content-between pt-5 pb-5 ">
                 <div class="wrapper-grey carousel ">	
-                        <h:graphicImage class="d-block w-100" url="/images/slider1.jpg"/>
-                    </div>
-                </h:commandLink>
+                    <h:graphicImage class="d-block w-100" url="/images/slider1.jpg"/>
                 </div>
-            </section>
+            </div>
 
-            </h:form>
-            <h:form>
-                <footer style="background-color:#F08819;">
-                    <div class=" container justify-content-around mt-5">
-                        <div class="col-10">
-                            <div class="row justify-content-center">
-                                <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
-                                    <h5><span>
-                                            <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
-                                    <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
-                                    <small>Copyright.All Rights Resered. </small>
-                                </div>
-                                <div class="col-md-2 col-12  my-sm-0 mt-5">
-                                    <br/>
-                                </div>
-                                <div class="col-md-3 col-12 my-sm-0 mt-5">
-                                    <ul class="list-unstyled" >
-                                        <li class="mt-md-3 mt-4"><br/></li>
-                                        <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
-                                        <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
-                                        <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
-                                    </ul>
-                                </div>
-                                <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
-                                    <ul class="list-unstyled">
-                                        <li class="mt-md-3 mt-4"><br/></li>
-                                        <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                        <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
-                                        <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
-                                    </ul>
-                                </div>
+           <footer style="background-color:#F08819;">
+                <div class=" container justify-content-around mt-5">
+                    <div class="col-10">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
+                                <h5><span>
+                                        <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
+                                <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
+                                <small>Copyright.All Rights Resered. </small>
+                            </div>
+                            <div class="col-md-2 col-12  my-sm-0 mt-5">
+                                <br/>
+                            </div>
+                            <div class="col-md-3 col-12 my-sm-0 mt-5">
+                                <ul class="list-unstyled" >
+                                    <li class="mt-md-3 mt-4"><br/></li>
+                                    <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
+                                    <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
+                                    <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
+                                </ul>
+                            </div>
+                            <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
+                                <ul class="list-unstyled">
+                                    <li class="mt-md-3 mt-4"><br/></li>
+                                    <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
+                                    <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
+                                    <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </footer>
-            </h:form>
-        </h:body>
-    </ui:define>
-</ui:composition>
-
+                </div>
+            </footer>
+        </h:form>
+    </h:body>
+</html>
