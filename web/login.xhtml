@@ -9,6 +9,7 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
+        <h:outputStylesheet library="css" name="style.css"/>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputScript library="js" name="bootstrap.min.js"/>
         <h:outputScript library="js" name="bootstrap.js"/>
@@ -16,24 +17,19 @@
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
         <style>
-            .recipe:hover {
-                background-color: #c7c8ff; 
-                border-color: #fff;
+            h5, p,li{
+                font-family: govde;
+                color:black;
             }
-            .login:hover {
-                background-color: #96ff66;
-                border-color: #fff;
-            }
-            .signup:hover {
-                background-color: #ffec98; 
-                border-color: #fff;
+            h1{
+                font-family: baslik;
             }
         </style>
     </h:head>
-    <h:body>
-        <div class="container-fuly" style="background-color: #fff;">
+    <h:body style=" background-image: url('images/bg.png');">
+       <div class="container-fuly" style="background-color: #FEE6CE;">
             <h:form>
-                <div class="container" style="background-color: #fff;">
+                <div class="container" style="background-color: #FEE6CE;">
                     <div class="row align-items-center">
                         <div class="col-md-9">                
                             <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
@@ -74,12 +70,12 @@
                             </ul>
                             <form class="d-flex">
                                 <h:inputText class="form-control me-2" value=""/>
-                                <button class="btn btn-outline-light" type="submit">Ara</button>
+                                         <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
                             </form>
                         </div>
                     </div>
                 </nav> 
-            </h:form>
+      </h:form>
         </div>
         <!-- HEADER AND NAVBAR END-->
         <h:form>
@@ -99,13 +95,15 @@
                                 <h:inputText class="form-control me-2" validator="#{login.validatePassword}" value="#{login.visitor.password}" required="true" requiredMessage="bir sifre girmelisiniz" id="passwordInput"/>
                                 <h:message for="passwordInput" style="color: red; font-size: 10pt;" /><br />
                             </div>                                            
+
                             <h:commandButton id="cmd" value="Giris Yap"  action="#{login.login()}"  class="btn btn-primary"/>
+
                         </h:form>
                         
                     </div>
                 </div>
-            </div>
-        </h:form>
+            </div><br/><br/>
+       
       <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
                     <div class="col-10">
@@ -139,5 +137,6 @@
                     </div>
                 </div>
             </footer>
+             </h:form>
     </h:body>
 </html>

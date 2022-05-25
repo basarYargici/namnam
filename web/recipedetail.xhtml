@@ -10,31 +10,27 @@
 
     <h:head>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputStylesheet library="css" name="style.css"/>
         <h:outputScript library="js" name="bootstrap.min.js"/>
         <h:outputScript library="js" name="bootstrap.js"/>
         <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
-        <style>
-            .recipe:hover {
-                background-color: #c7c8ff; 
-                border-color: #fff;
-
+         <style>
+            h5, p,li{
+                font-family: govde;
+                color:black;
             }
-            .login:hover {
-                background-color: #96ff66;
-                border-color: #fff;
-            }
-            .signup:hover {
-                background-color: #ffec98; 
-                border-color: #fff;
+            h1{
+                font-family: baslik;
             }
         </style>
     </h:head>
-    <h:body>
-        <div class="container-fuly" style="background-color: #fff;">
-            <h:form>
-                <div class="container" style="background-color: #fff;">
+    <h:body style= " background-image: url('images/bg.png');">
+         <h:form>
+       <div class="container-fuly" style="background-color: #FEE6CE;">
+           
+                <div class="container" style="background-color: #FEE6CE;">
                     <div class="row align-items-center">
                         <div class="col-md-9">                
                             <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
@@ -75,11 +71,30 @@
                             </ul>
                             <form class="d-flex">
                                 <h:inputText class="form-control me-2" value=""/>
-                                <button class="btn btn-outline-light" type="submit">Ara</button>
+                                         <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
                             </form>
                         </div>
                     </div>
                 </nav> 
+       </div>
+                <div class="container py-5" >
+                    <div class="row py-3" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-bottom: none; border-width: 8px;">
+                      <h1 align="center" style=" font-family: baslik; font-size: 60px;"> <h:outputText value="Poğaça">  </h:outputText></h1>
+                        <div class="col-md-6 py-3">
+                            <h:graphicImage url="/images/pogaca.jpg" width="500" />     
+                        </div>
+                        <div class="col-md-6  py-5">
+                            <p><h2 style=" font-family: baslik;"> Kategori:</h2> <h:outputText value="Hamur İşi" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
+                            <p><h2 style=" font-family: baslik;"> Yazar Adı: </h2>   <h:outputText value="Zeynep" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
+                            <p><h2 style="font-family: baslik;">Puanı:</h2>  <h:outputText value="5" >  </h:outputText></p>
+                            
+                        </div>
+                    </div>
+                    <div class="row" style= " background-image: url('images/bosluk.jpg');  border: #F08819; border-style: solid; border-top: none;border-width: 8px;">
+                        <p> <h2 style=" font-family: baslik;"> Hazırlanışı:</h2><br/><h:outputText value="bişilerbişiler" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
+                    </div>
+                    
+                </div>
                  <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
                     <div class="col-10">
@@ -114,7 +129,6 @@
                 </div>
             </footer>
             </h:form>
-        </div>
     </h:body>
 
 

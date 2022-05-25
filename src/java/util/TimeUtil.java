@@ -14,39 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package controller;
+package util;
 
-import domain.CategoryDomain;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import model.Result;
+import java.text.DateFormat;
+import java.util.Date;
 
 /**
  *
  * @author İ. BAŞAR YARGICI
  */
-@ManagedBean(name = "category")
-@SessionScoped
-public class CategoryController {
+public class TimeUtil {
 
-    private final CategoryDomain categoryDomain;
-
-    public CategoryController() {
-        this.categoryDomain = new CategoryDomain();
-    }
-
-    public CategoryController(CategoryDomain categoryDomain) {
-        this.categoryDomain = categoryDomain;
-    }
-
-    /**
-     * Check isSuccess in UI. if it is false, pop up the message.
-     *
-     * This method should be called when categories tab is clicked.
-     *
-     * @return
-     */
-    public Result getAll() {
-        return categoryDomain.getAll();
+    public static String getTime() {
+        return DateFormat.getTimeInstance(DateFormat.LONG).format(new Date());
     }
 }
