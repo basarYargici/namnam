@@ -91,15 +91,15 @@
                         <h:form>
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Kullanıcı Adı"/>
-                                <h:inputText class="form-control me-2" value="#{login.username}" required="true" requiredMessage="Bu alan zorunludur!" id="usernameInput"/>
+                                <h:inputText class="form-control me-2" value="#{login.visitor.username}" required="true" requiredMessage="Bu alan zorunludur!" id="usernameInput"/>
                                 <h:message for="usernameInput" style="color: red; font-size: 10pt;" /><br />
                             </div>
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Şifre"/>
-                                <h:inputText class="form-control me-2" validator="#{login.validatePassword}" value="#{login.password}" required="true" requiredMessage="bir sifre girmelisiniz" id="passwordInput"/>
+                                <h:inputText class="form-control me-2" validator="#{login.validatePassword}" value="#{login.visitor.password}" required="true" requiredMessage="bir sifre girmelisiniz" id="passwordInput"/>
                                 <h:message for="passwordInput" style="color: red; font-size: 10pt;" /><br />
                             </div>                                            
-                            <h:commandButton id="cmd" value="Giris Yap"  actionListener="#{login.signIn()}" action="index"  class="btn btn-primary"/>
+                            <h:commandButton id="cmd" value="Giris Yap"  action="#{login.login()}"  class="btn btn-primary"/>
                         </h:form>
                         
                     </div>

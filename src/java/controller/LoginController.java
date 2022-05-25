@@ -16,6 +16,7 @@
  */
 package controller;
 
+
 import domain.VisitorDomain;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -33,9 +34,22 @@ import model.Visitor;
 @ManagedBean(name = "login")
 @SessionScoped
 public class LoginController {
-    private String username;
-    private String password;
+    
+    private Visitor visitor;
 
+
+    public Visitor getVisitor() {
+        if (this.visitor == null){
+            this.visitor = new Visitor();
+        }
+        return visitor;
+    }
+
+    public void setVisitor(Visitor visitor) {
+        this.visitor = visitor;
+    }
+
+    
     private final VisitorDomain visitorDomain;
 
     public LoginController() {
@@ -46,22 +60,18 @@ public class LoginController {
         this.visitorDomain = visitorDomain;
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
     
+    public String login(){
+        
+        if(this.visitor.getUsername().equals("kullanici") && this.visitor.getPassword().equals("parola123")){
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("valid_user", this.visitor);
+            return "/recipe";
+        }else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Hatali kullanici adi veya sifre!"));
+            return "/login";
+        }
+    }
 
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
@@ -72,10 +82,10 @@ public class LoginController {
      * @return Success if no error occurs, with data is Visitor with id =: id .
      * Error if any error occurs, with error message.
      */
-    public Result signIn() {
+    public Result signIn(String username, String password) {
         Visitor temp = new Visitor();
-        temp.setUsername(getUsername());
-        temp.setPassword(getPassword());
+        temp.setUsername(username);
+        temp.setPassword(password);
 
         return visitorDomain.getByCredentials(temp);
     }
@@ -103,41 +113,15 @@ public class LoginController {
      * @return Success if no error occurs, with data is Visitor with id =: id .
      * Error if any error occurs, with error message.
      */
-    private String name;
-    private String surname;
-    private String mail;
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
+   
     
-    public Result signUp() {
+    public Result signUp(String name, String surname, String mail, String username, String password) {
         Visitor temp = new Visitor();
-        temp.setName(getName());
-        temp.setSurname(getSurname());
-        temp.setMail(getMail());
-        temp.setUsername(getUsername());
-        temp.setPassword(getPassword());
+        temp.setName(name);
+        temp.setSurname(surname);
+        temp.setMail(mail);
+        temp.setUsername(username);
+        temp.setPassword(password);
 
         return visitorDomain.save(temp);
     }
