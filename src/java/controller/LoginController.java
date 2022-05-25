@@ -17,8 +17,12 @@
 package controller;
 
 import domain.VisitorDomain;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 import model.Result;
 import model.Visitor;
 
@@ -75,7 +79,18 @@ public class LoginController {
 
         return visitorDomain.getByCredentials(temp);
     }
-
+    
+    public boolean validatePassword(FacesContext context, UIComponent cmp, Object value) throws ValidatorException {
+        
+        String v = (String) value;
+        
+        if(v.isEmpty()){
+            throw new ValidatorException(new FacesMessage("Sifre alani bos olamaz!"));
+        }else if(v.length() < 8){
+            throw new ValidatorException(new FacesMessage("Sifre alani 8 karakterden kisa olamaz!"));
+        }
+        return true;
+    }
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with login.getById(id).data
