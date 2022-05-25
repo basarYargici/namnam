@@ -70,7 +70,7 @@ Salçayı ve baharatları ekleyip kavurmaya devam edelim.
 Haşladığımız tavuk suyunu ekleyelim.
 Didiklediğimiz tavuklarımızı da ekleyip kaynayana kadar pişirelim.
 Kaynayan çorbamızı kaseye alıp servis edebiliriz. Hamurlarıda kalıpla kesip servis ettim size de fikir olsun :)
-' ,'images\arabasi.jpg',0);
+' ,'images/arabasi.jpg',0);
 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (1,'Evde Pizza','
@@ -92,14 +92,14 @@ VALUES (1,'Evde Pizza','
     Üzerine tercihe göre dilimlenmiş sucuk, dilimlenmiş sosis, domates kurusu,dilimlenmiş mantar ve mısır tanelerini ekleyelim.
     Son olarak pizzamızı tekrar fırına sürelim ve 200° fırında 20 dk daha pişmeye bırakalım.
     Peynirleri güzel bir şekilde eriyen sucukları sosisleri gayet nefis bir şekilde pişen pizzamız servise hazır. Afiyet olsun :)
-','images\pizza.jpg',5,1,0); 
+','images/pizza.jpg',5,1,0); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (2,'Fırında Sütlaç','
     Fırında sütlaç için öncelikle pirinci haşlayalım. Pirinçleri güzelce yıkadıktan sonra 2 su bardağı su ile pişene kadar haşlayın. Çok az sulu kalacaktır.
     Diğer malzemeleri ekleyelim ve sütlacı pişirelim. Haşlanan pirinçlerin üzerine sütü, vanilyayı ilave edip kaynatın. Karışım kaynamaya başlayınca şekeri ve yarım su bardağı sütle karıştırdığınız 3 yemek kaşığı buğday nişastasını ilave ediniz. 10-15 dk daha kaynatıp altını kapatın.
     Sütlaçları fırına sürelim. Fırın için uygun ısıya dayanıklı sütlaç kaselerine sütlaçlarınızı paylaştırın. Tepsinize soğuk su doldurun ve sütlaç kaplarını fırın tepsinize dizin (Tepsideki su sütlaç kaplarının yarısına kadar gelecek)
     Tepsiyi fırınınızın en üst rafına yerleştirin. 180 derecede, sütlaçlarınız kızarana kadar fırınlayın. Afiyet olsun.
-','images\fırında_sütlaç.jpg',3,2,0); 
+','iimages/fırında_sütlaç.jpg',3,2,0); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (3,'Karnıyarık Yemeği','
     Patlıcanları çizgili soyup, yarım saat yağ çekmemesi için tuzlu suda bekletin.
@@ -111,7 +111,7 @@ VALUES (3,'Karnıyarık Yemeği','
     Doldurduğunuz patlıcanların üzerine ortadan ikiye kestiğiniz çeri domatesi ya da 1 adet domatesi eşit büyüklükte olacak şekilde paylaştırın ve kızarttığımız biberlerden birer tane koyun.
     Ayrı bir yerde 1 kaşık salçayı, 1 su bardağı sıcak suda ezerek patlıcanların aralarına dökün. Kıymalar çıkmasın diye üzerine dökmeyin.
     Daha sonra 170 derece de ısıttığınız fırına sürerek 20-25 dk pişirin. Dilerseniz bu işlemi pilav tenceresi gibi bir tencerede ocakta yapabilirsiniz. Aynı sürede tencerede de  pişecektir.
-','images\karnıyarık.jpg',4,3,0); 
+','images/karnıyarık.jpg',4,3,0); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (4,'Mercimek Salatası','
     Arkadaşlar önce mercimek ve arpa şehriyeyi biraz diri kalacak şekilde haşlıyoruz.
@@ -120,7 +120,7 @@ VALUES (4,'Mercimek Salatası','
     Pişen mercimek ve arpa şehriyeyi soğuduktan sonra būtūn malzemeleri yeşillikleri hepsini bir kaba alıyoruz.
     Ūzerine zeytinyağını tercihe göre baharatlarını ve limonu sıkıp tuzunu ilave edip karîştırîyoruz.
     Uygun bir tabağa salatamîzî aktarip servis ediyoruz afiyet olsun.
-','images\mercimek_salatası.jpg',4,5,0); 
+','images/mercimek_salatası.jpg',4,5,0); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (5,'Ezogelin Çorbası','
     Ezogelin çorbası yapmak için düdüklü tencerede önce rendelemiş olduğumuz soğanı ve ezmiş olduğumuz sarımsağı tereyağında kavuruyoruz. Soğanlar diriliğini kaybetsin yeterli yakmadan orta ateşte kavuralım.
@@ -128,19 +128,19 @@ VALUES (5,'Ezogelin Çorbası','
     Bir iki karıştırdıktan sonra yıkadığımız mercimeği, pirinci, bulguru ve tuzunu da ilave ederek karıştıralım.
     Başka bir tarafta kaynamakta olan 2 litreye yakın suyu üzerine boşaltalım.
     Düdüklünün kapağını ve düdüğünü kapattıktan sonra 10 dakika pişiriyoruz. Normal tencerede de yapabilirsiniz ama biraz daha geç pişecektir (yaklaşık 30-40 dakika sürecektir).
-','images\ezogelin.jpg',5,0,1); 
+','images/ezogelin.jpg',5,0,1); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (6,'Profiterol','İlk olarak profiterolün hamurunu hazırlayalım. Küçük bir tencereye 1 su bardağı suyu ve margarini koyarak kaynatın. Daha sonra 1 su bardağı unu ekleyerek iyice karıştırın. 2-3 dakika karışımı sürekli karıştırarak pişirin. Ocağı kapatarak 10-15 dakika hamurun soğumasını bekleyin. Hamur biraz dinlendikten sonra 3 adet yumurtayı hamura yedirmemiz gerekiyor ancak bu noktada önemli bir ayrıntı var. Yumurtaları teker teker hamura kırın ve birini iyice yedirmeden diğer yumurtayı kırmayın. Yumurtaları hamura iyice yedirdikten sonra yapışkan bir hamur elde etmiş olduk. Bu kısım biraz yorucu oluyor ama hamurun kabarması için iyice karıştırmış olmanız gerekiyor. Yumurtaları yedirdikten sonra hamuru 10 dakika dinlendirin.
  Hamurlarımızı pişirelim. Yağlanmış tepsiye, kaşık yardımı ile hamurdan ceviz büyüklüğünde parçalar alarak aralarında 2-3 cm boşluk bulunmasına dikkat ederek resimdeki gibi dökün. Elinizle şekillendirmeye çalışmayın. Daha önceden 180 derecede ısıttığımız fırına hamuru sürün. üzeri kızarana kadar yaklaşık 40 dakika pişiriyorsunuz.
 Profiterol Kremasını hazırlayalım. Hamurlar piştikten sonra kremasını hazırlayın. Vanilya hariç diğer malzemeleri bir tencereye koyarak kremayı pişirin. Kremayı ocaktan aldıktan sonra vanilyasını ekleyerek karıştırın.
 Kremayı profiterol hamurlarına dolduralım. Profiterolün  pişen hamurlarını ikiye bölerek ya da varsa krema sıkma torbası ile içlerini krema ile doldurun ve tepsiye dizin.
-Tatlımızın üzerine çikolata sosu gezdirelim. Tüm profiterolleri doldurduktan sonra üzerine çikolata sosunu ya da benmari usulü erittiğiniz çikolatayı gezdirin.','images\profiterol.jpg',1,2,1); 
+Tatlımızın üzerine çikolata sosu gezdirelim. Tüm profiterolleri doldurduktan sonra üzerine çikolata sosunu ya da benmari usulü erittiğiniz çikolatayı gezdirin.','images/profiterol.jpg',1,2,1); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (7,'Fırında Levrek','Levrekleri temizletip yıkayalım.
  Fırın tepsisine yağlı kağıt sererek levrekleri üzerine yerleştirelim.
  Balıkların içine ve üzerine azar azar zeytinyağı gezdirelim. Tuz ve karabiber serpelim.
  Soğanları, domatesi ve limonu dilimleyerek balıkların içine yerleştirip fırına sürelim.
- 160 derecede 45-50 dakika kadar pişirelim.','images\levrek.jpg',2,3,1); 
+ 160 derecede 45-50 dakika kadar pişirelim.','images/levrek.jpg',2,3,1); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (8,'Kıymalı Mantar Dolması','
     Mantarların saplarını kopararak İçlerine elinizle azar azar tuz sürün. Dilerseniz mantarların kabuklarını soyarak da yapabilirsiniz.
@@ -153,7 +153,7 @@ VALUES (8,'Kıymalı Mantar Dolması','
     Üstüne rendelenmiş kaşar peynirini koyun.
     Sosu için salçayı çok az su ile sulandırın ve mantarların üzerine dökün.
     Ardından tekrar fırına vererek 170°C fırında 10 dakika daha kaşar peynirler eriyene kadar fırında tutun. Afiyet olun…
-','images\mantar_dolması.jpg',3,4,1); 
+','images/mantar_dolması.jpg',3,4,1); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (9,'Köz Biberli Yoğurtlu Patates Salatası','
     Öncelikle patatesleri ortadan iki keselim ve bol suda haşlayalım. Ortadan kesildiğinde patatesler daha kolay haşlanacaktır.
@@ -164,7 +164,7 @@ VALUES (9,'Köz Biberli Yoğurtlu Patates Salatası','
     Soğuyan patateslerin kabuklarını soyalım ve onları da küp küp doğrayalım.
     Geniş bir kaseye yoğurdu, mayonezi, ezilmiş sarımsakları ve tuzu alarak karıştıralım.
     Üzerine havucu, kırmızı biberi, kornişon turşuyu, mısırı, doğradığımız yeşillikleri ve patatesleri ekleyerek karıştıralım ve servis edelim. Afiyet olsun!
-','images\patates_salatası.jpg',2,5,1); 
+','images/patates_salatası.jpg',2,5,1); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (10,'Erişteli Köfteli Çorba','
     Öncelikle köfteleri hazırladıktan sonra bulamak için unu geniş bir tabağa alarak yanımıza alalım.
@@ -181,7 +181,7 @@ VALUES (10,'Erişteli Köfteli Çorba','
     4-5 dakika kadar kaynattıktan sonra tuzunu ekleyip karıştırarak altını kapatalım.
     Servis etmeden önce sosu için eriyen tereyağına nane ve kırmızı toz biberi ekleyip kızdıralım, ocaktan alalım.
     Sosu çorbamızın üzerine gezdirdikten sonra servis edelim. Afiyet olsun!
-','images\erişteli_köfteli_çorba.jpg',5,0,2); 
+','images/erişteli_köfteli_çorba.jpg',5,0,2); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (11,'Yumuşacık Mayalı Poğaça','
     Yoğurma kabına ılık su, ılık süt, yaş maya ve şekeri alıp çırpıcı ile karıştırarak mayanın erimesini sağlayalım. Mayanın daha iyi kabarması için, su ve süt karışınca, el yakmayacak düzeyde ılık olması gerekiyor.
@@ -195,13 +195,13 @@ VALUES (11,'Yumuşacık Mayalı Poğaça','
     Üzerine yumurta sarısı sürülüp, susam serptikten sonra 20 dakika kadar daha bekletelim.
     Daha sonra 180 derece fırında pişmeye bırakalım. Pişme süresi fırına göre değişebilir ama 20-25 dakika kadar bir sürede pişecektir. Ben bu ölçülerle 16 adet poğaça elde ettim.
     Puf puf kabaran, yumuşacık poğaçalarımız hazır. İster kahvaltılarda ekmek yerine yapabilirsiniz ya da çocuklar için arasına peynir, domates gibi kahvaltılıklar ekleyerek de, sandviç gibi servis edebilirsiniz. Mini mini sandviçler hazırlayabileceğiniz, kolay ve lezzetli poğaça tarifimizi çok beğeneceksiniz. Arasına arzunuza söre malzemelerle sandviçler hazırlayabileceğiz, kahvaltılık poğaça tarifini mutlaka denemenizi tavsiye ederim.
-','images\pamuk-poğaça.jpg',4,1,2); 
+','images/pamuk-poğaça.jpg',4,1,2); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (12,'Pratik Fit Brownie','Yumurta ve balı köpürene kadar çırpıyoruz.
 Ardından içine kabartma tozu, kakao ve sütü ekleyip, karıştırıyoruz.
 Daha sonra unuda ekleyip, kıvam alana kadar karıştırıyoruz.
 İçine fındık ve çikolatayı katıp, homejen şekilde karışınca yağlı kağıt serili borcama döküyoruz.
-Üstüne fındık ve çikolatayı ekleyip, önceden ısıtılmış 180 derece fırında 10-15 dakika pişiriyoruz. Afiyet olsun','images\fit-brownie.jpg',3,2,2); 
+Üstüne fındık ve çikolatayı ekleyip, önceden ısıtılmış 180 derece fırında 10-15 dakika pişiriyoruz. Afiyet olsun','images/fit-brownie.jpg',3,2,2); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (13,'Tavuklu Sultan Kebabı','
     Patlıcanı alacalı soyarak küçük küçük doğrayın ve sıvı yağ ile kızartın.
@@ -224,17 +224,17 @@ VALUES (13,'Tavuklu Sultan Kebabı','
     190 derece fırında yufkalar pembeleşene kadar pişirin.
     Sonra üzerine kaşar peyniri rendesi serpin ve tekrar fırına sürün.
     Peynirler eriyip kızardığında alabilirsiniz.
-','images\tavuklu-sultan-kebabı.jpg',4,3,2); 
+','images/tavuklu-sultan-kebabı.jpg',4,3,2); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (14,'Patlıcan Balığı','Patlıcanları şerit halinde doğrayıp tuzlu suda biraz yumuşayana kadar haşlayın.
 Önce un sonra yumurta son olarak da Mısır ununa (isterseniz galeta da olur) baharatlı isterseniz mısır ununa baharat da ekleyip bulayıp kızmış yağda kızartın.
-Üzerine de sarımsaklı yoğurt döküp servis edin.','images\patlıcan.jpg',4,4,2); 
+Üzerine de sarımsaklı yoğurt döküp servis edin.','images/patlıcan.jpg',4,4,2); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (15,'Pastırmalı Humus','
     Nohutları rondo da püre haline getirdikten sonra kalan malzemeleri ilave edin ve el blenderıyla pürüzsüz kıvam alana dek ezin.
     Kıvamı koyu gelirse bir miktar su ilave edebilirsiniz.
     Üzerine bolca tereyağında pişirilmiş pastırma dilimleri ekleyerek servis edin. Ben çam fıstığı da serptim.
-','images\pastırmalı_humus.jpg',2,4,0); 
+','images/pastırmalı_humus.jpg',2,4,0); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (16,'Ev Yapımı Lahmacun','
     Hamur için ılık su, süt ve şekeri yoğurma kabına alıyoruz.
@@ -251,7 +251,7 @@ VALUES (16,'Ev Yapımı Lahmacun','
     Üzerine 2 kaşık kadar kıymalı harcı yayıyoruz ve ısıtılmış 200 derece fırında yaklaşık 5-6 dk pişiriyoruz.
     Yada yanmaz tava veya pizza tavasında, üzerine kapak örterek 5 dk kadar pişiriyoruz. Hazırlarını aratmayacak kadar lezzetli:)
     Şimdiden afiyet olsun:)
-','images\ev_yapımı_lahmacun.jpg',1,1,1); 
+','images/ev_yapımı_lahmacun.jpg',1,1,1); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (17,'Arpa Şehriye Salatası','Öncelikle tencerenin içine şehriye konulup pembeleşinceye kadar sıvı yağ ile şehriyelerin rengi dönene kadar kavrulur.
 Kavrulan şehriyenin üzerini geçecek kadar ılık su ve tuz ilave edip karıştırılır,
@@ -259,7 +259,7 @@ Tencerenin kapağı kapatılır, şehriyeler yumuşayıp göz göz olana kadar o
 Suyunu çekip pişen şehriyelerin üzerine kağıt havlu kapatılarak dinlenmeye ve soğumaya bırakılır.
 Ardından diğer malzemeler ufak ufak doğranıp hazırlanır. (havuç rende olmalı)
 Soğuyan şehriye derin bir kaba boşaltılır, doğrayıp hazırlanan malzemeler içine ilave edilir.
-1 tatlı kaşığı nar ekşisi, yarım limon suyu ve tuzunu ilave edip nazikçe karıştırarak dilediğiniz gibi servis yapabilirsiniz. Şimdiden afiyetler olsun ','images\arpa_salata.jpg',2,5,2); 
+1 tatlı kaşığı nar ekşisi, yarım limon suyu ve tuzunu ilave edip nazikçe karıştırarak dilediğiniz gibi servis yapabilirsiniz. Şimdiden afiyetler olsun ','images/arpa_salata.jpg',2,5,2); 
 INSERT INTO RECIPE (ID, RECIPENAME, DESCRIPTION, IMAGELINK, SCORE,CATEGORYNO,USERID)
 VALUES (18,'Beyti Kebabı','
     İlk olarak beytimizin köftesini hazırlıyoruz. Soğan, sarımsak ve yumurtayı rondoya alarak çekelim. Rondo kullanmak istemezseniz soğan ve sarımsağı rendeleyebilirsiniz.
@@ -277,7 +277,7 @@ VALUES (18,'Beyti Kebabı','
     Yufkaların üzeri hafifçe kızardıktan sonra fırından alalım.
     Beyti kebabımızı servis tabağına aldıktan sonra üzerine domates sosundan gezdirelim, yanına birkaç kaşık yoğurt koyalım.
     Sıcak sıcak servis edelim :)
-','images\beyti.jpg',5,3,1); 
+','images/beyti.jpg',5,3,1); 
 
 -- CREATE TABLE highest_score(
 --     ID INTEGER NOT NULL,
