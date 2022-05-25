@@ -88,13 +88,41 @@ public class LoginController {
      * @return Success if no error occurs, with data is Visitor with id =: id .
      * Error if any error occurs, with error message.
      */
-    public Result signUp(String name, String surname, String mail, String username, String password) {
+    private String name;
+    private String surname;
+    private String mail;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+    
+    public Result signUp() {
         Visitor temp = new Visitor();
-        temp.setName(name);
-        temp.setSurname(surname);
-        temp.setMail(mail);
-        temp.setUsername(username);
-        temp.setPassword(password);
+        temp.setName(getName());
+        temp.setSurname(getSurname());
+        temp.setMail(getMail());
+        temp.setUsername(getUsername());
+        temp.setPassword(getPassword());
 
         return visitorDomain.save(temp);
     }

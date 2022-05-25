@@ -93,30 +93,30 @@
                         <h:form>
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Ad"/>
-                                <h:inputText class="form-control me-2" value="" id="nameInput"/>
+                                <h:inputText class="form-control me-2" value="#{login.name}" id="nameInput"/>
                             </div>
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Soyad"/>
-                                <h:inputText class="form-control me-2" value="" id="surnameInput"/>
+                                <h:inputText class="form-control me-2" value="#{login.surname}" id="surnameInput"/>
                             </div>       
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Kullanıcı Adı"/>
-                                <h:inputText class="form-control me-2" value="" id="usernameInput"/>
+                                <h:inputText class="form-control me-2" value="#{login.username}" id="usernameInput"/>
                             </div>    
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="E-posta Adresi"/>
-                                <h:inputText class="form-control me-2" value="" id="emailInput" validatorMessage="Geçersiz e-posta adresi formatı">
+                                <h:inputText class="form-control me-2" value="#{login.mail}" id="emailInput" validatorMessage="Geçersiz e-posta adresi formatı">
                                     <f:validateRegex pattern= "\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" /> 
                                 </h:inputText>
                             </div>    
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Şifre"/>
-                                <h:inputText class="form-control me-2" value="" id="passwordInput">
+                                <h:inputText class="form-control me-2" value="#{login.password}" id="passwordInput">
                                     <f:validateLength minimum='6' maximum='18'/>
                                 </h:inputText>
                             </div>    
-
-                            <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+                            <h:commandButton id="cmd" value="Kayit ol" actionListener="#{login.signUp()}" action="showData"  class="btn btn-primary"/>
+                            
 
                         </h:form>
                     </div>
