@@ -32,6 +32,7 @@ public class Visitor {
     private String mail;
     private String imageLink;
     private List<Integer> recipeList;
+    private int isLoggedIn;
 
     public Visitor(int id, String name, String surname, String username, String password, String mail, String imageLink) {
         this.id = id;
@@ -52,6 +53,7 @@ public class Visitor {
         this.mail = mail;
         this.imageLink = imageLink;
         this.recipeList = recipeList;
+        this.isLoggedIn = 0;
     }
 
     public Visitor() {
@@ -120,4 +122,13 @@ public class Visitor {
     public void setImageLink(String imageLink) {
         this.imageLink = imageLink;
     }
+
+    public int getIsLoggedIn() {
+        return isLoggedIn;
+    }
+
+    public void setIsLoggedIn(int isLoggedIn) {
+        this.isLoggedIn = isLoggedIn;
+    }
+    
 }

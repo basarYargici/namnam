@@ -16,11 +16,13 @@
  */
 package controller;
 
+
 import domain.RecipeDomain;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import model.Recipe;
 import model.Result;
+import domain.LoginDomain;
 
 /**
  *
@@ -112,4 +114,6 @@ public class RecipeController {
     public Result getLatest() {
         return recipeDomain.getLatestList();
     }
+    
+    
 }

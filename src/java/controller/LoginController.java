@@ -17,7 +17,9 @@
 package controller;
 
 
+import domain.LoginDomain;
 import domain.VisitorDomain;
+import java.sql.SQLException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -63,13 +65,33 @@ public class LoginController {
 
     public LoginController() {
         this.visitorDomain = new VisitorDomain();
+        
     }
+    
 
     public LoginController(VisitorDomain visitorDomain) {
         this.visitorDomain = visitorDomain;
     }
 
-
+    private final LoginDomain loginDomain;
+    
+    /*
+    şimdi reis ben login domain senin yazdığın visitor domaine baka baka bişiler yazdım
+    getbyid fonksiyonunu değiştirdim biraz onun return type ı result olunca bende bir değişken atıp içerde set ettim
+    sonra burda da aynı yukarda yaptığın gibi logindomain i initialize etmeye çalıştım bişi diyor anlamadım bu kısmı sana saldım
+    137 de domain de yazdığım result döndüren fonku çağırmak için gereken yapıyı yazmaya çalıştım
+    141 de o fonku çağırıp bahsettiğim değişkenin değeri alıp döndürmeye çalıştım
+    
+    
+    
+    */
+    
+    public LoginController(){
+        this.loginDomain = new LoginDomain();
+    }
+    public LoginController(LoginDomain loginDomain) {
+        this.loginDomain = loginDomain;
+    }
     
     public String login(){
         
@@ -111,6 +133,15 @@ public class LoginController {
             throw new ValidatorException(new FacesMessage("Sifre alani 8 karakterden kisa olamaz!"));
         }
         return true;
+    }
+    
+    public Result isLoggedIn(int id){
+        return loginDomain.isLoggedIn(id);
+    }
+    
+    public boolean getLoginControl(int id){
+        this.isLoggedIn(id);
+        return loginDomain.isLoginControl();
     }
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
