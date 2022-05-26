@@ -61,7 +61,7 @@ public class CategoryDomain extends BaseDomain {
         }
 
         query = "INSERT INTO APP.CATEGORY"
-                + "(ID,\"NAME\",IMAGELINK)"
+                + "(ID,\"NAME\",IMAGE_LINK)"
                 + "VALUES (" + category.getId() + ",'" + category.getName()
                 + "', '" + category.getImageLink() + "')";
 
@@ -93,6 +93,7 @@ public class CategoryDomain extends BaseDomain {
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
             Category temp;
+            categoryList.clear();
 
             while (rs.next()) {
                 temp = new Category();
@@ -103,7 +104,6 @@ public class CategoryDomain extends BaseDomain {
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
-
     }
 
     /**
@@ -156,7 +156,7 @@ public class CategoryDomain extends BaseDomain {
         }
 
         query = "UPDATE APP.CATEGPRY "
-                + "SET \"NAME\" = '" + category.getName() + "', IMAGELINK = "
+                + "SET \"NAME\" = '" + category.getName() + "', IMAGE_LINK = "
                 + "'" + category.getImageLink() + "' WHERE id = " + category.getId();
 
         try (Statement statement = connectionResult.data.createStatement()) {
