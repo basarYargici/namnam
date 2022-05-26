@@ -1,6 +1,6 @@
 --kategori tablosu
 create table Category(
-    ID INTEGER NOT NULL,
+    Id INTEGER NOT NULL,
     name VARCHAR(255) NOT NULL,
     IMAGE_LINK VARCHAR(255) NOT NULL,
     PRIMARY KEY(ID)
@@ -13,6 +13,7 @@ CREATE TABLE Visitor(
     MAIL VARCHAR(255) NOT NULL,
     FirstName VARCHAR(255) NOT NULL,
     LastName VARCHAR(255) NOT NULL,
+    is_logged_in INTEGER DEFAULT 0,
     PRIMARY KEY(ID)
 );
 --recipe tablosu
@@ -53,11 +54,11 @@ VALUES (5,'salata', 'images/salata.jpg');
 
 --kullanici verileri
 INSERT INTO visitor 
-VALUES (0,'flower','password','fatihsalinmaz21@gmail.com','fatih','salinmaz'); 
+VALUES (0,'flower','password','fatihsalinmaz21@gmail.com','fatih','salinmaz',0); 
 INSERT INTO visitor 
-VALUES (1,'cook','password1','qwuhfas@gmail.com','zeynep','celikten');
+VALUES (1,'cook','password1','qwuhfas@gmail.com','zeynep','celikten',0);
 INSERT INTO visitor 
-VALUES (2,'judge','password2','rweqasdjl@gmail.com','basar','yargici');
+VALUES (2,'judge','password2','rweqasdjl@gmail.com','basar','yargici',0);
 
 
 --tarif verileri ekleme
