@@ -38,6 +38,13 @@ public class LoginDomain extends BaseDomain {
         this.visitorDomain = visitorDomain;
     }
 
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message.
+     *
+     * @param visitorId
+     * @return Success if no error occurs, with boolean logged in data. Error if
+     * any error occurs, with error message.
+     */
     public Result isLoggedIn(int visitorId) {
         if (dataSourceResult.isSuccess == false) {
             return dataSourceResult;
@@ -66,12 +73,11 @@ public class LoginDomain extends BaseDomain {
     }
 
     /**
-     * Check isSuccess in UI. if it is false, pop up the message. You can get
-     * data in HTML with visitor.getById(id).data
+     * Check isSuccess in UI. if it is false, pop up the message.
      *
      * @param visitor
-     * @return Success if no error occurs, with data is Visitor with id =: id .
-     * Error if any error occurs, with error message.
+     * @return Success if no error occurs, with boolean logged in data. Error if
+     * any error occurs, with error message.
      */
     public Result signIn(Visitor visitor) {
         if (dataSourceResult.isSuccess == false) {
@@ -81,17 +87,44 @@ public class LoginDomain extends BaseDomain {
             return new Error("connectionResult is null");
         }
 
-        Result getVisitor = visitorDomain.getByCredentials(visitor);
-        if (getVisitor.isSuccess) {
+        Result dbVisitorResult = visitorDomain.getByCredentials(visitor);
+        return setVisitorLoggedIn(dbVisitorResult, visitor);
+    }
+
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message.
+     *
+     * @param visitor
+     * @return Success if no error occurs, with boolean logged in data. Error if
+     * any error occurs, with error message.
+     */
+    public Result signUp(Visitor visitor) {
+        if (dataSourceResult.isSuccess == false) {
+            return new Error("dataSourceResult is null");
+        }
+        if (connectionResult.isSuccess == false) {
+            return new Error("connectionResult is null");
+        }
+
+        if (visitor.getUsername() != null && visitor.getPassword() != null) {
+            Result dbVisitorResult = visitorDomain.save(visitor);
+            return setVisitorLoggedIn(dbVisitorResult, visitor);
+        }
+        return new Error();
+    }
+
+    private Result setVisitorLoggedIn(Result dbVisitorResult, Visitor visitor) {
+        if (dbVisitorResult.isSuccess) {
             query = "UPDATE APP.VISITOR SET IS_LOGGED_IN = 1 WHERE ID = " + visitor.getId();
 
             try (Statement statement = connectionResult.data.createStatement()) {
                 statement.executeUpdate(query);
-                return new Success();
+                return new Success(true);
             } catch (SQLException e) {
                 return new Error(e.getMessage());
             }
         }
-        return new Error(getVisitor.message);
+        return new Error(dbVisitorResult.message);
     }
+
 }
