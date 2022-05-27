@@ -63,8 +63,8 @@ public class RecipeDomain extends BaseDomain {
         }
 
         query = "INSERT INTO APP.RECIPE"
-                + "(ID,SCORE,DESCRIPTION,DATEOFCREATION,\"NAME\")"
-                + "VALUES (" + recipe.getId() + ",'" + recipe.getScore() + "',"
+                + "(SCORE,DESCRIPTION,DATEOFCREATION,\"NAME\")"
+                + "VALUES ('" + recipe.getScore() + "',"
                 + "'" + recipe.getDescription() + "','" + TimeUtil.getTime() + "',"
                 + "'" + recipe.getName() + "')";
 

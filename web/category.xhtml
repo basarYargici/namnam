@@ -133,28 +133,31 @@
             </h:form>
         </div>
         <h:form>
-            <div class="container mt-5 pt-5 pb-5" >
-                <div class="wrapper-grey" style= " background-image: url('images/bosluk.jpg')" >
-                    <br/><h1 class="text-center" style=" font-size: 60px;">Kategoriler </h1>
-                    <div class="container">
-                        <h:form id="dataForm" >
-                            <div class="row">
-                                <c:forEach items="#{category.all.data}" var="item">
-                                    <div class="col-xs-12 col-sm-4 ">  
-                                        <h:outputLink value="categorydetail.xhtml">           
-                                        <div class="card"  style="background-image: url('${item.imageLink}');" >                                      
-                                            <div class="card-description">
-                                                <h:outputText value="${item.name}"  />
-                                            </div>	     
-                                        </div> 
-                                           </h:outputLink>
-                                    </div>
-                                </c:forEach>
-                            </div>
-                        </h:form>
+            <h:form id="dataForm" >
+                <div class="container mt-5 pt-5 pb-5" >
+                    <div class="wrapper-grey" style= " background-image: url('images/bosluk.jpg')" >
+                        <br/><h1 class="text-center" style=" font-size: 60px;">Kategoriler </h1>
+                        <div class="container">
+                            <h:form id="dataForm" >
+                                <div class="row">
+                                    <c:forEach items="#{category.all.data}" var="item">
+                                        <div class="col-xs-12 col-sm-4 ">  
+                                            <h:outputLink value="categorydetail.xhtml">           
+                                                <div class="card"  style="background-image: url('${item.imageLink}');" >                                      
+                                                    <div class="card-description">
+                                                        <h:outputText value="${item.name}"  />
+                                                    </div>	     
+                                                </div> 
+                                            </h:outputLink>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                            </h:form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </h:form>
+
             <br/><br/><br/><br/><br/>
 
             <!-- HEADER AND NAVBAR END-->

@@ -27,7 +27,7 @@
         </style>
     </h:head>
     <h:body style=" background-image: url('images/bg.png');">
-       <div class="container-fuly" style="background-color: #FEE6CE;">
+        <div class="container-fuly" style="background-color: #FEE6CE;">
             <h:form>
                 <div class="container" style="background-color: #FEE6CE;">
                     <div class="row align-items-center">
@@ -70,12 +70,12 @@
                             </ul>
                             <form class="d-flex">
                                 <h:inputText class="form-control me-2" value=""/>
-                                         <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
+                                <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
                             </form>
                         </div>
                     </div>
                 </nav> 
-      </h:form>
+            </h:form>
         </div>
         <!-- HEADER AND NAVBAR END-->
         <h:form>
@@ -87,25 +87,20 @@
                         <h:form>
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Kullanıcı Adı"/>
-                                <h:inputText class="form-control me-2" value="#{login.visitor.username}" required="true" requiredMessage="Bu alan zorunludur!" id="usernameInput"/>
-                                <h:message for="usernameInput" style="color: red; font-size: 10pt;" /><br />
+                                <h:inputText class="form-control me-2" value="#{login.visitor.username}" id="usernameInput"/>
                             </div>
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Şifre"/>
-                                <h:inputText class="form-control me-2" validator="#{login.validatePassword}" value="#{login.visitor.password}" required="true" requiredMessage="bir sifre girmelisiniz" id="passwordInput"/>
-                                <h:message for="passwordInput" style="color: red; font-size: 10pt;" /><br />
+                                <h:inputText class="form-control me-2" value="#{login.visitor.password}" id="passwordInput"/>
                             </div>                                            
 
                             <h:commandButton id="cmd" value="Giris Yap"  action="#{login.login()}"  class="btn btn-primary"/>
                             <h:outputText value="#{login.error_message}"/>
-
-                        </h:form>
-                        
+                        </h:form>                       
                     </div>
                 </div>
             </div><br/><br/>
-       
-      <footer style="background-color:#F08819;">
+            <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
                     <div class="col-10">
                         <div class="row justify-content-center">
@@ -138,6 +133,6 @@
                     </div>
                 </div>
             </footer>
-             </h:form>
+        </h:form>
     </h:body>
 </html>

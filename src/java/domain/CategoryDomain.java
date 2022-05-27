@@ -61,8 +61,8 @@ public class CategoryDomain extends BaseDomain {
         }
 
         query = "INSERT INTO APP.CATEGORY"
-                + "(ID,\"NAME\",IMAGE_LINK)"
-                + "VALUES (" + category.getId() + ",'" + category.getName()
+                + "(\"NAME\",IMAGELINK)"
+                + "VALUES ('" + category.getName()
                 + "', '" + category.getImageLink() + "')";
 
         try (Statement statement = connectionResult.data.createStatement()) {

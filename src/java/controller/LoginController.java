@@ -16,7 +16,7 @@
  */
 package controller;
 
-
+import domain.LoginDomain;
 import domain.VisitorDomain;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -34,71 +34,30 @@ import model.Visitor;
 @ManagedBean(name = "login")
 @SessionScoped
 public class LoginController {
-    
-    private Visitor visitor;
-    private String error_message;
 
-    public Visitor getVisitor() {
-        if (this.visitor == null){
-            this.visitor = new Visitor();
-        }
-        return visitor;
-    }
-
-    public void setVisitor(Visitor visitor) {
-        this.visitor = visitor;
-    }
-
-    public String getError_message() {
-        return error_message;
-    }
-
-    public void setError_message(String error_message) {
-        this.error_message = error_message;
-    }
-    
-    
-    
+    private final Visitor visitor;
     private final VisitorDomain visitorDomain;
+    private final LoginDomain loginDomain;
 
     public LoginController() {
+        this.visitor = new Visitor();
         this.visitorDomain = new VisitorDomain();
+        this.loginDomain = new LoginDomain(visitorDomain);
     }
 
-    public LoginController(VisitorDomain visitorDomain) {
-        this.visitorDomain = visitorDomain;
-    }
-
-
-    
-    public String login(){
-        
-        
-        if(this.visitor.getUsername().equals("kullanici") && this.visitor.getPassword().equals("parola123")){
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("valid_user", this.visitor);
-            setError_message("Giris Basarili");
-            return "/recipe";
-        }else{
-            setError_message("Hatali kullanici adi veya sifre");
-            return "/login";
-        }
+    public Visitor getVisitor() {
+        return visitor;
     }
 
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with login.getById(id).data
      *
-     * @param username
-     * @param password
-     * @return Success if no error occurs, with data is Visitor with id =: id .
-     * Error if any error occurs, with error message.
+     * @return Success if no error occurs, with boolean logged in data. Error if
+     * any error occurs, with error message.
      */
-    public Result signIn(String username, String password) {
-        Visitor temp = new Visitor();
-        temp.setUsername(username);
-        temp.setPassword(password);
-
-        return visitorDomain.getByCredentials(temp);
+    public Result signIn() {
+        return loginDomain.signIn(visitor);
     }
     
     public boolean validatePassword(FacesContext context, UIComponent cmp, Object value) throws ValidatorException {
@@ -116,24 +75,10 @@ public class LoginController {
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with login.getById(id).data
      *
-     * @param name
-     * @param surname
-     * @param mail
-     * @param username
-     * @param password
-     * @return Success if no error occurs, with data is Visitor with id =: id .
-     * Error if any error occurs, with error message.
+     * @return Success if no error occurs, with boolean logged in data. Error if
+     * any error occurs, with error message.
      */
-   
-    
-    public Result signUp(String name, String surname, String mail, String username, String password) {
-        Visitor temp = new Visitor();
-        temp.setName(name);
-        temp.setSurname(surname);
-        temp.setMail(mail);
-        temp.setUsername(username);
-        temp.setPassword(password);
-
-        return visitorDomain.save(temp);
+    public Result signUp() {
+        return loginDomain.signUp(visitor);
     }
 }
