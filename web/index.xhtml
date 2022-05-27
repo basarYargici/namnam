@@ -10,6 +10,7 @@
 
     <h:head>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputStylesheet library="css" name="style.css"/>
         <h:outputScript library="css" name="bootstrap.min2.css"/>
         <h:outputScript library="js" name="bootstrap.min2.js"/>
         <h:outputScript library="js" name="bootstrap.js"/>
@@ -18,21 +19,13 @@
         <h:outputScript library="js" name="jquery.min2.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
         <style>
-            .recipe:hover {
-                background-color: #c7c8ff; 
-                border-color: #fff;
+            h5, p,li{
+                font-family: govde;
+                color:black;
+            }
+            h1{
+                font-family: baslik;
 
-            }
-            .recipe{
-
-            }
-            .login:hover {
-                background-color: #96ff66;
-                border-color: #fff;
-            }
-            .signup:hover {
-                background-color: #ffec98; 
-                border-color: #fff;
             }
             .carousel .carousel-inner {	
                 text-align: center;
@@ -142,13 +135,13 @@
             }
         </style>
     </h:head>
-    <h:body>
-        <h1>
-            #{visitor.getAll().data}
-        </h1>
-        <div class="container-fuly" style="background-color: #fff;">
-            <h:form>
-                <div class="container" style="background-color: #fff;">
+    <h:body> 
+        <h:form>
+            <h2>
+                #{visitor.getAll().data}
+            </h2>
+            <div class="container-fuly" style="background-color: #FEE6CE;">
+                <div class="container" style="background-color: #FEE6CE;">            
                     <div class="row align-items-center">
                         <div class="col-md-9">                
                             <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
@@ -181,26 +174,28 @@
                                     <h:commandLink class="nav-link " action="/whatdoicook?faces-redirect=true">Ne Pişirsem?</h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="/recipebooks?faces-redirect=true">Tarif Defteri</h:commandLink>
+                                    <h:commandLink class="nav-link " action="/profile?faces-redirect=true">Profil</h:commandLink>
                                 </li>
                                 <li class="nav-item">
                                     <h:commandLink class="nav-link " action="/whoarewe?faces-redirect=true">Biz Kimiz?</h:commandLink>
                                 </li>
                             </ul>
                             <form class="d-flex">
-                            <h:inputText class="form-control me-2" value=""/>
-                                 <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button>      
+                                <h:inputText class="form-control me-2" value=""/>
+                                <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button>      
                             </form>
                         </div>
                     </div>
                 </nav>                
-            </h:form>
-        </div>
+
+            </div>
+        </h:form>
         <!-- HEADER AND NAVBAR END-->
 
 
         <br/>
         <h:form>
+
             <div class="container justify-content-between ">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -212,22 +207,19 @@
                         <div class="carousel-item active">
                             <h:graphicImage class="d-block w-100" url="/images/sliderornek1.png" height="500"/>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
+                          
                             </div>
                         </div>
                         <div class="carousel-item">
                             <h:graphicImage class="d-block w-100" url="/images/sliderornek2.png" height="500"/>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
+                            
                             </div>
                         </div>
                         <div class="carousel-item">
                             <h:graphicImage class="d-block w-100" url="/images/sliderornek3.jpg" height="500"/>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
+                               
                             </div>
                         </div>
                     </div>		
@@ -246,7 +238,7 @@
         <h:form>
             <div class="container-fuly mt-5 pt-5 pb-5">
                 <div class="wrapper-grey" style= " background-image: url('images/wallpaper.png');">
-                    <br/><h2 class="text-center">En Popüler Tarifler</h2>
+                    <br/><h1 class="text-center">En Popüler Tarifler</h1>
                     <div class="container">
                         <br/>
                         <div class="row">
@@ -327,7 +319,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-10">
-                        <h3 class="mb-3">En Yeni Tarifler </h3>
+                        <h1 class="mb-3">En Yeni Tarifler </h1>
                     </div>
                     <div class="col-2 ">
                         <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
@@ -348,7 +340,7 @@
                                             <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
                                             <div class="card-body">
                                                 <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -357,16 +349,16 @@
                                             <h:graphicImage class="img-fluid" url="/images/sliderornek2.png" />
                                             <div class="card-body">
                                                 <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                               
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card">
-                                            <h:graphicImage class="img-fluid" url="/images/sliderornek3.jpg" />
+                                            <h:graphicImage class="img-fluid" url="/images/hamurisi.jpg" />
                                             <div class="card-body">
                                                 <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -379,7 +371,7 @@
                                             <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
                                             <div class="card-body">
                                                 <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -388,16 +380,16 @@
                                             <h:graphicImage class="img-fluid" url="/images/sliderornek2.png" />
                                             <div class="card-body">
                                                 <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                              
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="card">
-                                            <h:graphicImage class="img-fluid" url="/images/sliderornek3.jpg" />
+                                            <h:graphicImage class="img-fluid" url="/images/hamurisi.jpg" />
                                             <div class="card-body">
                                                 <h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -411,13 +403,13 @@
         <h:form>
             <div class="container justify-content-between pt-5 pb-5 ">
                 <h:commandLink action="whatdoicook">
-                <div class="wrapper-grey carousel ">	
-                    <h:graphicImage class="d-block w-100" url="/images/slider1.jpg"/>
-                </div>
+                    <div class="wrapper-grey carousel ">	
+                        <h:graphicImage class="d-block w-100" url="/images/slider1.jpg"/>
+                    </div>
                 </h:commandLink>
             </div>
 
-           <footer style="background-color:#F08819;">
+            <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
                     <div class="col-10">
                         <div class="row justify-content-center">
@@ -442,7 +434,7 @@
                                 <ul class="list-unstyled">
                                     <li class="mt-md-3 mt-4"><br/></li>
                                     <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                    <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
+                                    
                                     <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
                                 </ul>
                             </div>
