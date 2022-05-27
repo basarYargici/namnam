@@ -20,8 +20,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.sql.rowset.CachedRowSet;
 import model.Error;
 import model.Result;
@@ -32,8 +30,6 @@ import model.Visitor;
  *
  * @author İ. BAŞAR YARGICI
  */
-@ManagedBean(name = "visitor")
-@SessionScoped
 public class VisitorDomain extends BaseDomain {
 
     CachedRowSet rowSet = null;
@@ -222,21 +218,20 @@ public class VisitorDomain extends BaseDomain {
             return new Error("connectionResult is null");
         }
 
-        query = "SELECT * FROM APP.VISITOR WHERE USERNAME ='" + visitor.getUsername()
-                + "' AND PASSWORD ='" + visitor.getPassword() + "'";
+        query = "SELECT * FROM APP.VISITOR WHERE USERNAME = '" + visitor.getUsername()
+                + "' AND PASSWORD = '" + visitor.getPassword() + "'";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
             Visitor temp = new Visitor();
 
-
             while (rs.next()) {
                 toVisitor(temp, rs);
             }
-            if (temp.getUsername()==null) {
+            if (temp.getUsername() == null) {
                 return new Error("Visitor could not found");
             }
-            
+
             return new Success(temp);
         } catch (SQLException e) {
             return new Error(e.getMessage());
@@ -247,8 +242,8 @@ public class VisitorDomain extends BaseDomain {
         temp.setId(rs.getInt("ID"));
         temp.setUsername(rs.getString("USERNAME"));
         temp.setPassword(rs.getString("PASSWORD"));
-        temp.setName(rs.getString("NAME"));
-        temp.setSurname(rs.getString("SURNAME"));
+        temp.setName(rs.getString("FIRSTNAME"));
+        temp.setSurname(rs.getString("LASTNAME"));
         temp.setMail(rs.getString("MAIL"));
     }
 }
