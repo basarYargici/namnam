@@ -49,37 +49,21 @@ public class LoginController {
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with login.getById(id).data
      *
-     * @return Success if no error occurs, with data is Visitor with id =: id .
-     * Error if any error occurs, with error message.
+     * @return Success if no error occurs, with boolean logged in data. Error if
+     * any error occurs, with error message.
      */
     public Result signIn() {
-        Visitor temp = new Visitor();
-        temp.setUsername(visitor.getUsername());
-        temp.setPassword(visitor.getPassword());
-
-        return loginDomain.signIn(temp);
+        return loginDomain.signIn(visitor);
     }
 
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with login.getById(id).data
      *
-     * @param name
-     * @param surname
-     * @param mail
-     * @param username
-     * @param password
-     * @return Success if no error occurs, with data is Visitor with id =: id .
-     * Error if any error occurs, with error message.
+     * @return Success if no error occurs, with boolean logged in data. Error if
+     * any error occurs, with error message.
      */
-    public Result signUp(String name, String surname, String mail, String username, String password) {
-        Visitor temp = new Visitor();
-        temp.setName(name);
-        temp.setSurname(surname);
-        temp.setMail(mail);
-        temp.setUsername(username);
-        temp.setPassword(password);
-
-        return visitorDomain.save(temp);
+    public Result signUp() {
+        return loginDomain.signUp(visitor);
     }
 }

@@ -61,7 +61,7 @@ public class VisitorDomain extends BaseDomain {
         }
 
         query = "INSERT INTO APP.VISITOR"
-                + "(USERNAME,PASSWORD,MAIL,\"NAME\",SURNAME)"
+                + "(USERNAME,PASSWORD,MAIL,FIRSTNAME,LASTNAME)"
                 + "VALUES ('" + visitor.getUsername() + "',"
                 + "'" + visitor.getPassword() + "','" + visitor.getMail() + "',"
                 + "'" + visitor.getName() + "','" + visitor.getSurname() + "')";
