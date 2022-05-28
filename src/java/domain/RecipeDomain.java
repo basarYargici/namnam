@@ -63,8 +63,8 @@ public class RecipeDomain extends BaseDomain {
         }
 
         query = "INSERT INTO APP.RECIPE"
-                + "(ID,SCORE,DESCRIPTION,DATEOFCREATION,\"NAME\")"
-                + "VALUES (" + recipe.getId() + ",'" + recipe.getScore() + "',"
+                + "(SCORE,DESCRIPTION,DATEOFCREATION,\"NAME\")"
+                + "VALUES ('" + recipe.getScore() + "',"
                 + "'" + recipe.getDescription() + "','" + TimeUtil.getTime() + "',"
                 + "'" + recipe.getName() + "')";
 
@@ -226,16 +226,19 @@ public class RecipeDomain extends BaseDomain {
         }
 
         // TODO Select top 10 latest recipe 
-        query = "SELECT * FROM APP.RECIPE";
+        query = "SELECT * FROM APP.RECIPE ORDER BY DATE_OF_CREATION DESC FETCH FIRST 10 ROWS ONLY" ;
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
-            Recipe temp = new Recipe();
-
+            Recipe temp;
+            recipeList.clear();  
+            
             while (rs.next()) {
+                temp = new Recipe();
                 toRecipe(temp, rs);
+                recipeList.add(temp);
             }
-            return new Success(temp);
+            return new Success(recipeList);
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
@@ -331,8 +334,9 @@ public class RecipeDomain extends BaseDomain {
         temp.setId(rs.getInt("ID"));
         temp.setScore(rs.getString("SCORE"));
         temp.setDescription(rs.getString("DESCRIPTION"));
-        temp.setDateOfCreation(rs.getDate("DATEOFCREATION"));
+        temp.setDateOfCreation(rs.getDate("DATE_OF_CREATION"));
         temp.setName(rs.getString("NAME"));
+         temp.setImageLink(rs.getString("IMAGE_LINK"));
     }
 
 }

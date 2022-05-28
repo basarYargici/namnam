@@ -27,7 +27,7 @@
         </style>
     </h:head>
     <h:body style=" background-image: url('images/bg.png');">
-       <div class="container-fuly" style="background-color: #FEE6CE;">
+        <div class="container-fuly" style="background-color: #FEE6CE;">
             <h:form>
                 <div class="container" style="background-color: #FEE6CE;">
                     <div class="row align-items-center">
@@ -62,7 +62,7 @@
                                     <h:commandLink class="nav-link " action="whatdoicook">Ne Pişirsem?</h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="recipebooks">Tarif Defteri</h:commandLink>
+                                    <h:commandLink class="nav-link " action="profile">Profil</h:commandLink>
                                 </li>
                                 <li class="nav-item">
                                     <h:commandLink class="nav-link " action="whoarewe">Biz Kimiz?</h:commandLink>
@@ -70,36 +70,36 @@
                             </ul>
                             <form class="d-flex">
                                 <h:inputText class="form-control me-2" value=""/>
-                                         <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
+                                <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
                             </form>
                         </div>
                     </div>
                 </nav> 
-      </h:form>
+            </h:form>
         </div>
         <!-- HEADER AND NAVBAR END-->
         <h:form>
             <br/><br/><br/>
             <div class="container mt-5 mb-5 d-flex justify-content-center">
-                <div class="card px-1 py-4 col-sm-5">
+                <div class="card px-1 py-4 col-sm-5" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;">
                     <div class="card-body">
                         <h1 style="text-align: center;"> Giriş Yap </h1> <br/>  
                         <h:form>
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Kullanıcı Adı"/>
-                                <h:inputText class="form-control me-2" value="#{login.username}" id="usernameInput"/>
+                                <h:inputText class="form-control me-2" value="#{login.visitor.username}" id="usernameInput"/>
                             </div>
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Şifre"/>
-                                <h:inputText class="form-control me-2" value="#{login.password}" id="passwordInput"/>
+                                <h:inputText class="form-control me-2" value="#{login.visitor.password}" id="passwordInput"/>
                             </div>                                            
                             <h:commandButton id="cmd" value="Giriş Yap" actionListener="#{login.signIn()}" action="index"  class="btn btn-primary"/>
                         </h:form>
                     </div>
                 </div>
             </div><br/><br/>
-       
-      <footer style="background-color:#F08819;">
+
+            <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
                     <div class="col-10">
                         <div class="row justify-content-center">
@@ -124,7 +124,7 @@
                                 <ul class="list-unstyled">
                                     <li class="mt-md-3 mt-4"><br/></li>
                                     <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                    <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
+                                
                                     <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
                                 </ul>
                             </div>
@@ -132,6 +132,6 @@
                     </div>
                 </div>
             </footer>
-             </h:form>
+        </h:form>
     </h:body>
 </html>
