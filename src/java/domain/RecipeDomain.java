@@ -226,7 +226,11 @@ public class RecipeDomain extends BaseDomain {
         }
 
         // TODO Select top 10 latest recipe 
-        query = "SELECT * FROM APP.RECIPE ORDER BY DATE_OF_CREATION DESC FETCH FIRST 10 ROWS ONLY" ;
+        query = "SELECT APP.RECIPE.*,APP.VISITOR.USERNAME as USERNAME,APP.CATEGORY.IMAGE_LINK as IMAGE FROM APP.RECIPE \n" +
+        "INNER JOIN VISITOR ON RECIPE.USER_ID=VISITOR.ID\n" +
+        "INNER JOIN CATEGORY ON RECIPE.CATEGORY_ID=CATEGORY.ID \n" +
+        "ORDER BY date_of_creation DESC\n" +
+        "FETCH FIRST 10 ROWS ONLY" ;
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
