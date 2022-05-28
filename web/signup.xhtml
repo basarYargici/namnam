@@ -104,11 +104,11 @@
                             </div>    
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Şifre"/>
-                                <h:inputText class="form-control me-2" value="#{login.visitor.password}" id="passwordInput">
+                                <h:inputSecret class="form-control me-2" value="#{login.visitor.password}" id="passwordInput">
                                     <f:validateLength minimum='6' maximum='18'/>
-                                </h:inputText>
+                                </h:inputSecret>
                             </div>    
-                            <button type="submit" class="btn btn-primary" onclick="#{login.signUp()}">Kayıt Ol</button>
+                            <h:commandButton class="btn" action="#{login.signUp()}" value= "Kayıt Ol" style="background-color:orange;"/>
                         </h:form>
                     </div>
                 </div>  

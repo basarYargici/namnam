@@ -91,7 +91,7 @@
                             </div>
                             <div class="mb-3 col-sm-12 ">
                                 <h:outputText value="Şifre"/>
-                                <h:inputText class="form-control me-2" value="#{login.visitor.password}" id="passwordInput"/>
+                                <h:inputSecret class="form-control me-2" value="#{login.visitor.password}" id="passwordInput"/>
                             </div>                                            
 
                             <h:commandButton id="cmd" value="Giriş Yap"  action="#{login.login()}"  class="btn " style=" background-color: orange"/>
