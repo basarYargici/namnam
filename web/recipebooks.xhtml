@@ -76,15 +76,9 @@
                         </div>
                     </div>
                 </nav> 
-<<<<<<< HEAD
        </div>
              <h:form><br/>
               <div class="container py-5" style="background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;" >
-=======
-            </div>
-            <h:form><br/>
-                <div class="container py-5" style="background-image: url('images/bosluk.jpg')" >
->>>>>>> be92de1c744ee426bb436b0598a3f7ede43c0b46
                     <h1> Tarif Defteri</h1> <hr/>
                     <div class="container col-md-8" > 
                        <h:commandLink class="nav-link " action="recipedetail.xhtml">
@@ -102,25 +96,7 @@
                                     </div>                                  
                                 </div>
                             </div> 
-                        </h:commandLink> 
-                        <h:form id="dataForm" >
-                            <div class="container mt-5 pt-5 pb-5" >
-                                <div class="wrapper-grey" style= " background-image: url('images/bosluk.jpg')" >
-                                    <br/><h1 class="text-center" style=" font-size: 60px;">Recipes </h1>
-                                    <div class="container">
-                                        <h:form id="dataForm" >
-                                            <div class="row">
-                                                <c:forEach items="#{recipe.all.data}" var="item">
-                                                    <div class="col-xs-12 col-sm-4 ">  
-                                                        <h:outputText value="${item.name}"  />
-                                                    </div>
-                                                </c:forEach>
-                                            </div>
-                                        </h:form>
-                                    </div>
-                                </div>
-                            </div>
-                        </h:form>
+                        </h:commandLink>                      
                         <br/> <br/> 
                         <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <div class="card">                      
@@ -128,13 +104,8 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
-<<<<<<< HEAD
-                                           <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
-                                              <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
-=======
                                             <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
                                             <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
->>>>>>> be92de1c744ee426bb436b0598a3f7ede43c0b46
                                         </div>
                                         <div class="col-md-3">
                                             <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg" />
@@ -146,38 +117,6 @@
 
                     </div>
                 </div>
-<<<<<<< HEAD
-             </h:form>
-                <footer style="background-color:#F08819;">
-                    <div class=" container justify-content-around mt-5">
-                        <div class="col-10">
-                            <div class="row justify-content-center">
-                                <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
-                                    <h5><span>
-                                            <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
-                                    <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
-                                    <small>Copyright.All Rights Resered. </small>
-                                </div>
-                                <div class="col-md-2 col-12  my-sm-0 mt-5">
-                                    <br/>
-                                </div>
-                                <div class="col-md-3 col-12 my-sm-0 mt-5">
-                                    <ul class="list-unstyled" >
-                                        <li class="mt-md-3 mt-4"><br/></li>
-                                        <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
-                                        <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
-                                        <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
-                                    </ul>
-                                </div>
-                                <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
-                                    <ul class="list-unstyled">
-                                        <li class="mt-md-3 mt-4"><br/></li>
-                                        <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                     
-                                        <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
-                                    </ul>
-                                </div>
-=======
             </h:form>
             <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
@@ -207,7 +146,6 @@
                                     <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
                                     <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
                                 </ul>
->>>>>>> be92de1c744ee426bb436b0598a3f7ede43c0b46
                             </div>
                         </div>
                     </div>
