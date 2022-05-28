@@ -29,9 +29,10 @@ public class Recipe {
     private Date dateOfCreation;
     private String score;
     private int categoryNo;
-    private int userId;
+    private int userId; 
+    private String imageLink;
 
-    public Recipe(int id, String name, String description, Date dateOfCreation, String score, int categoryNo, int userId) {
+    public Recipe(int id, String name, String description, Date dateOfCreation, String score, int categoryNo, int userId,String imageLink) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -39,6 +40,7 @@ public class Recipe {
         this.score = score;
         this.categoryNo = categoryNo;
         this.userId = userId;
+        this.imageLink = imageLink;
     }
 
     public Recipe() {   }
@@ -97,6 +99,13 @@ public class Recipe {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 
     

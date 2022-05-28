@@ -55,18 +55,10 @@
             .card-description p {
                 font-size: 15px;
             }
-            .card-link {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                width: 100%;
-                z-index:2;
-                background: black;
-                opacity: 0;
-            }
+            
 
             .card-link:hover{
-                opacity: 0.1;
+                opacity: 0.8;
             }
             .features img {
                 width: 100px;
@@ -117,7 +109,7 @@
                                     <h:commandLink class="nav-link " action="whatdoicook">Ne Pişirsem?</h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="recipebooks">Tarif Defteri</h:commandLink>
+                                    <h:commandLink class="nav-link " action="profile">Profil</h:commandLink>
                                 </li>
                                 <li class="nav-item">
                                     <h:commandLink class="nav-link " action="whoarewe">Biz Kimiz?</h:commandLink>
@@ -135,14 +127,14 @@
         <h:form>
             <h:form id="dataForm" >
                 <div class="container mt-5 pt-5 pb-5" >
-                    <div class="wrapper-grey" style= " background-image: url('images/bosluk.jpg')" >
+                    <div class="wrapper-grey" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;">
                         <br/><h1 class="text-center" style=" font-size: 60px;">Kategoriler </h1>
                         <div class="container">
                             <h:form id="dataForm" >
                                 <div class="row">
                                     <c:forEach items="#{category.all.data}" var="item">
                                         <div class="col-xs-12 col-sm-4 ">  
-                                            <h:outputLink value="categorydetail.xhtml">           
+                                            <h:outputLink value="categorydetail.xhtml" class="card-link">           
                                                 <div class="card"  style="background-image: url('${item.imageLink}');" >                                      
                                                     <div class="card-description">
                                                         <h:outputText value="${item.name}"  />
@@ -186,7 +178,7 @@
                                 <ul class="list-unstyled">
                                     <li class="mt-md-3 mt-4"><br/></li>
                                     <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                    <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
+
                                     <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
                                 </ul>
                             </div>

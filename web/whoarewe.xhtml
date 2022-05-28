@@ -11,14 +11,20 @@
     <h:head>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputScript library="js" name="bootstrap.min.js"/>
+        <h:outputStylesheet library="css" name="profile.css"/>
         <h:outputStylesheet library="css" name="style.css"/>
         <h:outputScript library="js" name="bootstrap.js"/>
         <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
-        <style>
-          
-
+        <style>      
+            h5, p,li,.yazi{
+                font-family: govde;
+                color:black;
+            }
+            h1{
+                font-family: baslik;
+            }
             .card {
                 background-color: #FEE6CE;
                 height: 37rem;
@@ -43,79 +49,6 @@
                 margin-top: 20px;
                 box-shadow: 0 10px 50px rgba(240, 136, 25, 1);
             }
-
-
-            .draw-border {
-                box-shadow: inset 0 0 0 4px #57170B;
-                color: #f08819;
-                -webkit-transition: color 0.25s 0.0833333333s;
-                transition: color 0.25s 0.0833333333s;
-                position: relative;
-            }
-
-            .draw-border::before,
-            .draw-border::after {
-                border: 0 solid transparent;
-                box-sizing: border-box;
-                content: '';
-                pointer-events: none;
-                position: absolute;
-                width: 0rem;
-                height: 0;
-                bottom: 0;
-                right: 0;
-            }
-
-            .draw-border::before {
-                border-bottom-width: 4px;
-                border-left-width: 4px;
-            }
-
-            .draw-border::after {
-                border-top-width: 4px;
-                border-right-width: 4px;
-            }
-
-            .draw-border:hover {
-                color: #96323c;
-            }
-
-            .draw-border:hover::before,
-            .draw-border:hover::after {
-                border-color: #f08819;
-                -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
-                transition: border-color 0s, width 0.25s, height 0.25s;
-                width: 100%;
-                height: 100%;
-            }
-
-            .draw-border:hover::before {
-                -webkit-transition-delay: 0s, 0s, 0.25s;
-                transition-delay: 0s, 0s, 0.25s;
-            }
-
-            .draw-border:hover::after {
-                -webkit-transition-delay: 0s, 0.25s, 0s;
-                transition-delay: 0s, 0.25s, 0s;
-            }
-
-            .bton {
-                background: none;
-                border: none;
-                cursor: pointer;
-                line-height: 1.5;
-                font: 700 1.2rem 'Roboto Slab', sans-serif;
-                padding: 0.75em 2em;
-                letter-spacing: 0.05rem;
-                margin: 1em;
-                width: 13rem;
-            }
-
-            .bton:focus {
-                outline: 2px dotted #57170B;
-            }
-
-
             .social-icons {
                 padding: 0;
                 list-style: none;
@@ -174,7 +107,7 @@
 
         </style>
     </h:head>
-    <h:body>
+    <h:body style= " background-image: url('images/bg.png');">
         <h:form>
             <div class="container-fuly" style="background-color: #FEE6CE;">
 
@@ -211,7 +144,7 @@
                                     <h:commandLink class="nav-link " action="whatdoicook">Ne Pişirsem?</h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="recipebooks">Tarif Defteri</h:commandLink>
+                                    <h:commandLink class="nav-link " action="profile">Profil </h:commandLink>
                                 </li>
                                 <li class="nav-item">
                                     <h:commandLink class="nav-link " action="whoarewe">Biz Kimiz?</h:commandLink>
@@ -224,11 +157,11 @@
                         </div>
                     </div>
                 </nav> 
-</div>
+            </div><br/>
 
-                <div class="container py-5 " >
-                    <h1 style="text-align: center; font-family: baslik; "> Biz Kimiz? </h1> <br/>
-                    <div class="row justify-content-center align-items-center">
+            <div class="container py-5" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;">
+                <h1 style="text-align: center; font-family: baslik; "> Biz Kimiz? </h1> <br/>
+                <div class="row justify-content-center align-items-center">
                     <div class=" col-md-3 card " >
                         <h:graphicImage  url="/images/zeynep.png" alt="Person" class="card__image"/>
                         <p class="card__name" style="color:#f08819; font-family: baslik;">Fatma Zeynep Çelikten</p>
@@ -238,17 +171,16 @@
                                 <p style="color:#57170B; font-family: govde; ">  Hakkımda bir şeyler bir şeyler</p>
                             </div>
                         </div>
-                             <ul class="social-icons">
-                                 <li>
-                                     
-                                     <h:outputLink value="www.linkedin.com/in/fatma-zeynep-çelikten-507787218">
-                                         <i class="fa fa-linkedin">in </i>
-                                     </h:outputLink>
-                                 </li>
-                            </ul>
-                            <button class="bton draw-border">1306191445</button>
+                        <ul class="social-icons">
+                            <li>
+                                <h:outputLink  value="https://www.linkedin.com/in/fatmazeynepcelikten" target="_blank">
+                                    <i class="fa fa-linkedin">in </i>
+                                </h:outputLink>
+                            </li>
+                        </ul>
+                        <button class="bton draw-border">1306191445</button>
 
-                        </div> &nbsp;&nbsp;
+                    </div> &nbsp;&nbsp;
                     <div class=" col-md-3 card" >
                         <h:graphicImage  url="/images/fatih.png" alt="Person" class="card__image"/>
                         <p class="card__name" style="color:#f08819; font-family: baslik;">Fatih Salınmaz</p>
@@ -258,19 +190,19 @@
                                 <p style="color:#57170B; font-family: govde;">  Hakkımda bir şeyler bir şeyler</p>
                             </div>
                         </div>
-                            <ul class="social-icons">
-                                <li>
-                                    <h:outputLink value="https://www.linkedin.com/in/fatih-sal%C4%B1nmaz/" target="">
-                                         <i class="fa fa-linkedin">in </i>
-                                     </h:outputLink>
-                                 </li>
-                            </ul>
-                            <button class="bton draw-border">1306191462</button>
+                        <ul class="social-icons">
+                            <li>
+                                <h:outputLink value="https://www.linkedin.com/in/fatih-sal%C4%B1nmaz/" target="_blank">
+                                    <i class="fa fa-linkedin">in </i>
+                                </h:outputLink>
+                            </li>
+                        </ul>
+                        <button class="bton draw-border">1306191462</button>
 
-                        </div>&nbsp;&nbsp;
-                   
-                <div class=" col-md-3 card"  >
-                        <h:graphicImage  url="/images/zeynep.png" alt="Person" class="card__image"/>
+                    </div>&nbsp;&nbsp;
+
+                    <div class=" col-md-3 card"  >
+                        <h:graphicImage  url="/images/basar.png" alt="Person" class="card__image"/>
                         <p class="card__name" style="color:#f08819; font-family: baslik;">İbrahim Başar Yargıcı</p>
                         <div class="grid-container">
 
@@ -278,54 +210,54 @@
                                 <p style="color:#57170B; font-family: govde;">  Hakkımda bir şeyler bir şeyler</p>
                             </div>
                         </div>
-                            <ul class="social-icons">
-                                <li>
-                                     <h:outputLink value="https://www.linkedin.com/in/fatih-sal%C4%B1nmaz/">
-                                         <i class="fa fa-linkedin"> in</i>
-                                     </h:outputLink>
-                                 </li>
-                            </ul>
-                            <button class="bton draw-border">1306191445</button>
+                        <ul class="social-icons">
+                            <li>
+                                <h:outputLink target="_blank" value="https://www.linkedin.com/in/ibrahimbasaryargici">
+                                    <i class="fa fa-linkedin"> in</i>
+                                </h:outputLink>
+                            </li>
+                        </ul>
+                        <button class="bton draw-border">1306191467</button>
 
-                        </div>&nbsp;&nbsp;
-                    </div>
+                    </div>&nbsp;&nbsp;
                 </div>
-                   
-                
-                    <footer style="background-color:#F08819;">
-                        <div class=" container justify-content-around mt-5">
-                            <div class="col-10">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
-                                        <h5><span>
-                                                <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
-                                        <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
-                                        <small>Copyright.All Rights Resered. </small>
-                                    </div>
-                                    <div class="col-md-2 col-12  my-sm-0 mt-5">
-                                        <br/>
-                                    </div>
-                                    <div class="col-md-3 col-12 my-sm-0 mt-5">
-                                        <ul class="list-unstyled" >
-                                            <li class="mt-md-3 mt-4"><br/></li>
-                                            <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
-                                            <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
-                                            <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
-                                        <ul class="list-unstyled">
-                                            <li class="mt-md-3 mt-4"><br/></li>
-                                            <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                            <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
-                                            <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
-                                        </ul>
-                                    </div>
-                                </div>
+            </div>
+
+
+            <footer style="background-color:#F08819;">
+                <div class=" container justify-content-around mt-5">
+                    <div class="col-10">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
+                                <h5><span>
+                                        <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
+                                <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
+                                <small>Copyright.All Rights Resered. </small>
+                            </div>
+                            <div class="col-md-2 col-12  my-sm-0 mt-5">
+                                <br/>
+                            </div>
+                            <div class="col-md-3 col-12 my-sm-0 mt-5">
+                                <ul class="list-unstyled" >
+                                    <li class="mt-md-3 mt-4"><br/></li>
+                                    <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
+                                    <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
+                                    <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
+                                </ul>
+                            </div>
+                            <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
+                                <ul class="list-unstyled">
+                                    <li class="mt-md-3 mt-4"><br/></li>
+                                    <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
+                               
+                                    <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
+                                </ul>
                             </div>
                         </div>
-                    </footer>
-              
+                    </div>
+                </div>
+            </footer>
+
         </h:form>
     </h:body>
 

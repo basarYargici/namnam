@@ -30,7 +30,6 @@
     <h:body style=" background-image: url('images/bg.png');">
         <h:form>
             <div class="container-fuly" style="background-color: #FEE6CE;">
-
                 <div class="container" style="background-color: #FEE6CE;">
                     <div class="row align-items-center">
                         <div class="col-md-9">                
@@ -64,7 +63,7 @@
                                     <h:commandLink class="nav-link " action="whatdoicook">Ne Pişirsem?</h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="recipebooks">Tarif Defteri</h:commandLink>
+                                    <h:commandLink class="nav-link " action="profile">Profil </h:commandLink>
                                 </li>
                                 <li class="nav-item">
                                     <h:commandLink class="nav-link " action="whoarewe">Biz Kimiz?</h:commandLink>
@@ -77,19 +76,19 @@
                         </div>
                     </div>
                 </nav> 
-            </div>
-            <h:form><br/>
-                <div class="container py-5" style="background-image: url('images/bosluk.jpg')" >
+       </div>
+             <h:form><br/>
+              <div class="container py-5" style="background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;" >
                     <h1> Tarif Defteri</h1> <hr/>
                     <div class="container col-md-8" > 
-                        <h:commandLink class="nav-link " action="recipedetail.xhtml">
+                       <h:commandLink class="nav-link " action="recipedetail.xhtml">
                             <div class="card">                      
                                 <div class="card-body">  
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5 class="card-title "><h:outputText value="Tarif Adı" style="font-family: govde;"/></h5>
-                                            <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
-                                            <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
+                                           <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
+                                              <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
                                         </div>
                                         <div class="col-md-3">
                                             <h:graphicImage class="img-fluid mb-1" url="/images/anayemek.jpg" />

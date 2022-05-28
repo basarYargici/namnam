@@ -10,31 +10,28 @@
 
     <h:head>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
+         <h:outputStylesheet library="css" name="style.css"/>
+         <h:outputStylesheet library="css" name="profile.css"/>
         <h:outputScript library="js" name="bootstrap.min.js"/>
         <h:outputScript library="js" name="bootstrap.js"/>
         <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
         <style>
-            .recipe:hover {
-                background-color: #c7c8ff; 
-                border-color: #fff;
-
+            h5, p,li,.yazi{
+                font-family: govde;
+                color:black;
             }
-            .login:hover {
-                background-color: #96ff66;
-                border-color: #fff;
+            h1{
+                font-family: baslik;
             }
-            .signup:hover {
-                background-color: #ffec98; 
-                border-color: #fff;
-            }
+           
         </style>
     </h:head>
-    <h:body>
-          <h:form>
-       <div class="container-fuly" style="background-color: #FEE6CE;">
-          
+    <h:body style= " background-image: url('images/bg.png');">
+        <h:form>
+            <div class="container-fuly" style="background-color: #FEE6CE;">
+
                 <div class="container" style="background-color: #FEE6CE;">
                     <div class="row align-items-center">
                         <div class="col-md-9">                
@@ -68,7 +65,7 @@
                                     <h:commandLink class="nav-link " action="whatdoicook">Ne Pişirsem?</h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="recipebooks">Tarif Defteri</h:commandLink>
+                                    <h:commandLink class="nav-link " action="profile">Profil </h:commandLink>
                                 </li>
                                 <li class="nav-item">
                                     <h:commandLink class="nav-link " action="whoarewe">Biz Kimiz?</h:commandLink>
@@ -76,13 +73,41 @@
                             </ul>
                             <form class="d-flex">
                                 <h:inputText class="form-control me-2" value=""/>
-                                        <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
+                                <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
                             </form>
                         </div>
                     </div>
                 </nav> 
-       </div>
-                 <footer style="background-color:#F08819;">
+            </div>
+            <div class="container py-5" >
+                <div class="row py-3" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;">
+                    <h1 align="center" style=" font-family: baslik; font-size: 60px;"> <h:outputText value="Profil">  </h:outputText></h1>
+                    <h:form>
+                        <div class="row">
+                        <div class="mb-3 col-sm-2 "> <h:outputText class="yazi" value="Ad: "/>    </div>
+                         <div class="mb-3 col-sm-3 ">    <h:outputText class="yazi"  value="Zeynep"/> </div>
+                         </div>
+                         <div class="row">
+                        <div class="mb-3 col-sm-2 "> <h:outputText class="yazi"  value="Soyad:  "/>    </div>
+                         <div class="mb-3 col-sm-3 ">    <h:outputText class="yazi"  value="Çelikten"/> </div>
+                         </div>
+                         <div class="row">
+                        <div class="mb-3 col-sm-2 "> <h:outputText class="yazi"  value="Kullanıcı Adı:  "/>    </div>
+                         <div class="mb-3 col-sm-3 ">    <h:outputText class="yazi"  value="Kullanıcı adı"/> </div>
+                         </div>
+                         <div class="row">
+                        <div class="mb-3 col-sm-2 "> <h:outputText class="yazi"  value="E-posta Adresi: "/>    </div>
+                         <div class="mb-3 col-sm-3 ">    <h:outputText class="yazi"  value="E-posta Adresi"/> </div>
+                         </div>    
+                        <div class="mb-3 col-sm-12 ">
+                            <h:button class="bton draw-border yazi" outcome="recipebooks" value="Tarif Defteri"/>
+                        </div> 
+                    </h:form>
+                </div>
+
+
+            </div>
+            <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
                     <div class="col-10">
                         <div class="row justify-content-center">
@@ -107,7 +132,6 @@
                                 <ul class="list-unstyled">
                                     <li class="mt-md-3 mt-4"><br/></li>
                                     <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                    <li><h:commandLink  action="recipebooks" style="color:black;">Tarif Defteri</h:commandLink></li>
                                     <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
                                 </ul>
                             </div>
@@ -115,7 +139,7 @@
                     </div>
                 </div>
             </footer>
-            </h:form>
+        </h:form>
     </h:body>
 
 
