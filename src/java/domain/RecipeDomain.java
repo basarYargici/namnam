@@ -331,7 +331,7 @@ public class RecipeDomain extends BaseDomain {
         temp.setId(rs.getInt("ID"));
         temp.setScore(rs.getString("SCORE"));
         temp.setDescription(rs.getString("DESCRIPTION"));
-        temp.setDateOfCreation(rs.getDate("DATEOFCREATION"));
+        temp.setDateOfCreation(rs.getDate("DATE_OF_CREATION"));
         temp.setName(rs.getString("NAME"));
     }
 
