@@ -155,8 +155,8 @@ public class CategoryDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "UPDATE APP.CATEGPRY "
-                + "SET \"NAME\" = '" + category.getName() + "', IMAGELINK = "
+        query = "UPDATE APP.CATEGORY "
+                + "SET \"NAME\" = '" + category.getName() + "', IMAGE_LINK = "
                 + "'" + category.getImageLink() + "' WHERE id = " + category.getId();
 
         try (Statement statement = connectionResult.data.createStatement()) {
