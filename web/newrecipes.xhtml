@@ -29,21 +29,23 @@
     </h:head>
     <h:body style=" background-image: url('images/bg.png');">
         <h:form>
-            <div class="container-fuly" style="background-color: #FEE6CE;">
-
-                <div class="container" style="background-color: #FEE6CE;">
+           <div class="container-fuly" style="background-color: #f9f5cf;">
+                <div class="container" style="background-color: #f9f5cf;">            
                     <div class="row align-items-center">
-                        <div class="col-md-9">                
-                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
-                        <div class="col-md-3">
-                             <h:form class="d-flex"> 
-                                <h:commandLink class="btn recipe" id="recipebutton" action="recipe"> <h:graphicImage  width="100" url="/images/recipe3.png"  /> </h:commandLink>
-                                <h:commandLink class="btn login" id="loginbutton" action="login"> <h:graphicImage  width="100" url="/images/login3.png"  /> </h:commandLink>
-                                <h:commandLink class="btn signup" id="signupbutton" action="signup" ><h:graphicImage  width="100" url="/images/signup3.png"  /></h:commandLink>                                
-                            </h:form>	 
-                        </div>	
+                        <div class="col-md-7">                
+                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink>
+                        </div>
+                        <h:form class="d-flex ">
+                            <div class="col-md-5">
+                                <h:form class="d-flex"> 
+                                    <h:commandButton class="btn recipe" id="recipebutton" action="/recipe?faces-redirect=true" image="/images/tarif.png"  ></h:commandButton>
+                                    <h:commandButton class="btn login" id="loginbutton" action="/login?faces-redirect=true" image="/images/login.png"  ></h:commandButton>
+                                    <h:commandButton class="btn signup" id="signupbutton" action="/signup?faces-redirect=true" image="/images/sign.png"  ></h:commandButton>                                                              
+                                </h:form>	 
+                            </div>	
+                        </h:form>
                     </div>
-                </div>
+                </div> 
                 <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light"  style="background-color: #f08819;">
                     <div class="container justify-content-between ">
                         <div class="collapse navbar-collapse " id="navbarSupportedContent">
@@ -86,18 +88,15 @@
                                 <div class="row">
                                     <c:forEach items="#{recipe.latest.data}" var="item">
                                         <div class="col-xs-12 col-sm-4 ">  
-                                            <h:outputLink value="recipedetail.xhtml" class="card-link">           
-                                                <div class="card" style="width: 14rem;">    
+                                            <h:outputLink value="recipedetail.xhtml" class="card-link" style=" color:black;  text-decoration: none; ">           
+                                                <div class="card" style="width: 14rem; height: 18rem;">    
                                                     <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}"/>
                                                     <div class="card-body">
                                                         <h5 class="card-title "><h:outputText value="${item.name}" style="font-family: govde;"/></h5>
-                                                        <p class="card-text"><h:outputText value="${item.score}" style="font-family: govde;"/></p>
-                                                        <p class="card-text"><h:outputText value="${item.id}" style="font-family: govde;"/></p>
-
-                                                        <p class="card-text"><h:outputText value="${item.imageLink}" style="font-family: govde;"/></p>
+                                                        <p class="card-text" style="font-family: serif"> Puanı: <h:outputText value="${item.score}"/></p>
                                                     </div>
                                                 </div> 
-                                            </h:outputLink>
+                                            </h:outputLink><br/><br/>
                                         </div>
                                     </c:forEach>
                                 </div>
@@ -107,36 +106,21 @@
 
                     <div class="container col-md-3">
                         <h1 style="font-family: baslik;">Popüler Tarifler</h1> <br/>
+                        <c:forEach items="#{recipe.popular.data}" var="item">
                         <div class="card">
                             <div class="card-body">
                                 <h:commandLink class="nav-link " action="recipedetail.xhtml">
+                                     <p> ${item.name}</p> 
                                     <div class="row ">
-                                        <div class="col-md-1"> <h3> 1 </h3> </div>
-                                        <div class="col-md-1">   <h:graphicImage width= "150" url="/images/anayemek.jpg"/> </div> </div><br/> 
+                                       
+                                        <div class="col-md-1">   <h:graphicImage width= "150" url="${item.imageLink}"/> </div> </div><br/> 
                                 </h:commandLink>
-                                <h:commandLink class="nav-link " action="recipedetail.xhtml">
-                                    <div class="row ">
-                                        <div class="col-md-1"> <h3> 2 </h3> </div>
-                                        <div class="col-md-1">   <h:graphicImage width= "150" url="/images/anayemek.jpg"/> </div> </div><br/> 
-                                </h:commandLink>
-                                <h:commandLink class="nav-link " action="recipedetail.xhtml">
-                                    <div class="row ">
-                                        <div class="col-md-1"> <h3> 3 </h3> </div>
-                                        <div class="col-md-1">   <h:graphicImage width= "150" url="/images/anayemek.jpg"/> </div> </div><br/> 
-                                </h:commandLink>
-                                <h:commandLink class="nav-link " action="recipedetail.xhtml">
-                                    <div class="row ">
-                                        <div class="col-md-1"> <h3> 4 </h3> </div>
-                                        <div class="col-md-1">   <h:graphicImage width= "150" url="/images/anayemek.jpg"/> </div> </div><br/> 
-                                </h:commandLink>
-                                <h:commandLink class="nav-link " action="recipedetail.xhtml">
-                                    <div class="row ">
-                                        <div class="col-md-1"> <h3> 5 </h3> </div>
-                                        <div class="col-md-1">   <h:graphicImage width= "150" url="/images/anayemek.jpg"/> </div> </div><br/> 
-                                </h:commandLink>
+                               
                             </div>
                         </div>
+                             </c:forEach>
                     </div>
+   
                 </div>
             </div>  <br/><br/>
 

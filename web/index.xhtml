@@ -28,7 +28,7 @@
 
             }
             .cerceve {
-                border: #864b15; border-style: solid; border-width: 8px;
+                border: #f08819; border-style: solid; border-width: 8px;
             }
             .carousel .carousel-inner {	
                 text-align: center;
@@ -42,9 +42,9 @@
                 margin: 25px 0 50px;
                 background:transparent;
                 position: relative;
-     
+
                 box-shadow: 0 0 1px rgba(0,0,0,0.3);
-                
+
             }
             .carousel:before, .carousel:after {
                 z-index: -1; 
@@ -139,7 +139,7 @@
             }
         </style>
     </h:head>
-   <h:body style=" background-image: url('images/bg1_1.png');">
+    <h:body style=" background-image: url('images/bg7.png');">
         <h:form>
             <h2>
                 #{visitor.getAll().data}
@@ -150,55 +150,53 @@
                         <div class="col-md-7">                
                             <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink>
                         </div>
-
-                            <h:form class="d-flex ">
+                        <h:form class="d-flex ">
                             <div class="col-md-5">
-                                
-                            <h:form class="d-flex"> 
-                                <h:commandLink class="btn recipe" id="recipebutton" action="recipe"> <h:graphicImage  width="100" url="/images/recipe3.png"  /> </h:commandLink>
-                                <h:commandLink class="btn login" id="loginbutton" action="login"> <h:graphicImage  width="100" url="/images/login3.png"  /> </h:commandLink>
-                                <h:commandLink class="btn signup" id="signupbutton" action="signup" ><h:graphicImage  width="100" url="/images/signup3.png"  /></h:commandLink>                                
-                            </h:form>	 
-                        </div>	
+                                <h:form class="d-flex"> 
+                                    <h:commandButton class="btn recipe" id="recipebutton" action="/recipe?faces-redirect=true" image="/images/tarif.png"  ></h:commandButton>
+                                    <h:commandButton class="btn login" id="loginbutton" action="/login?faces-redirect=true" image="/images/login.png"  ></h:commandButton>
+                                    <h:commandButton class="btn signup" id="signupbutton" action="/signup?faces-redirect=true" image="/images/sign.png"  ></h:commandButton>                                                              
+                                </h:form>	 
+                            </div>	
                         </h:form>
-                   </div>
-                </div> 
-            <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light"  style="background-color: #f08819;">
-                <div class="container justify-content-between ">
-                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <h:commandLink class="nav-link " action="/index?faces-redirect=true"> Ana Sayfa </h:commandLink>
-                            </li>
-                            <li class="nav-item">
-                                <h:commandLink class="nav-link " action="/category?faces-redirect=true"> Kategoriler </h:commandLink>
-                            </li>
-                            <li class="nav-item">
-                                <h:commandLink class="nav-link " action="/trends?faces-redirect=true">Trendler</h:commandLink>
-                            </li>
-                            <li class="nav-item">
-                                <h:commandLink class="nav-link " action="/newrecipes?faces-redirect=true">Yeni Eklenenler </h:commandLink>
-                            </li>
-                            <li class="nav-item">
-                                <h:commandLink class="nav-link " action="/whatdoicook?faces-redirect=true">Ne Pişirsem?</h:commandLink>
-                            </li>
-                            <li class="nav-item">
-                                <h:commandLink class="nav-link " action="/profile?faces-redirect=true">Profil</h:commandLink>
-                            </li>
-                            <li class="nav-item">
-                                <h:commandLink class="nav-link " action="/whoarewe?faces-redirect=true">Biz Kimiz?</h:commandLink>
-                            </li>
-                        </ul>
-                        <form class="d-flex">
-                            <h:inputText class="form-control me-2" value=""/>
-                            <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button>      
-                        </form>
                     </div>
-                </div>
-            </nav>                
+                </div> 
+                <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light"  style="background-color: #f08819;">
+                    <div class="container justify-content-between ">
+                        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/index?faces-redirect=true"> Ana Sayfa </h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/category?faces-redirect=true"> Kategoriler </h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/trends?faces-redirect=true">Trendler</h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/newrecipes?faces-redirect=true">Yeni Eklenenler </h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/whatdoicook?faces-redirect=true">Ne Pişirsem?</h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/profile?faces-redirect=true">Profil</h:commandLink>
+                                </li>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link " action="/whoarewe?faces-redirect=true">Biz Kimiz?</h:commandLink>
+                                </li>
+                            </ul>
+                            <form class="d-flex">
+                                <h:inputText class="form-control me-2" value=""/>
+                                <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button>      
+                            </form>
+                        </div>
+                    </div>
+                </nav>                
 
             </div>
-              
+
 
         </h:form>
         <!-- HEADER AND NAVBAR END-->
@@ -248,7 +246,7 @@
         <!--SLIDER END-->
         <h:form>
             <div class="container mt-5 pt-5 pb-5">
-                <div class="wrapper-grey" style="background-color:#f9f5cf; border: #864b15; border-style: solid; border-width: 8px;">
+                <div class="wrapper-grey" style="background-color:#f9f5cf; border: #f08819; border-style: solid; border-width: 8px;">
                     <br/><h1 class="text-center">En Popüler Tarifler</h1>
                     <div class="container">
                         <br/>
@@ -327,83 +325,84 @@
             </div>
         </h:form>
         <section class="pt-5 pb-5">
-            
+
             <div class="container mt-5 pt-5 pb-5">
-                 <div class="wrapper-grey" style="background-color:#f9f5cf; border: #864b15; border-style: solid; border-width: 8px;">
-                <br/>
-                     <div class="row">
-                    <div class="col-10">
-                        <h1 class="mb-3">&nbsp;&nbsp; En Yeni Tarifler </h1>
+                <div class="wrapper-grey" style="background-color:#f9f5cf; border: #f08819; border-style: solid; border-width: 8px;">
+                    <br/>
+                    <div class="row">
+                        <div class="col-10">
+                            <h1 class="mb-3">&nbsp;&nbsp; En Yeni Tarifler </h1>
+                        </div>
+                        <div class="col-2 ">
+                            <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                                <i class="fa fa-arrow-left">&lt; </i>
+                            </a>
+                            <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                                <i class="fa fa-arrow-right">&gt;</i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-2 ">
-                        <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                            <i class="fa fa-arrow-left">&lt; </i>
-                        </a>
-                        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                            <i class="fa fa-arrow-right">&gt;</i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
+                    <div class="col-12">
+                        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <h:graphicImage class="img-fluid" url="/images/sliderornek2.png" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <h:graphicImage class="img-fluid" url="/images/sliderornek2.png" />
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <h:graphicImage class="img-fluid" url="/images/hamurisi.jpg" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <h:graphicImage class="img-fluid" url="/images/hamurisi.jpg" />
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <h:graphicImage class="img-fluid" url="/images/sliderornek2.png" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <h:graphicImage class="img-fluid" url="/images/sliderornek2.png" />
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <h:graphicImage class="img-fluid" url="/images/hamurisi.jpg" />
-                                            <div class="card-body">
-                                                <h4 class="card-title">Special title treatment</h4>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
+                                                <h:graphicImage class="img-fluid" url="/images/hamurisi.jpg" />
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -412,7 +411,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </section>
         <h:form>

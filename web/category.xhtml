@@ -74,19 +74,22 @@
         </style>
     </h:head>
     <h:body style=" background-image: url('images/bg.png');">
-        <div class="container-fuly" style="background-color: #FEE6CE;">
+        <div class="container-fuly" style="background-color: #f9f5cf;">
             <h:form>
-                <div class="container" style="background-color: #FEE6CE;">
+                <div class="container" style="background-color: #f9f5cf;">
                     <div class="row align-items-center">
-                        <div class="col-md-9">                
-                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
-                        <div class="col-md-3">
-                             <h:form class="d-flex"> 
-                                <h:commandLink class="btn recipe" id="recipebutton" action="recipe"> <h:graphicImage  width="100" url="/images/recipe3.png"  /> </h:commandLink>
-                                <h:commandLink class="btn login" id="loginbutton" action="login"> <h:graphicImage  width="100" url="/images/login3.png"  /> </h:commandLink>
-                                <h:commandLink class="btn signup" id="signupbutton" action="signup" ><h:graphicImage  width="100" url="/images/signup3.png"  /></h:commandLink>                                
-                            </h:form>		 
-                        </div>	
+                        <div class="col-md-7">                
+                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink>
+                        </div>
+                        <h:form class="d-flex ">
+                            <div class="col-md-5">
+                                <h:form class="d-flex"> 
+                                    <h:commandButton class="btn recipe" id="recipebutton" action="/recipe?faces-redirect=true" image="/images/tarif.png"  ></h:commandButton>
+                                    <h:commandButton class="btn login" id="loginbutton" action="/login?faces-redirect=true" image="/images/login.png"  ></h:commandButton>
+                                    <h:commandButton class="btn signup" id="signupbutton" action="/signup?faces-redirect=true" image="/images/sign.png"  ></h:commandButton>                                                              
+                                </h:form>	 
+                            </div>	
+                        </h:form>
                     </div>
                 </div>
                 <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light"  style="background-color: #f08819;">

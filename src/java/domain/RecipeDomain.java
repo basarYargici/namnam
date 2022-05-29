@@ -128,14 +128,15 @@ public class RecipeDomain extends BaseDomain {
         // Select top 5 randrom        
         query = "SELECT r.*, c.IMAGE_LINK "
                 + "FROM RECIPE r, CATEGORY c "
-                + "WHERE r.CATEGORY_ID = c.ID "
+                + "WHERE r.CATEGORY_ID = c.ID AND SCORE>=4  "
                 + "ORDER BY date_of_creation DESC "
                 + "FETCH FIRST 5 ROWS ONLY";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
             Recipe temp;
-
+            recipeList.clear();
+            
             while (rs.next()) {
                 temp = new Recipe();
                 toRecipe(temp, rs);

@@ -112,4 +112,8 @@ public class RecipeController {
     public Result getLatest() {
         return recipeDomain.getLatestList();
     }
+    
+     public Result getPopular() {
+        return recipeDomain.getPopular();
+    }
 }
