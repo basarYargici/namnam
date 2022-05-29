@@ -23,16 +23,17 @@ import java.util.Date;
  * @author İ. BAŞAR YARGICI
  */
 public class Recipe {
+
     private int id;
     private String name;
     private String description;
     private Date dateOfCreation;
     private String score;
     private int categoryNo;
-    private int userId; 
+    private int userId;
     private String imageLink;
 
-    public Recipe(int id, String name, String description, Date dateOfCreation, String score, int categoryNo, int userId,String imageLink) {
+    public Recipe(int id, String name, String description, Date dateOfCreation, String score, int categoryNo, int userId, String imageLink) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -43,7 +44,8 @@ public class Recipe {
         this.imageLink = imageLink;
     }
 
-    public Recipe() {   }
+    public Recipe() {
+    }
 
     public int getId() {
         return id;
@@ -100,6 +102,7 @@ public class Recipe {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
     public String getImageLink() {
         return imageLink;
     }
@@ -108,5 +111,4 @@ public class Recipe {
         this.imageLink = imageLink;
     }
 
-    
 }
