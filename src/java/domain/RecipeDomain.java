@@ -147,36 +147,7 @@ public class RecipeDomain extends BaseDomain {
      * @return Success if no error occurs, with data of List of Recipes. Error
      * if any error occurs, with error message.
      */
-    public Result getPopularRandom() { //yeni eklenenler sayfasında kullanılacak
-        if (dataSourceResult.isSuccess == false) {
-            return dataSourceResult;
-        }
-        if (connectionResult.isSuccess == false) {
-            return connectionResult;
-        }
-
-        // Select top 5 randrom        
-        query = "SELECT r.*, c.IMAGE_LINK "
-                + "FROM RECIPE r, CATEGORY c "
-                + "WHERE r.CATEGORY_ID = c.ID AND SCORE>=4  "
-                + "ORDER BY date_of_creation DESC "
-                + "FETCH FIRST 5 ROWS ONLY";
-
-        try (Statement statement = connectionResult.data.createStatement()) {
-            ResultSet rs = statement.executeQuery(query);
-            Recipe temp;
-            recipeList.clear();
-
-            while (rs.next()) {
-                temp = new Recipe();
-                toRecipe(temp, rs);
-                recipeList.add(temp);
-            }
-            return new Success(recipeList);
-        } catch (SQLException e) {
-            return new Error(e.getMessage());
-        }
-    }
+   
 
     public Result getPopular() { //trends sayfasında kullanılacak
         if (dataSourceResult.isSuccess == false) {

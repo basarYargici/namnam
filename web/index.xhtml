@@ -6,7 +6,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
@@ -113,18 +114,9 @@
             .card-description p {
                 font-size: 15px;
             }
-            .card-link {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                width: 100%;
-                z-index:2;
-                background: black;
-                opacity: 0;
-            }
 
-            .card-link:hover{
-                opacity: 0.1;
+            .linkcik:hover{
+                opacity: 0.8;
             }
             .features img {
                 width: 100px;
@@ -251,68 +243,16 @@
                     <div class="container">
                         <br/>
                         <div class="row">
-                            <div class="col-xs-12 col-sm-4 ">
-                                <div class="card"  style="background-image: url('images/sliderornek1.png');" >
-                                    <div class="card-category">kategori adı</div>
-                                    <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar</p>
-                                    </div>	
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
-                                </div>  
-                            </div>
-                            <div class="col-xs-12 col-sm-4 ">
-                                <div class="card" style="background-image: url('images/sliderornek2.png');">
-                                    <div class="card-category">kategori adı</div>
-                                    <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar </p>
-                                    </div>		
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4">
-                                <div class="card" style="background-image: url('images/sliderornek3.jpg');">
-                                    <div class="card-category">kategori adı</div>
-                                    <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar </p>
-                                    </div>	
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-xs-12 col-sm-4 ">
-                                <div class="card" style="background-image: url('images/anayemek.jpg');">
-                                    <div class="card-category">kategori adı</div>
-                                    <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar</p>
-                                    </div>	
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
-                                </div>  
-                            </div>
-                            <div class="col-xs-12 col-sm-4 ">
-                                <div class="card" style="background-image: url('images/corba.jpg');">
-                                    <div class="card-category">kategori adı</div>
-                                    <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar </p>
-                                    </div>
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4">
-                                <div class="card" style="background-image: url('images/hamurisi.jpg');">
-                                    <div class="card-category">kategori adı</div>
-                                    <div class="card-description">
-                                        <h2>yemekadı</h2>
-                                        <p>yazar </p>
-                                    </div>
-                                    <h:commandLink class="card-link" action="#"></h:commandLink>
-                                </div>
-                            </div>
+                            <c:forEach items="#{recipe.popular.data}" end="5" var="item">
+                                <div class="col-xs-12 col-sm-4 ">
+                                    <h:commandLink class="nav-link linkcik" action="recipedetail">
+                                        <div class="card"  style="background-image: url('${item.imageLink}');" >
+                                            <div class="card-description">
+                                                <h2>${item.name}</h2>                              
+                                            </div>	
+                                        </div>  
+                                    </h:commandLink>  
+                                </div></c:forEach>
                         </div>
                     </div>
                 </div>
@@ -344,67 +284,47 @@
                     </div>
                     <div class="col-12">
                         <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
+                            <div class="carousel-inner" >
                                 <div class="carousel-item active">
                                     <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Special title treatment</h4>
-
+                                        <c:forEach items="#{recipe.latest.data}" end="2" var="item">
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card"  style=" background-color: transparent;">
+                                                    <h:graphicImage class="img-fluid" url="${item.imageLink}" />
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">${item.name}</h4>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:graphicImage class="img-fluid" url="/images/sliderornek2.png" />
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Special title treatment</h4>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:graphicImage class="img-fluid" url="/images/hamurisi.jpg" />
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Special title treatment</h4>
-
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </c:forEach>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:graphicImage class="img-fluid" url="/images/sliderornek1.png" />
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Special title treatment</h4>
-
+                                        <c:forEach items="#{recipe.latest.data}" begin ="3" end="5" var="item">
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card" style=" background-color: transparent;">
+                                                    <h:graphicImage class="img-fluid" url="${item.imageLink}" />
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">${item.name}</h4>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:graphicImage class="img-fluid" url="/images/sliderornek2.png" />
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Special title treatment</h4>
-
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <c:forEach items="#{recipe.latest.data}" begin ="6" end="8" var="item">
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card" style=" background-color: transparent;">
+                                                    <h:graphicImage class="img-fluid" url="${item.imageLink}" />
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">${item.name}</h4>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card">
-                                                <h:graphicImage class="img-fluid" url="/images/hamurisi.jpg" />
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Special title treatment</h4>
-
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </c:forEach>
                                     </div>
                                 </div>
                             </div>

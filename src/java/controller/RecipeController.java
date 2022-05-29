@@ -113,9 +113,6 @@ public class RecipeController {
         return recipeDomain.getLatestList();
     }
     
-     public Result getPopularRandom() {
-        return recipeDomain.getPopularRandom();
-    }
      public Result getPopular() {
         return recipeDomain.getPopular();
     }

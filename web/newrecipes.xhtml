@@ -106,7 +106,7 @@
 
                     <div class="container col-md-3">
                         <h1 style="font-family: baslik;">Popüler Tarifler</h1> <br/>
-                        <c:forEach items="#{recipe.popularRandom.data}" var="item">
+                        <c:forEach items="#{recipe.popular.data}" end="5" var="item">
                         <div class="card">
                             <div class="card-body">
                                 <h:commandLink class="nav-link " action="recipedetail.xhtml">
