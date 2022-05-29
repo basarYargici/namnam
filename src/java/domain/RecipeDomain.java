@@ -91,7 +91,9 @@ public class RecipeDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "SELECT * FROM APP.RECIPE";
+        query = "SELECT r.*, c.IMAGE_LINK "
+                + "FROM RECIPE r, CATEGORY c "
+                + "WHERE r.CATEGORY_ID = c.ID;";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
@@ -112,8 +114,6 @@ public class RecipeDomain extends BaseDomain {
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with recipe.all.data
      *
-     *
-     *
      * @return Success if no error occurs, with data of List of Recipes. Error
      * if any error occurs, with error message.
      */
@@ -125,8 +125,12 @@ public class RecipeDomain extends BaseDomain {
             return connectionResult;
         }
 
-        // TODO: Select top 5 randrom
-        query = "SELECT * FROM APP.RECIPE";
+        // Select top 5 randrom        
+        query = "SELECT r.*, c.IMAGE_LINK "
+                + "FROM RECIPE r, CATEGORY c "
+                + "WHERE r.CATEGORY_ID = c.ID "
+                + "ORDER BY date_of_creation DESC "
+                + "FETCH FIRST 5 ROWS ONLY";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
@@ -161,7 +165,9 @@ public class RecipeDomain extends BaseDomain {
         }
 
         // TODO: Select one recipe for each category
-        query = "SELECT * FROM APP.RECIPE";
+        query = "SELECT r.*, c.IMAGE_LINK "
+                + "FROM RECIPE r, CATEGORY c "
+                + "WHERE r.CATEGORY_ID = c.ID";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
@@ -195,7 +201,10 @@ public class RecipeDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "SELECT * FROM APP.RECIPE WHERE ID =" + id;
+        query = "SELECT r.*, c.IMAGE_LINK "
+                + "FROM RECIPE r, CATEGORY c "
+                + "WHERE r.CATEGORY_ID = c.ID "
+                + "AND r.ID = " + id;
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
@@ -225,18 +234,18 @@ public class RecipeDomain extends BaseDomain {
             return connectionResult;
         }
 
-        // TODO Select top 10 latest recipe 
-        query = "SELECT APP.RECIPE.*,APP.VISITOR.USERNAME as USERNAME,APP.CATEGORY.IMAGE_LINK as IMAGE FROM APP.RECIPE \n" +
-        "INNER JOIN VISITOR ON RECIPE.USER_ID=VISITOR.ID\n" +
-        "INNER JOIN CATEGORY ON RECIPE.CATEGORY_ID=CATEGORY.ID \n" +
-        "ORDER BY date_of_creation DESC\n" +
-        "FETCH FIRST 10 ROWS ONLY" ;
+        // Select top 10 latest recipe 
+        query = "SELECT r.*, c.IMAGE_LINK "
+                + "FROM RECIPE r, CATEGORY c "
+                + "WHERE r.CATEGORY_ID = c.ID "
+                + "ORDER BY date_of_creation DESC "
+                + "FETCH FIRST 10 ROWS ONLY";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
             Recipe temp;
-            recipeList.clear();  
-            
+            recipeList.clear();
+
             while (rs.next()) {
                 temp = new Recipe();
                 toRecipe(temp, rs);
@@ -340,7 +349,7 @@ public class RecipeDomain extends BaseDomain {
         temp.setDescription(rs.getString("DESCRIPTION"));
         temp.setDateOfCreation(rs.getDate("DATE_OF_CREATION"));
         temp.setName(rs.getString("NAME"));
-         temp.setImageLink(rs.getString("IMAGE_LINK"));
+        // image comes from category
+        temp.setImageLink(rs.getString("IMAGE_LINK"));
     }
-
 }
