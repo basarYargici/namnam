@@ -110,6 +110,36 @@ public class RecipeDomain extends BaseDomain {
         }
     }
 
+    public Result getRandom() { //yeni eklenenler sayfasında kullanılacak
+        if (dataSourceResult.isSuccess == false) {
+            return dataSourceResult;
+        }
+        if (connectionResult.isSuccess == false) {
+            return connectionResult;
+        }
+
+        // Select top 5 randrom        
+        query = "SELECT r.*, c.IMAGE_LINK\n"
+                + "FROM RECIPE r, CATEGORY c\n"
+                + "WHERE r.CATEGORY_ID = c.ID\n"
+                + "ORDER BY RANDOM() OFFSET 0 ROWS FETCH NEXT 5 ROW ONLY";
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            ResultSet rs = statement.executeQuery(query);
+            Recipe temp;
+            recipeList.clear();
+
+            while (rs.next()) {
+                temp = new Recipe();
+                toRecipe(temp, rs);
+                recipeList.add(temp);
+            }
+            return new Success(recipeList);
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
+    }
+
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with recipe.all.data
@@ -117,7 +147,7 @@ public class RecipeDomain extends BaseDomain {
      * @return Success if no error occurs, with data of List of Recipes. Error
      * if any error occurs, with error message.
      */
-    public Result getPopular() {
+    public Result getPopularRandom() { //yeni eklenenler sayfasında kullanılacak
         if (dataSourceResult.isSuccess == false) {
             return dataSourceResult;
         }
@@ -136,7 +166,38 @@ public class RecipeDomain extends BaseDomain {
             ResultSet rs = statement.executeQuery(query);
             Recipe temp;
             recipeList.clear();
-            
+
+            while (rs.next()) {
+                temp = new Recipe();
+                toRecipe(temp, rs);
+                recipeList.add(temp);
+            }
+            return new Success(recipeList);
+        } catch (SQLException e) {
+            return new Error(e.getMessage());
+        }
+    }
+
+    public Result getPopular() { //trends sayfasında kullanılacak
+        if (dataSourceResult.isSuccess == false) {
+            return dataSourceResult;
+        }
+        if (connectionResult.isSuccess == false) {
+            return connectionResult;
+        }
+
+        // Select top 5 randrom        
+        query = "SELECT r.*, c.IMAGE_LINK "
+                + "FROM RECIPE r, CATEGORY c "
+                + "WHERE r.CATEGORY_ID = c.ID AND SCORE>=3  "
+                + "ORDER BY date_of_creation DESC "
+                + "FETCH FIRST 10 ROWS ONLY";
+
+        try (Statement statement = connectionResult.data.createStatement()) {
+            ResultSet rs = statement.executeQuery(query);
+            Recipe temp;
+            recipeList.clear();
+
             while (rs.next()) {
                 temp = new Recipe();
                 toRecipe(temp, rs);

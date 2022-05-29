@@ -75,7 +75,7 @@ public class RecipeController {
      * @return
      */
     public Result getRandom() {
-        return recipeDomain.getPopular();
+        return recipeDomain.getRandom();
     }
 
     /**
@@ -113,7 +113,11 @@ public class RecipeController {
         return recipeDomain.getLatestList();
     }
     
+     public Result getPopularRandom() {
+        return recipeDomain.getPopularRandom();
+    }
      public Result getPopular() {
         return recipeDomain.getPopular();
     }
+   
 }
