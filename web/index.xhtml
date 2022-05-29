@@ -27,6 +27,9 @@
                 font-family: baslik;
 
             }
+            .cerceve {
+                border: #864b15; border-style: solid; border-width: 8px;
+            }
             .carousel .carousel-inner {	
                 text-align: center;
                 min-height: 200px;
@@ -37,10 +40,11 @@
             }
             .carousel {
                 margin: 25px 0 50px;
-                background: #fff;
+                background:transparent;
                 position: relative;
-                padding: 8px;
+     
                 box-shadow: 0 0 1px rgba(0,0,0,0.3);
+                
             }
             .carousel:before, .carousel:after {
                 z-index: -1; 
@@ -135,60 +139,67 @@
             }
         </style>
     </h:head>
-    <h:body> 
+   <h:body style=" background-image: url('images/bg1_1.png');">
         <h:form>
             <h2>
                 #{visitor.getAll().data}
             </h2>
-            <div class="container-fuly" style="background-color: #FEE6CE;">
-                <div class="container" style="background-color: #FEE6CE;">            
+            <div class="container-fuly" style="background-color: #f9f5cf;">
+                <div class="container" style="background-color: #f9f5cf;">            
                     <div class="row align-items-center">
-                        <div class="col-md-9">                
-                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
-                        <div class="col-md-3">
-                            <h:form class="d-flex">
-                                <h:commandButton class="btn recipe" id="recipebutton" action="/recipe?faces-redirect=true" image="/images/recipe.png"  ></h:commandButton>
-                                <h:commandButton class="btn login" id="loginbutton" action="/login?faces-redirect=true" image="/images/login.png"  ></h:commandButton>
-                                <h:commandButton class="btn signup" id="signupbutton" action="/signup?faces-redirect=true" image="/images/signup.png"  ></h:commandButton>                                
+                        <div class="col-md-7">                
+                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink>
+                        </div>
+
+                            <h:form class="d-flex ">
+                            <div class="col-md-5">
+                                
+                            <h:form class="d-flex"> 
+                                <h:commandLink class="btn recipe" id="recipebutton" action="recipe"> <h:graphicImage  width="100" url="/images/recipe3.png"  /> </h:commandLink>
+                                <h:commandLink class="btn login" id="loginbutton" action="login"> <h:graphicImage  width="100" url="/images/login3.png"  /> </h:commandLink>
+                                <h:commandLink class="btn signup" id="signupbutton" action="signup" ><h:graphicImage  width="100" url="/images/signup3.png"  /></h:commandLink>                                
                             </h:form>	 
                         </div>	
+                        </h:form>
+                   </div>
+                </div> 
+            <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light"  style="background-color: #f08819;">
+                <div class="container justify-content-between ">
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <h:commandLink class="nav-link " action="/index?faces-redirect=true"> Ana Sayfa </h:commandLink>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink class="nav-link " action="/category?faces-redirect=true"> Kategoriler </h:commandLink>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink class="nav-link " action="/trends?faces-redirect=true">Trendler</h:commandLink>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink class="nav-link " action="/newrecipes?faces-redirect=true">Yeni Eklenenler </h:commandLink>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink class="nav-link " action="/whatdoicook?faces-redirect=true">Ne Pişirsem?</h:commandLink>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink class="nav-link " action="/profile?faces-redirect=true">Profil</h:commandLink>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink class="nav-link " action="/whoarewe?faces-redirect=true">Biz Kimiz?</h:commandLink>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <h:inputText class="form-control me-2" value=""/>
+                            <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button>      
+                        </form>
                     </div>
                 </div>
-                <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light"  style="background-color: #f08819;">
-                    <div class="container justify-content-between ">
-                        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="/index?faces-redirect=true"> Ana Sayfa </h:commandLink>
-                                </li>
-                                <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="/category?faces-redirect=true"> Kategoriler </h:commandLink>
-                                </li>
-                                <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="/trends?faces-redirect=true">Trendler</h:commandLink>
-                                </li>
-                                <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="/newrecipes?faces-redirect=true">Yeni Eklenenler </h:commandLink>
-                                </li>
-                                <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="/whatdoicook?faces-redirect=true">Ne Pişirsem?</h:commandLink>
-                                </li>
-                                <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="/profile?faces-redirect=true">Profil</h:commandLink>
-                                </li>
-                                <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="/whoarewe?faces-redirect=true">Biz Kimiz?</h:commandLink>
-                                </li>
-                            </ul>
-                            <form class="d-flex">
-                                <h:inputText class="form-control me-2" value=""/>
-                                <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button>      
-                            </form>
-                        </div>
-                    </div>
-                </nav>                
+            </nav>                
 
             </div>
+              
+
         </h:form>
         <!-- HEADER AND NAVBAR END-->
 
@@ -197,13 +208,13 @@
         <h:form>
 
             <div class="container justify-content-between ">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleCaptions" class="carousel slide cerceve" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <div class="carousel-inner">
+                    <div class="carousel-inner ">
                         <div class="carousel-item active">
                             <h:graphicImage class="d-block w-100" url="/images/sliderornek1.png" height="500"/>
                             <div class="carousel-caption d-none d-md-block">
@@ -236,8 +247,8 @@
         </h:form>
         <!--SLIDER END-->
         <h:form>
-            <div class="container-fuly mt-5 pt-5 pb-5">
-                <div class="wrapper-grey" style= " background-image: url('images/wallpaper.png');">
+            <div class="container mt-5 pt-5 pb-5">
+                <div class="wrapper-grey" style="background-color:#f9f5cf; border: #864b15; border-style: solid; border-width: 8px;">
                     <br/><h1 class="text-center">En Popüler Tarifler</h1>
                     <div class="container">
                         <br/>
@@ -310,16 +321,19 @@
             </div>
             <!-- en popüler tarifler end-->
             <div class="container justify-content-between pt-5 pb-5 ">
-                <div class="wrapper-grey carousel ">	
+                <div class="wrapper-grey carousel cerceve ">	
                     <h:graphicImage class="d-block w-100" url="/images/slider.png"/>
                 </div>
             </div>
         </h:form>
         <section class="pt-5 pb-5">
-            <div class="container">
-                <div class="row">
+            
+            <div class="container mt-5 pt-5 pb-5">
+                 <div class="wrapper-grey" style="background-color:#f9f5cf; border: #864b15; border-style: solid; border-width: 8px;">
+                <br/>
+                     <div class="row">
                     <div class="col-10">
-                        <h1 class="mb-3">En Yeni Tarifler </h1>
+                        <h1 class="mb-3">&nbsp;&nbsp; En Yeni Tarifler </h1>
                     </div>
                     <div class="col-2 ">
                         <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
@@ -399,11 +413,12 @@
                     </div>
                 </div>
             </div>
+            </div>
         </section>
         <h:form>
             <div class="container justify-content-between pt-5 pb-5 ">
                 <h:commandLink action="whatdoicook">
-                    <div class="wrapper-grey carousel ">	
+                    <div class="wrapper-grey carousel cerceve ">	
                         <h:graphicImage class="d-block w-100" url="/images/slider1.jpg"/>
                     </div>
                 </h:commandLink>
