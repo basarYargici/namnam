@@ -264,6 +264,7 @@
                 </div>
             </div>
         </h:form>
+        <h:form>
         <section class="pt-5 pb-5">
 
             <div class="container mt-5 pt-5 pb-5">
@@ -289,12 +290,14 @@
                                     <div class="row">
                                         <c:forEach items="#{recipe.latest.data}" end="2" var="item">
                                             <div class="col-md-4 mb-3">
-                                                <div class="card"  style=" background-color: transparent;">
-                                                    <h:graphicImage class="img-fluid" url="${item.imageLink}" />
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">${item.name}</h4>
+                                                <h:commandLink class="nav-link linkcik" action="recipedetail">
+                                                    <div class="card"  style=" background-color: transparent;">
+                                                        <h:graphicImage class="img-fluid" url="${item.imageLink}" />
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">${item.name}</h4>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </h:commandLink>
                                             </div>
                                         </c:forEach>
                                     </div>
@@ -303,12 +306,14 @@
                                     <div class="row">
                                         <c:forEach items="#{recipe.latest.data}" begin ="3" end="5" var="item">
                                             <div class="col-md-4 mb-3">
-                                                <div class="card" style=" background-color: transparent;">
-                                                    <h:graphicImage class="img-fluid" url="${item.imageLink}" />
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">${item.name}</h4>
+                                                <h:commandLink class="nav-link linkcik" action="recipedetail">
+                                                    <div class="card"  style=" background-color: transparent;">
+                                                        <h:graphicImage class="img-fluid" url="${item.imageLink}" />
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">${item.name}</h4>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </h:commandLink>
                                             </div>
                                         </c:forEach>
                                     </div>
@@ -317,12 +322,14 @@
                                     <div class="row">
                                         <c:forEach items="#{recipe.latest.data}" begin ="6" end="8" var="item">
                                             <div class="col-md-4 mb-3">
-                                                <div class="card" style=" background-color: transparent;">
-                                                    <h:graphicImage class="img-fluid" url="${item.imageLink}" />
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">${item.name}</h4>
+                                                <h:commandLink class="nav-link linkcik" action="recipedetail">
+                                                    <div class="card"  style=" background-color: transparent;">
+                                                        <h:graphicImage class="img-fluid" url="${item.imageLink}" />
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">${item.name}</h4>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </h:commandLink>
                                             </div>
                                         </c:forEach>
                                     </div>
@@ -333,7 +340,6 @@
                 </div>
             </div>
         </section>
-        <h:form>
             <div class="container justify-content-between pt-5 pb-5 ">
                 <h:commandLink action="whatdoicook">
                     <div class="wrapper-grey carousel cerceve ">	
