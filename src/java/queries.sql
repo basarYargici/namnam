@@ -36,17 +36,17 @@ FOREIGN KEY (User_Id) REFERENCES visitor(ID);
 
 --kategori verileri ekleme
 INSERT INTO CATEGORY ("NAME",IMAGE_LINK)
-VALUES ('CORBA', 'images/corba.jpg'); 
+VALUES ('ÇORBA', 'images/corba.jpg'); 
 INSERT INTO CATEGORY ("NAME",IMAGE_LINK)
-VALUES ('Hamurisi', 'images/hamurisi.jpg'); 
+VALUES ('Hamur İşi', 'images/hamurisi.jpg'); 
 INSERT INTO CATEGORY ("NAME",IMAGE_LINK)
-VALUES ('tatli', 'images/tatli.jpg'); 
+VALUES ('Tatlı', 'images/tatli.jpg'); 
 INSERT INTO CATEGORY ("NAME",IMAGE_LINK)
-VALUES ('anayemek', 'images/anayemek.jpg'); 
+VALUES ('Anayemek', 'images/anayemek.jpg'); 
 INSERT INTO CATEGORY ("NAME",IMAGE_LINK)
-VALUES ('arasicak', 'images/arasicak.jpg'); 
+VALUES ('Arasıcak', 'images/arasicak.jpg'); 
 INSERT INTO CATEGORY ("NAME",IMAGE_LINK)
-VALUES ('salata', 'images/salata.jpg'); 
+VALUES ('Salata', 'images/salata.jpg'); 
 
 
 --kullanici verileri

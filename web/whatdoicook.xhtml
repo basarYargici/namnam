@@ -6,7 +6,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
         <h:outputStylesheet library="css" name="style.css"/>
@@ -25,21 +26,23 @@
     </h:head>
     <h:body style=" background-image: url('images/bg.png');">
         <h:form>
-            <div class="container-fuly" style="background-color: #FEE6CE;">
-
-                <div class="container" style="background-color: #FEE6CE;">
+            <div class="container-fuly" style="background-color: #f9f5cf;">
+                <div class="container" style="background-color: #f9f5cf;">            
                     <div class="row align-items-center">
-                        <div class="col-md-9">                
-                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink></div>
-                        <div class="col-md-3">
-                            <h:form class="d-flex"> 
-                                <h:commandLink class="btn recipe" id="recipebutton" action="recipe"> <h:graphicImage  width="100" url="/images/recipe3.png"  /> </h:commandLink>
-                                <h:commandLink class="btn login" id="loginbutton" action="login"> <h:graphicImage  width="100" url="/images/login3.png"  /> </h:commandLink>
-                                <h:commandLink class="btn signup" id="signupbutton" action="signup" ><h:graphicImage  width="100" url="/images/signup3.png"  /></h:commandLink>                                
-                            </h:form>		 
-                        </div>	
+                        <div class="col-md-7">                
+                            <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink>
+                        </div>
+                        <h:form class="d-flex ">
+                            <div class="col-md-5">
+                                <h:form class="d-flex"> 
+                                    <h:commandButton class="btn recipe" id="recipebutton" action="/recipe?faces-redirect=true" image="/images/tarif.png"  ></h:commandButton>
+                                    <h:commandButton class="btn login" id="loginbutton" action="/login?faces-redirect=true" image="/images/login.png"  ></h:commandButton>
+                                    <h:commandButton class="btn signup" id="signupbutton" action="/signup?faces-redirect=true" image="/images/sign.png"  ></h:commandButton>                                                              
+                                </h:form>	 
+                            </div>	
+                        </h:form>
                     </div>
-                </div>
+                </div> 
                 <nav class=" navbar sticky-top  ftco_navbar navbar-expand-lg  navbar-light"  style="background-color: #f08819;">
                     <div class="container justify-content-between ">
                         <div class="collapse navbar-collapse " id="navbarSupportedContent">
@@ -78,112 +81,29 @@
                 <div class="wrapper-grey carousel ">	
                     <h:graphicImage class="d-block w-100" url="/images/slider1.jpg"/>
                 </div><br/> <br/> <br/> 
-               
-                    <div class="container " >  
-                         <h:commandLink action="recipedetail">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                      <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
-                                    <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
-                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h:graphicImage class="img-fluid mb-1" url="/images/corba.jpg" width="300px" height="150px"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                </h:commandLink>
-                <br/> 
-                <h:commandLink action="recipedetail">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-9">
-                                     <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
-                                     <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
-                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
-                                </div>
-                                <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/arasicak.jpg"  width="300px" height="150px"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </h:commandLink>
-                <br/> 
-                <h:commandLink action="recipedetail">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
-                                    <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
-                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
-                                </div>
-                                <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/salata.jpg" width="300px" height="150px"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </h:commandLink>
-                <br/> 
-                <h:commandLink action="recipedetail">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
-                                       <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
-                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
-                                </div>
-                                <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/beyti.jpg" width="300px" height="150px"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </h:commandLink>
-                <br/>
-                <h:commandLink action="recipedetail">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
-                                   <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
-                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
-                                </div>
-                                <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/tatli.jpg" width="300px" height="150px"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </h:commandLink>
-                <br/> 
-                <h:commandLink action="recipedetail">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h5 class="card-title"><h:outputText value="Yemek Adı" />  </h5>
-                                       <p class="card-text"><h:outputText value="Puan " style="font-family: serif" /> </p>
-                                     <p class="card-text"><h:outputText value="Kategori " /> </p>
-                                </div>
-                                <div class="col-md-3">
-                                    <h:graphicImage class="img-fluid mb-1" url="/images/pogaca.jpg" width="300px" height="150px"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </h:commandLink>
-                <br/> 
 
-            </div>
+                <div class="container " >  
+                    <c:forEach items="#{recipe.dailyMenu.data}" end="5" var="item"> 
+                        <h:commandLink action="recipedetail" style="text-decoration: none;" >
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5 class="card-title"><h:outputText value="${item.name}" />  </h5>
+                                            <p class="card-text"> Puanı: <h:outputText value="${item.score} " style="font-family: serif" /> </p>
+                                            <p class="card-text"><h:outputText value="Kategori?????? " /> </p>
+                                            <p class="card-text"><h:outputText value="yazar?????? " /> </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}" width="300px" height="150px"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </h:commandLink>
+                        <br/><br/>
+                    </c:forEach>
+                </div>
             </div>
             <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
@@ -210,7 +130,7 @@
                                 <ul class="list-unstyled">
                                     <li class="mt-md-3 mt-4"><br/></li>
                                     <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                 
+
                                     <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
                                 </ul>
                             </div>
