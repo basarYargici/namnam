@@ -84,7 +84,7 @@
 
                 <div class="container " >  
                     <c:forEach items="#{recipe.dailyMenu.data}" end="5" var="item"> 
-                        <h:commandLink action="recipedetail" style="text-decoration: none;" >
+                        <h:commandLink actionListener="#{recipe.setControl(item.id)}" action="recipedetail" style="text-decoration: none;" >
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">

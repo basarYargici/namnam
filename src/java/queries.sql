@@ -101,16 +101,7 @@ VALUES ('Fırında Sütlaç','
 ,3,2,1); 
 
 INSERT INTO RECIPE (name, DESCRIPTION, SCORE,Category_Id,User_Id)
-VALUES ('Karnıyarık Yemeği','
-    Patlıcanları çizgili soyup, yarım saat yağ çekmemesi için tuzlu suda bekletin.
-    İyice yıkadıktan sonra suyunu havlu ile çektirin ve az yağda kızartın. 3 adet biberi de yağda kızartın.
-    Daha sonra aynı tavada doğranmış soğanları kavurun, kıymayı ekleyerek bir müddet daha kavurun ve biberleri, sarımsağı ekleyerek 2 dakika daha kavurun.
-    Küp küp doğramış olduğunuz 2 adet domatesi, tuzu, baharatları ekleyerek karıştırın.
-    Üzerine bir çay bardağı su ekleyerek 5 dk kaynatın.
-    Tepsiye patlıcanların ortalarını keserek yerleştirin ve bu kesiklerden patlıcanın içine bastırarak iç malzemesine yer açın ve malzeme ile patlıcanları doldurun.
-    Doldurduğunuz patlıcanların üzerine ortadan ikiye kestiğiniz çeri domatesi ya da 1 adet domatesi eşit büyüklükte olacak şekilde paylaştırın ve kızarttığımız biberlerden birer tane koyun.
-    Ayrı bir yerde 1 kaşık salçayı, 1 su bardağı sıcak suda ezerek patlıcanların aralarına dökün. Kıymalar çıkmasın diye üzerine dökmeyin.
-    Daha sonra 170 derece de ısıttığınız fırına sürerek 20-25 dk pişirin. Dilerseniz bu işlemi pilav tenceresi gibi bir tencerede ocakta yapabilirsiniz. Aynı sürede tencerede de  pişecektir.'
+VALUES ('Karnıyarık Yemeği','Patlıcanları çizgili soyup, yarım saat yağ çekmemesi için tuzlu suda bekletin.İyice yıkadıktan sonra suyunu havlu ile çektirin ve az yağda kızartın.Üç adet biberi de yağda kızartın.Daha sonra aynı tavada doğranmış soğanları kavurun, kıymayı ekleyerek bir müddet daha kavurun ve biberleri, sarımsağı ekleyerek iki dakika daha kavurun.Küp küp doğramış olduğunuz iki adet domatesi, tuzu, baharatları ekleyerek karıştırın.Üzerine bir çay bardağı su ekleyerek beş dk kaynatın.Tepsiye patlıcanların ortalarını keserek yerleştirin ve bu kesiklerden patlıcanın içine bastırarak iç malzemesine yer açın ve malzeme ile patlıcanları doldurun.Doldurduğunuz patlıcanların üzerine ortadan ikiye kestiğiniz çeri domatesi ya da bir adet domatesi eşit büyüklükte olacak şekilde paylaştırın ve kızarttığımız biberlerden birer tane koyun.Ayrı bir yerde bir kaşık salçayı, bir su bardağı sıcak suda ezerek patlıcanların aralarına dökün. Kıymalar çıkmasın diye üzerine dökmeyin.Daha sonra yüz yetmiş derece de ısıttığınız fırına sürerek yirmi beş dk pişirin. Dilerseniz bu işlemi pilav tenceresi gibi bir tencerede ocakta yapabilirsiniz. Aynı sürede tencerede de  pişecektir.'
 ,4,4,1); 
 
 INSERT INTO RECIPE (name, DESCRIPTION, SCORE,Category_Id,User_Id)

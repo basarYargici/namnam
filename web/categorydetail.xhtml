@@ -85,7 +85,7 @@
                 <c:forEach items="#{recipe.getAllByCategoryId(recipe.recipe.categoryNo).data}" var="item">     
                     <div class="row py-3  justify-content-center align-items-center">
                         <div class="card" style="width: 19rem; height: 18rem;">
-                            <h:commandLink class="nav-link " action="recipedetail.xhtml">
+                            <h:commandLink class="nav-link " actionListener="#{recipe.setControl(item.id)}" action="recipedetail.xhtml">
                                 <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}"/>
                                 <div class="card-body">
                                     <h5 class="card-title "><h:outputText value="${item.name}" style="font-family: govde;"/></h5>

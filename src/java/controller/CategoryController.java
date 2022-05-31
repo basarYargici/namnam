@@ -49,4 +49,5 @@ public class CategoryController {
     public Result getAll() {
         return categoryDomain.getAll();
     }
+    
 }

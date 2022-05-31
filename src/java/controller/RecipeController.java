@@ -32,6 +32,7 @@ public class RecipeController {
 
     private final RecipeDomain recipeDomain;
     private final Recipe recipe;
+    int control;
 
     public RecipeController() {
         this.recipeDomain = new RecipeDomain();
@@ -47,6 +48,14 @@ public class RecipeController {
         return recipe;
     }
 
+    public int getControl() {
+        return control;
+    }
+
+    public void setControl(int control) {
+        this.control = control;
+    }
+    
     
     /**
      * Check isSuccess in UI. if it is false, pop up the message.
