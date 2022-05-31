@@ -82,7 +82,7 @@
             </div> <br/> 
             <div class="container py-5 justify-content-center align-items-center" style="background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;" >
                 <h1> Kategori Adı </h1> <hr></hr>
-                <c:forEach items="#{recipe.random.data}" var="item">     
+                <c:forEach items="#{recipe.getAllByCategoryId(recipe.recipe.categoryNo).data}" var="item">     
                     <div class="row py-3  justify-content-center align-items-center">
                         <div class="card" style="width: 19rem; height: 18rem;">
                             <h:commandLink class="nav-link " action="recipedetail.xhtml">

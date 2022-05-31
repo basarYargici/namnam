@@ -31,15 +31,23 @@ import model.Result;
 public class RecipeController {
 
     private final RecipeDomain recipeDomain;
+    private final Recipe recipe;
 
     public RecipeController() {
         this.recipeDomain = new RecipeDomain();
+        this.recipe = new Recipe();
     }
 
-    public RecipeController(RecipeDomain recipeDomain) {
+    public RecipeController(RecipeDomain recipeDomain, Recipe recipe) {
         this.recipeDomain = recipeDomain;
+        this.recipe = recipe;
     }
 
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    
     /**
      * Check isSuccess in UI. if it is false, pop up the message.
      *
@@ -117,4 +125,7 @@ public class RecipeController {
         return recipeDomain.getPopular();
     }
    
+     public Result getById(int id){
+         return recipeDomain.getById(id);
+     }
 }

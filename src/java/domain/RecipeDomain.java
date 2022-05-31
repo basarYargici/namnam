@@ -20,12 +20,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import javax.sql.rowset.CachedRowSet;
 import model.Error;
 import model.Recipe;
 import model.Result;
 import model.Success;
 import util.TimeUtil;
+
+
 
 /**
  * //TODO: May dateOfCreation be a problem in queries, should be checked.
@@ -93,7 +96,7 @@ public class RecipeDomain extends BaseDomain {
 
         query = "SELECT r.*, c.IMAGE_LINK "
                 + "FROM RECIPE r, CATEGORY c "
-                + "WHERE r.CATEGORY_ID = c.ID;";
+                + "WHERE r.CATEGORY_ID = c.ID";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
@@ -119,9 +122,9 @@ public class RecipeDomain extends BaseDomain {
         }
 
         // Select top 5 randrom        
-        query = "SELECT r.*, c.IMAGE_LINK\n"
-                + "FROM RECIPE r, CATEGORY c\n"
-                + "WHERE r.CATEGORY_ID = c.ID\n"
+        query = "SELECT distinct r.*, c.IMAGE_LINK "
+                + "FROM RECIPE r, CATEGORY c "
+                + "WHERE r.CATEGORY_ID = c.ID "
                 + "ORDER BY RANDOM() OFFSET 0 ROWS FETCH NEXT 5 ROW ONLY";
 
         try (Statement statement = connectionResult.data.createStatement()) {
@@ -156,13 +159,19 @@ public class RecipeDomain extends BaseDomain {
         if (connectionResult.isSuccess == false) {
             return connectionResult;
         }
-
-        // Select top 5 randrom        
-        query = "SELECT r.*, c.IMAGE_LINK "
+//
+            query="SELECT r.*, c.IMAGE_LINK "
                 + "FROM RECIPE r, CATEGORY c "
-                + "WHERE r.CATEGORY_ID = c.ID AND SCORE>=3  "
+                + "WHERE r.CATEGORY_ID = c.ID AND SCORE>=4  "
                 + "ORDER BY date_of_creation DESC "
                 + "FETCH FIRST 10 ROWS ONLY";
+        
+        // Select top 5 randrom 
+        
+//        query = "SELECT RECIPE.*, VISITOR.USERNAME, CATEGORY.IMAGE_LINK FROM RECIPE " +
+//                "INNER JOIN CATEGORY on RECIPE.CATEGORY_ID=CATEGORY.ID " +
+//                "INNER JOIN VISITOR ON RECIPE.USER_ID=VISITOR.ID " +
+//                "WHERE SCORE>=4 ORDER BY RANDOM() OFFSET 0 ROWS FETCH NEXT 10 ROW ONLY";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
@@ -359,12 +368,15 @@ public class RecipeDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "SELECT * FROM APP.RECIPE WHERE CATEGORY_ID = " + id;
+        query = "select recipe.*, category.image_link " +
+                "from recipe " +
+                "inner join category on category.ID = recipe.CATEGORY_ID " +
+                "where category.ID="+id;
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
             Recipe temp;
-
+            recipeList.clear();
             while (rs.next()) {
                 temp = new Recipe();
                 toRecipe(temp, rs);
