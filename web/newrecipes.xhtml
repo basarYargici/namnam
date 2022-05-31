@@ -88,7 +88,7 @@
                                 <div class="row">
                                     <c:forEach items="#{recipe.latest.data}" var="item">
                                         <div class="col-xs-12 col-sm-4 ">  
-                                            <h:outputLink value="recipedetail.xhtml" class="card-link" style=" color:black;  text-decoration: none; ">           
+                                            <h:outputLink onclick="#{recipe.setControl(item.id)}" value="recipedetail.xhtml"  class="card-link" style=" color:black;  text-decoration: none; ">           
                                                 <div class="card" style="width: 14rem; height: 18rem;">    
                                                     <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}"/>
                                                     <div class="card-body">
@@ -109,7 +109,7 @@
                         <c:forEach items="#{recipe.popular.data}" end="5" var="item">
                         <div class="card">
                             <div class="card-body">
-                                <h:commandLink class="nav-link " action="recipedetail.xhtml">
+                                <h:commandLink class="nav-link " actionListener="#{recipe.setControl(item.id)}" action="recipedetail.xhtml">
                                      <p> ${item.name}</p> 
                                     <div class="row ">
                                        

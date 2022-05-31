@@ -82,19 +82,19 @@
           
                 <div class="container py-5" >
                     <div class="row py-3" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-bottom: none; border-width: 8px;">
-                      <h1 align="center" style=" font-family: baslik; font-size: 60px;"> <h:outputText value="Poğaça">  </h:outputText></h1>
+                        <h1 align="center" style=" font-family: baslik; font-size: 60px;"> <h:outputText value="${recipe.getById(recipe.control).data.name}">  </h:outputText></h1>
                         <div class="col-md-6 py-3">
                             <h:graphicImage url="/images/pogaca.jpg" width="500" />     
                         </div>
                         <div class="col-md-6  py-5">
                             <p><h2 style=" font-family: baslik;"> Kategori:</h2> <h:outputText value="Hamur İşi" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
                             <p><h2 style=" font-family: baslik;"> Yazar Adı: </h2>   <h:outputText value="Zeynep" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
-                            <p><h2 style="font-family: baslik;">Puanı:</h2>  <h:outputText value="5" >  </h:outputText></p>
+                            <p><h2 style="font-family: baslik;">Puanı:</h2>  <h:outputText value="${recipe.getById(recipe.control).data.score}" >  </h:outputText></p>
                             
                         </div>
                     </div>
                     <div class="row" style= " background-image: url('images/bosluk.jpg');  border: #F08819; border-style: solid; border-top: none;border-width: 8px;">
-                        <p> <h2 style=" font-family: baslik;"> Hazırlanışı:</h2><br/><h:outputText value="bişilerbişiler" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
+                        <p> <h2 style=" font-family: baslik;"> Hazırlanışı:</h2><br/><h:outputText value="${recipe.getById(recipe.control).data.description}" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
                     </div>
                     
                 </div>

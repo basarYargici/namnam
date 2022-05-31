@@ -122,7 +122,7 @@ public class RecipeDomain extends BaseDomain {
         }
 
         // Select top 5 randrom        
-        query = "SELECT distinct r.*, c.IMAGE_LINK "
+        query = "SELECT r.*, c.IMAGE_LINK "
                 + "FROM RECIPE r, CATEGORY c "
                 + "WHERE r.CATEGORY_ID = c.ID "
                 + "ORDER BY RANDOM() OFFSET 0 ROWS FETCH NEXT 5 ROW ONLY";
