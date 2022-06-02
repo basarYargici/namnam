@@ -201,9 +201,7 @@ public class RecipeDomain extends BaseDomain {
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
-            Recipe temp;
-            
-            
+            Recipe temp;                      
             
             while (rs.next()) {
                 temp = new Recipe();
@@ -377,32 +375,7 @@ public class RecipeDomain extends BaseDomain {
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
-    }
-    public Result dummy() {
-        if (dataSourceResult.isSuccess == false) {
-            return dataSourceResult;
-        }
-        if (connectionResult.isSuccess == false) {
-            return connectionResult;
-        }
-
-        query = "select * from recipe";
-
-        try (Statement statement = connectionResult.data.createStatement()) {
-            ResultSet rs = statement.executeQuery(query);
-            Recipe temp;
-            
-            while (rs.next()) {
-                temp = new Recipe();
-                toRecipe(temp, rs);
-                recipeList.add(temp);
-            }
-            return new Success(recipeList);
-        } catch (SQLException e) {
-            return new Error(e.getMessage());
-        }
-    }
-    
+    }      
     
     private void toRecipe(Recipe temp, ResultSet rs) throws SQLException {
         temp.setId(rs.getInt("ID"));

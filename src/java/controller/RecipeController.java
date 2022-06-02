@@ -33,8 +33,7 @@ public class RecipeController {
     private final RecipeDomain recipeDomain;
     private final Recipe recipe;
     int tempRecipeId;
-    int dummyScore;
-
+    
     public RecipeController() {
         this.recipeDomain = new RecipeDomain();
         this.recipe = new Recipe();
@@ -55,16 +54,7 @@ public class RecipeController {
 
     public void setTempRecipeId(int tempRecipeId) {
         this.tempRecipeId = tempRecipeId;
-    }
-
-    public int getDummyScore() {
-        return dummyScore;
-    }
-
-    public void setDummyScore(int dummyScore) {
-        this.dummyScore = dummyScore;
-    }
-    
+    }    
     
     /**
      * Check isSuccess in UI. if it is false, pop up the message.
@@ -147,7 +137,5 @@ public class RecipeController {
     public Result getById(int id) {
         return recipeDomain.getById(id);
     }
-    public Result dummy(){
-        return recipeDomain.dummy();
-    }
+    
 }
