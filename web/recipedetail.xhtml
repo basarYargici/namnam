@@ -94,7 +94,7 @@
                         </p>
                         <p>
                             <h2 style=" font-family: baslik;"> Yazar Adı: </h2>
-                            <h:outputText value="Zeynep" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
+                            <h:outputText value="${visitor.getById(recipe.getById(recipe.tempRecipeId).data.userId).data.username}" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
                         <p>
                             <h2 style="font-family: baslik;">Puanı:</h2>  
                             <h:outputText value="${recipe.getById(recipe.tempRecipeId).data.score}" >  </h:outputText>
