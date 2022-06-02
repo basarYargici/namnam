@@ -5,8 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html">
 
     <h:head>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
@@ -16,7 +15,7 @@
         <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
         <h:outputScript library="js" name="jquery.min.js"/>
         <title>Nam Nam Yemek Tarifleri </title>
-         <style>
+        <style>
             h5, p,li{
                 font-family: govde;
                 color:black;
@@ -27,14 +26,14 @@
         </style>
     </h:head>
     <h:body style= " background-image: url('images/bg.png');">
-       <h:form>
-      <div class="container-fuly" style="background-color: #f9f5cf;">
+        <h:form>
+            <div class="container-fuly" style="background-color: #f9f5cf;">
                 <div class="container" style="background-color: #f9f5cf;">            
                     <div class="row align-items-center">
                         <div class="col-md-7">                
                             <h:commandLink class="navbar-brand" action="index"> <h:graphicImage  width="250" url="/images/nam-nam-02.png" /></h:commandLink>
                         </div>
-                        <h:form class="d-flex ">
+                        <h:form class="d-fleyox ">
                             <div class="col-md-5">
                                 <h:form class="d-flex"> 
                                     <h:commandButton class="btn recipe" id="recipebutton" action="/recipe?faces-redirect=true" image="/images/tarif.png"  ></h:commandButton>
@@ -73,67 +72,78 @@
                             </ul>
                             <form class="d-flex">
                                 <h:inputText class="form-control me-2" value=""/>
-                                         <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
+                                <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
                             </form>
                         </div>
                     </div>
                 </nav> 
-       </div>
-          
-                <div class="container py-5" >
-                    <div class="row py-3" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-bottom: none; border-width: 8px;">
-                        <h1 align="center" style=" font-family: baslik; font-size: 60px;"> <h:outputText value="${recipe.getById(recipe.control).data.name}">  </h:outputText></h1>
-                        <div class="col-md-6 py-3">
-                            <h:graphicImage url="/images/pogaca.jpg" width="500" />     
-                        </div>
-                        <div class="col-md-6  py-5">
-                            <p><h2 style=" font-family: baslik;"> Kategori:</h2> <h:outputText value="Hamur İşi" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
-                            <p><h2 style=" font-family: baslik;"> Yazar Adı: </h2>   <h:outputText value="Zeynep" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
-                            <p><h2 style="font-family: baslik;">Puanı:</h2>  <h:outputText value="${recipe.getById(recipe.control).data.score}" >  </h:outputText></p>
-                            
-                        </div>
+            </div>
+
+            <div class="container py-5" >
+                <div class="row py-3" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-bottom: none; border-width: 8px;">
+                    <h1 align="center" style=" font-family: baslik; font-size: 60px;">
+                        <h:outputText value="${recipe.getById(recipe.control).data.name}">  </h:outputText>
+                    </h1>
+                    <div class="col-md-6 py-3">
+                        <h:graphicImage url="${recipe.getById(recipe.control).data.imageLink}" width="500" />     
                     </div>
-                    <div class="row" style= " background-image: url('images/bosluk.jpg');  border: #F08819; border-style: solid; border-top: none;border-width: 8px;">
-                        <p> <h2 style=" font-family: baslik;"> Hazırlanışı:</h2><br/><h:outputText value="${recipe.getById(recipe.control).data.description}" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
-                    </div>
-                    
-                </div>
-                  </h:form>
-                 <footer style="background-color:#F08819;">
-                <div class=" container justify-content-around mt-5">
-                    <div class="col-10">
-                        <div class="row justify-content-center">
-                            <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
-                                <h5><span>
-                                        <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
-                                <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
-                                <small>Copyright.All Rights Resered. </small>
-                            </div>
-                            <div class="col-md-2 col-12  my-sm-0 mt-5">
-                                <br/>
-                            </div>
-                            <div class="col-md-3 col-12 my-sm-0 mt-5">
-                                <ul class="list-unstyled" >
-                                    <li class="mt-md-3 mt-4"><br/></li>
-                                    <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
-                                    <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
-                                    <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
-                                </ul>
-                            </div>
-                            <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
-                                <ul class="list-unstyled">
-                                    <li class="mt-md-3 mt-4"><br/></li>
-                                    <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                  
-                                    <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="col-md-6  py-5">
+                        <p>
+                            <h2 style=" font-family: baslik;"> Kategori:</h2> 
+                            <h:outputText value="Hamur İşi" style="font-family: govde;font-size: 20px;"> </h:outputText>
+                        </p>
+                        <p>
+                            <h2 style=" font-family: baslik;"> Yazar Adı: </h2>
+                            <h:outputText value="Zeynep" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
+                        <p>
+                            <h2 style="font-family: baslik;">Puanı:</h2>  
+                            <h:outputText value="${recipe.getById(recipe.control).data.score}" >  </h:outputText>
+                        </p>
                     </div>
                 </div>
-            </footer>
-         
+
+                <div class="row" style= " background-image: url('images/bosluk.jpg');  border: #F08819; border-style: solid; border-top: none;border-width: 8px;">
+                    <p> 
+                        <h2 style=" font-family: baslik;"> Hazırlanışı:</h2>
+                        <br/>
+                        <h:outputText value="${recipe.getById(recipe.control).data.description}" style="font-family: govde;font-size: 20px;">  </h:outputText>
+                    </p>
+                </div>
+
+            </div>
+        </h:form>
+        <footer style="background-color:#F08819;">
+            <div class=" container justify-content-around mt-5">
+                <div class="col-10">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 col-12 font-italic align-items-center  mt-md-3 mt-4">
+                            <h5><span>
+                                    <h:graphicImage class="img-fluid mb-1" url="/images/footer.png" height="100"/> </span></h5>
+                            <small class="copy-rights cursor-pointer">&#9400; 2022 Programming Applications</small><br/>
+                            <small>Copyright.All Rights Resered. </small>
+                        </div>
+                        <div class="col-md-2 col-12  my-sm-0 mt-5">
+                            <br/>
+                        </div>
+                        <div class="col-md-3 col-12 my-sm-0 mt-5">
+                            <ul class="list-unstyled" >
+                                <li class="mt-md-3 mt-4"><br/></li>
+                                <li><h:commandLink action="category" style="color:black;"> Kategoriler </h:commandLink></li>
+                                <li><h:commandLink action="trends" style="color:black;">Trendler</h:commandLink></li>
+                                <li><h:commandLink action="newrecipes" style="color:black;">Yeni Eklenenler </h:commandLink></li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
+                            <ul class="list-unstyled">
+                                <li class="mt-md-3 mt-4"><br/></li>
+                                <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
+
+                                <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </h:body>
-
-
 </html>
