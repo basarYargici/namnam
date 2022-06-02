@@ -32,7 +32,7 @@ public class RecipeController {
 
     private final RecipeDomain recipeDomain;
     private final Recipe recipe;
-    int control;
+    int tempRecipeId;
 
     public RecipeController() {
         this.recipeDomain = new RecipeDomain();
@@ -48,15 +48,14 @@ public class RecipeController {
         return recipe;
     }
 
-    public int getControl() {
-        return control;
+    public int getTempRecipeId() {
+        return tempRecipeId;
     }
 
-    public void setControl(int control) {
-        this.control = control;
+    public void setTempRecipeId(int tempRecipeId) {
+        this.tempRecipeId = tempRecipeId;
     }
-    
-    
+
     /**
      * Check isSuccess in UI. if it is false, pop up the message.
      *
@@ -129,12 +128,12 @@ public class RecipeController {
     public Result getLatest() {
         return recipeDomain.getLatestList();
     }
-    
-     public Result getPopular() {
+
+    public Result getPopular() {
         return recipeDomain.getPopular();
     }
-   
-     public Result getById(int id){
-         return recipeDomain.getById(id);
-     }
+
+    public Result getById(int id) {
+        return recipeDomain.getById(id);
+    }
 }

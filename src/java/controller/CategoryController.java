@@ -30,6 +30,15 @@ import model.Result;
 public class CategoryController {
 
     private final CategoryDomain categoryDomain;
+    int tempCategoryId;
+
+    public int getTempCategoryId() {
+        return tempCategoryId;
+    }
+
+    public void setTempCategoryId(int tempCategoryId) {
+        this.tempCategoryId = tempCategoryId;
+    }
 
     public CategoryController() {
         this.categoryDomain = new CategoryDomain();
@@ -49,5 +58,5 @@ public class CategoryController {
     public Result getAll() {
         return categoryDomain.getAll();
     }
-    
+
 }

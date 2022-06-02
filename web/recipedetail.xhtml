@@ -82,10 +82,10 @@
             <div class="container py-5" >
                 <div class="row py-3" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-bottom: none; border-width: 8px;">
                     <h1 align="center" style=" font-family: baslik; font-size: 60px;">
-                        <h:outputText value="${recipe.getById(recipe.control).data.name}">  </h:outputText>
+                        <h:outputText value="${recipe.getById(recipe.tempRecipeId).data.name}">  </h:outputText>
                     </h1>
                     <div class="col-md-6 py-3">
-                        <h:graphicImage url="${recipe.getById(recipe.control).data.imageLink}" width="500" />     
+                        <h:graphicImage url="${recipe.getById(recipe.tempRecipeId).data.imageLink}" width="500" />     
                     </div>
                     <div class="col-md-6  py-5">
                         <p>
@@ -97,7 +97,7 @@
                             <h:outputText value="Zeynep" style="font-family: govde;font-size: 20px;">  </h:outputText></p>
                         <p>
                             <h2 style="font-family: baslik;">Puanı:</h2>  
-                            <h:outputText value="${recipe.getById(recipe.control).data.score}" >  </h:outputText>
+                            <h:outputText value="${recipe.getById(recipe.tempRecipeId).data.score}" >  </h:outputText>
                         </p>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                     <p> 
                         <h2 style=" font-family: baslik;"> Hazırlanışı:</h2>
                         <br/>
-                        <h:outputText value="${recipe.getById(recipe.control).data.description}" style="font-family: govde;font-size: 20px;">  </h:outputText>
+                        <h:outputText value="${recipe.getById(recipe.tempRecipeId).data.description}" style="font-family: govde;font-size: 20px;">  </h:outputText>
                     </p>
                 </div>
 

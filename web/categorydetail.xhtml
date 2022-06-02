@@ -85,45 +85,26 @@
                 <div class="row px-1 py-5" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;">
                     <div class="container col-md-8" > <h1 style="font-family: baslik;"> Kategori Adı</h1> <br/>
                         <div class="container">
-                            <h:form id="dataForm" >
-                                <div class="row">
-                                    <c:forEach items="#{recipe.getAllByCategoryId(recipe.recipe.categoryNo).data}" var="item">
-                                        <div class="col-xs-12 col-sm-4 ">  
-                                            <h:outputLink onclick="#{recipe.setControl(item.id)}" value="recipedetail.xhtml"  class="card-link" style=" color:black;  text-decoration: none; ">           
-                                                <div class="card" style="width: 14rem; height: 18rem;">    
-                                                    <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}"/>
-                                                    <div class="card-body">
-                                                        <h5 class="card-title "><h:outputText value="${item.name}" style="font-family: govde;"/></h5>
-                                                        <p class="card-text" style="font-family: serif"> Puanı: <h:outputText value="${item.score}"/></p>
-                                                    </div>
-                                                </div> 
-                                            </h:outputLink><br/><br/>
-                                        </div>
-                                    </c:forEach>
-                                </div>
-                            </h:form>
+                            <div class="row">
+                                <c:forEach items="#{recipe.getAllByCategoryId(category.tempCategoryId).data}" var="item">
+                                    <div class="col-xs-12 col-sm-4 ">  
+                                        <h:commandLink actionListener="#{recipe.setTempRecipeId(item.id)}" action="recipedetail.xhtml"  class="card-link" style=" color:black;  text-decoration: none; ">           
+                                            <div class="card" style="width: 14rem; height: 18rem;">    
+                                                <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}"/>
+                                                <div class="card-body">
+                                                    <h5 class="card-title "><h:outputText value="${item.name}" style="font-family: govde;"/></h5>
+                                                    <p class="card-text" style="font-family: serif"> Puanı: <h:outputText value="${item.score}"/></p>
+                                                </div>
+                                            </div> 
+                                        </h:commandLink><br/><br/>
+                                    </div>
+                                </c:forEach>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>  <br/><br/>
 
-            <div class="container py-5 justify-content-center align-items-center" style="background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;" >
-                <h1> Kategori Adı </h1> <hr></hr>
-                <c:forEach items="#{recipe.getAllByCategoryId(recipe.recipe.categoryNo).data}" var="item">     
-                    <div class="row py-3  justify-content-center align-items-center">
-                        <div class="card" style="width: 19rem; height: 18rem;">
-                            <h:commandLink class="nav-link " actionListener="#{recipe.setControl(item.id)}" action="recipedetail.xhtml">
-                                <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}"/>
-                                <div class="card-body">
-                                    <h5 class="card-title "><h:outputText value="${item.name}" style="font-family: govde;"/></h5>
-                                    <p class="card-text"><h:outputText value="Yazar" style="font-family: govde;"/></p>
-                                    <p class="card-text">Puan: <h:outputText value="${item.score} " style="font-family: serif" /> </p>
-                                </div>
-                            </h:commandLink>
-                        </div> 
-                    </div>
-                </c:forEach>
-            </div>
             <footer style="background-color:#F08819;">
                 <div class=" container justify-content-around mt-5">
                     <div class="col-10">
