@@ -55,7 +55,7 @@
             .card-description p {
                 font-size: 15px;
             }
-            
+
 
             .card-link:hover{
                 opacity: 0.8;
@@ -128,30 +128,26 @@
             </h:form>
         </div>
         <h:form>
-            <h:form id="dataForm" >
-                <div class="container mt-5 pt-5 pb-5" >
-                    <div class="wrapper-grey" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;">
-                        <br/><h1 class="text-center" style=" font-size: 60px;">Kategoriler </h1>
-                        <div class="container">
-                            <h:form id="dataForm" >
-                                <div class="row">
-                                    <c:forEach items="#{category.all.data}" var="item">
-                                        <div class="col-xs-12 col-sm-4 ">  
-                                            <h:outputLink value="categorydetail.xhtml" onclick="#{recipe.recipe.setCategoryNo(item.id)}" class="card-link">           
-                                                <div class="card"  style="background-image: url('${item.imageLink}');" >                                      
-                                                    <div class="card-description">
-                                                        <h:outputText value="${item.name}"  />
-                                                    </div>	     
-                                                </div> 
-                                            </h:outputLink>
-                                        </div>
-                                    </c:forEach>
+            <div class="container mt-5 pt-5 pb-5" >
+                <div class="wrapper-grey" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;">
+                    <br/><h1 class="text-center" style=" font-size: 60px;">Kategoriler </h1>
+                    <div class="container">
+                        <div class="row">
+                            <c:forEach items="#{category.all.data}" var="item">
+                                <div class="col-xs-12 col-sm-4 ">  
+                                    <h:commandLink action="categorydetail.xhtml" actionListener="#{category.setTempCategoryId(item.id)}" class="card-link">           
+                                        <div class="card"  style="background-image: url('${item.imageLink}');" >                                      
+                                            <div class="card-description">
+                                                <h:outputText value="${item.name}"  />
+                                            </div>	     
+                                        </div> 
+                                    </h:commandLink>
                                 </div>
-                            </h:form>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
-            </h:form>
+            </div>
 
             <br/><br/><br/><br/><br/>
 

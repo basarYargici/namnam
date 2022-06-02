@@ -196,11 +196,9 @@ public class CategoryDomain extends BaseDomain {
         }
     }
 
-    
     private void toCategory(Category temp, ResultSet rs) throws SQLException {
         temp.setId(rs.getInt("ID"));
         temp.setImageLink(rs.getString("IMAGE_LINK"));
         temp.setName(rs.getString("NAME"));
     }
-
 }
