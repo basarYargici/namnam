@@ -26,9 +26,9 @@
             }
         </style>
     </h:head>
-  <h:body style=" background-image: url('images/bg.png');">
+    <h:body style=" background-image: url('images/bg.png');">
         <h:form >
-           <div class="container-fuly" style="background-color: #f9f5cf;">
+            <div class="container-fuly" style="background-color: #f9f5cf;">
                 <div class="container" style="background-color: #f9f5cf;">            
                     <div class="row align-items-center">
                         <div class="col-md-7">                
@@ -91,13 +91,13 @@
                                         <div class="mb-3 col-sm-2 "> 
                                             <h:outputText value="Kategori "/></div>
                                         <div class="mb-3 col-sm-10 ">
-                                            <h:selectOneMenu id="booksSelectOneMenu" value="">
-                                                <f:selectItem itemValue="corba" itemLabel="Çorba Tarifleri " />
-                                                <f:selectItem itemValue="arasicak" itemLabel="Ara Sıcak Yemek Tarifleri " />
-                                                <f:selectItem itemValue="yemek" itemLabel="Ana Yemek Tarifleri" />
-                                                <f:selectItem itemValue="salata" itemLabel="Salata Tarifleri" />
-                                                <f:selectItem itemValue="tatli" itemLabel="Tatlı Tarifleri " />   
-                                                <f:selectItem itemValue="hamur" itemLabel="Hamur İşi Tarifleri " />    
+                                            <h:selectOneMenu id="booksSelectOneMenu" value="#{recipe.recipe.categoryNo}">
+                                                <f:selectItem itemValue="#{recipe.recipe.setCategoryNo(1)}" itemLabel="Çorba Tarifleri " />
+                                                <f:selectItem itemValue="#{recipe.recipe.setCategoryNo(5)}" itemLabel="Ara Sıcak Yemek Tarifleri " />
+                                                <f:selectItem itemValue="#{recipe.recipe.setCategoryNo(4)}" itemLabel="Ana Yemek Tarifleri" />
+                                                <f:selectItem itemValue="#{recipe.recipe.setCategoryNo(6)}" itemLabel="Salata Tarifleri" />
+                                                <f:selectItem itemValue="#{recipe.recipe.setCategoryNo(3)}" itemLabel="Tatlı Tarifleri " />   
+                                                <f:selectItem itemValue="#{recipe.recipe.setCategoryNo(2)}" itemLabel="Hamur İşi Tarifleri " />    
                                             </h:selectOneMenu> 
                                         </div>  
                                     </div>   
@@ -106,24 +106,16 @@
                                         <div class="mb-3 col-sm-2 "> 
                                             <h:outputText value="Yemek Adı "/> </div>
                                         <div class="mb-3 col-sm-10 "> 
-                                            <h:inputText class="form-control me-2" value="" id="recipename"/> </div>
+                                            <h:inputText class="form-control me-2" value="#{recipe.recipe.name}" id="recipename"/> </div>
                                     </div>  
                                     <div class="row">
                                         <div class="mb-3 col-sm-2 ">
-                                            <h:outputText value="Açıklama "/></div>
+                                            <h:outputText value="Açıklama "/> </div>
                                         <div class="mb-3 col-sm-10 ">
-                                            <h:inputTextarea class="form-control me-2" value="" rows="10" cols="50" id="description" /> </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="mb-3 col-sm-2 ">
-                                            <h:outputText value="Görsel "/></div>
-                                        <div class="mb-3 col-sm-10 ">
-                                            <h:inputFile id="file1" styleClass="inputFile"/>
-                                        </div>
+                                            <h:inputTextarea class="form-control me-2" value="#{recipe.recipe.description}" rows="10" cols="50" id="description" /> </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-danger">Tarif Gönder </button>
+                                <button id="cmd"   onclick="#{recipe.add()}" value="index"  class="btn " style=" background-color: orange"/>
                             </h:form>
                         </div>
                     </div>
@@ -154,7 +146,7 @@
                                 <ul class="list-unstyled">
                                     <li class="mt-md-3 mt-4"><br/></li>
                                     <li > <h:commandLink action="whatdoicook" style="color:black;">Ne Pişirsem?</h:commandLink></li>
-                                   
+
                                     <li> <h:commandLink action="whoarewe" style="color:black;">Biz Kimiz?</h:commandLink></li>
                                 </ul>
                             </div>
