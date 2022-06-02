@@ -89,7 +89,7 @@
                                 <c:forEach items="#{recipe.latest.data}" var="item">
                                     <div class="col-xs-12 col-sm-4 ">  
                                         <h:commandLink class="nav-link " actionListener="#{recipe.setTempRecipeId(item.id)}" action="recipedetail.xhtml">
-                                            <div class="card" style="width: 14rem; height: 18rem;">    
+                                            <div class="card" style="width: 14rem; height: 22rem;">    
                                                 <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}"/>
                                                 <div class="card-body">
                                                     <h5 class="card-title "><h:outputText value="${item.name}" style="font-family: govde;"/></h5>
