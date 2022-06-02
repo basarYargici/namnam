@@ -99,6 +99,11 @@
                             <h2 style="font-family: baslik;">Puanı:</h2>  
                             <h:outputText value="${recipe.getById(recipe.tempRecipeId).data.score}" >  </h:outputText>
                         </p>
+                         <p>
+                            <h2 style="font-family: baslik;">  <h:outputText value="Puan Ver"/></h2>  
+                            <h:inputText /> 
+                             &nbsp;&nbsp; <h:commandButton value="Ver" class="btn" style="background-color: orange; font-family: govde; color:white;"/>
+                        </p>
                     </div>
                 </div>
 
@@ -106,7 +111,7 @@
                     <p> 
                         <h2 style=" font-family: baslik;"> Hazırlanışı:</h2>
                         <br/>
-                        <h:outputText value="${recipe.getById(recipe.tempRecipeId).data.description}" style="font-family: govde;font-size: 20px;">  </h:outputText>
+                        <h:outputText value="${recipe.getById(recipe.tempRecipeId).data.description}" style="font-family:serif;font-size: 20px;">  </h:outputText>
                     </p>
                 </div>
 
