@@ -32,20 +32,20 @@ public class CategoryController {
     private final CategoryDomain categoryDomain;
     int tempCategoryId;
 
-    public int getTempCategoryId() {
-        return tempCategoryId;
-    }
-
-    public void setTempCategoryId(int tempCategoryId) {
-        this.tempCategoryId = tempCategoryId;
-    }
-
     public CategoryController() {
         this.categoryDomain = new CategoryDomain();
     }
 
     public CategoryController(CategoryDomain categoryDomain) {
         this.categoryDomain = categoryDomain;
+    }
+
+    public int getTempCategoryId() {
+        return tempCategoryId;
+    }
+
+    public void setTempCategoryId(int tempCategoryId) {
+        this.tempCategoryId = tempCategoryId;
     }
 
     /**
@@ -59,4 +59,15 @@ public class CategoryController {
         return categoryDomain.getAll();
     }
 
+    /**
+     * Check isSuccess in UI. if it is false, pop up the message.
+     *
+     * This method should be called when specific category is requested.
+     *
+     * @param id
+     * @return
+     */
+    public Result getById(int id) {
+        return categoryDomain.getById(id);
+    }
 }

@@ -20,7 +20,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import javax.sql.rowset.CachedRowSet;
 import model.Error;
 import model.Recipe;
@@ -396,5 +395,6 @@ public class RecipeDomain extends BaseDomain {
         temp.setName(rs.getString("NAME"));
         // image comes from category
         temp.setImageLink(rs.getString("IMAGE_LINK"));
+        temp.setCategoryNo(rs.getInt("CATEGORY_ID"));
     }
 }

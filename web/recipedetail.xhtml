@@ -90,7 +90,7 @@
                     <div class="col-md-6  py-5">
                         <p>
                             <h2 style=" font-family: baslik;"> Kategori:</h2> 
-                            <h:outputText value="Hamur İşi" style="font-family: govde;font-size: 20px;"> </h:outputText>
+                            <h:outputText value="${category.getById(recipe.getById(recipe.tempRecipeId).data.categoryNo).data.name}" style="font-family: govde;font-size: 20px;"> </h:outputText>
                         </p>
                         <p>
                             <h2 style=" font-family: baslik;"> Yazar Adı: </h2>
