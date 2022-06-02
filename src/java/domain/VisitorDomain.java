@@ -33,9 +33,6 @@ import model.Visitor;
 public class VisitorDomain extends BaseDomain {
 
     CachedRowSet rowSet = null;
-    Result s;
-    Success success;
-    Error error;
     ArrayList<Visitor> visitorList;
     String query;
 
@@ -129,9 +126,6 @@ public class VisitorDomain extends BaseDomain {
             ResultSet rs = statement.executeQuery(query);
             Visitor visitor = new Visitor();
 
-            if (!rs.next()) {
-                return new Error("Visitor could not found");
-            }
             while (rs.next()) {
                 toVisitor(visitor, rs);
             }

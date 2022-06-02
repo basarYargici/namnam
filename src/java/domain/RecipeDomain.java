@@ -20,7 +20,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import javax.sql.rowset.CachedRowSet;
 import model.Error;
 import model.Recipe;
@@ -28,10 +27,7 @@ import model.Result;
 import model.Success;
 import util.TimeUtil;
 
-
-
 /**
- * //TODO: May dateOfCreation be a problem in queries, should be checked.
  *
  * @author İ. BAŞAR YARGICI
  */
@@ -150,8 +146,6 @@ public class RecipeDomain extends BaseDomain {
      * @return Success if no error occurs, with data of List of Recipes. Error
      * if any error occurs, with error message.
      */
-   
-
     public Result getPopular() { //trends sayfasında kullanılacak
         if (dataSourceResult.isSuccess == false) {
             return dataSourceResult;
@@ -159,19 +153,12 @@ public class RecipeDomain extends BaseDomain {
         if (connectionResult.isSuccess == false) {
             return connectionResult;
         }
-//
-            query="SELECT r.*, c.IMAGE_LINK "
+
+        query = "SELECT r.*, c.IMAGE_LINK "
                 + "FROM RECIPE r, CATEGORY c "
                 + "WHERE r.CATEGORY_ID = c.ID AND SCORE>=4  "
                 + "ORDER BY date_of_creation DESC "
                 + "FETCH FIRST 10 ROWS ONLY";
-        
-        // Select top 5 randrom 
-        
-//        query = "SELECT RECIPE.*, VISITOR.USERNAME, CATEGORY.IMAGE_LINK FROM RECIPE " +
-//                "INNER JOIN CATEGORY on RECIPE.CATEGORY_ID=CATEGORY.ID " +
-//                "INNER JOIN VISITOR ON RECIPE.USER_ID=VISITOR.ID " +
-//                "WHERE SCORE>=4 ORDER BY RANDOM() OFFSET 0 ROWS FETCH NEXT 10 ROW ONLY";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
@@ -368,10 +355,10 @@ public class RecipeDomain extends BaseDomain {
             return connectionResult;
         }
 
-        query = "select recipe.*, category.image_link " +
-                "from recipe " +
-                "inner join category on category.ID = recipe.CATEGORY_ID " +
-                "where category.ID="+id;
+        query = "select recipe.*, category.image_link "
+                + "from recipe "
+                + "inner join category on category.ID = recipe.CATEGORY_ID "
+                + "where category.ID=" + id;
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
@@ -396,5 +383,7 @@ public class RecipeDomain extends BaseDomain {
         temp.setName(rs.getString("NAME"));
         // image comes from category
         temp.setImageLink(rs.getString("IMAGE_LINK"));
+        temp.setCategoryNo(rs.getInt("CATEGORY_ID"));
+        temp.setUserId(rs.getInt("USER_ID"));
     }
 }

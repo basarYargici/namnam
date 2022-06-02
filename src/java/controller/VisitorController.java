@@ -16,7 +16,7 @@
  */
 package controller;
 
-import domain.CategoryDomain;
+import domain.VisitorDomain;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import model.Result;
@@ -25,27 +25,18 @@ import model.Result;
  *
  * @author İ. BAŞAR YARGICI
  */
-@ManagedBean(name = "category")
+@ManagedBean(name = "visitor")
 @SessionScoped
-public class CategoryController {
+public class VisitorController {
 
-    private final CategoryDomain categoryDomain;
-    int tempCategoryId;
+    private final VisitorDomain visitorDomain;
 
-    public CategoryController() {
-        this.categoryDomain = new CategoryDomain();
+    public VisitorController() {
+        this.visitorDomain = new VisitorDomain();
     }
 
-    public CategoryController(CategoryDomain categoryDomain) {
-        this.categoryDomain = categoryDomain;
-    }
-
-    public int getTempCategoryId() {
-        return tempCategoryId;
-    }
-
-    public void setTempCategoryId(int tempCategoryId) {
-        this.tempCategoryId = tempCategoryId;
+    public VisitorController(VisitorDomain visitorDomain) {
+        this.visitorDomain = visitorDomain;
     }
 
     /**
@@ -56,7 +47,7 @@ public class CategoryController {
      * @return
      */
     public Result getAll() {
-        return categoryDomain.getAll();
+        return visitorDomain.getAll();
     }
 
     /**
@@ -68,6 +59,6 @@ public class CategoryController {
      * @return
      */
     public Result getById(int id) {
-        return categoryDomain.getById(id);
+        return visitorDomain.getById(id);
     }
 }
