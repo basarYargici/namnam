@@ -83,7 +83,7 @@
                 </div><br/> <br/> <br/> 
 
                 <div class="container " >  
-                    <c:forEach items="#{recipe.dailyMenu.data}" end="5" var="item"> 
+                    <c:forEach items="#{recipe.getDailyMenu(1).data}" begin="0" end="0" var="item"> 
                         <h:commandLink actionListener="#{recipe.setTempRecipeId(item.id)}" action="recipedetail" style="text-decoration: none;" >
                             <div class="card">
                                 <div class="card-body">
@@ -91,8 +91,108 @@
                                         <div class="col-md-9">
                                             <h5 class="card-title"><h:outputText value="${item.name}" />  </h5>
                                             <p class="card-text"> Puanı: <h:outputText value="${item.score} " style="font-family: serif" /> </p>
-                                            <p class="card-text"><h:outputText value="Kategori?????? " /> </p>
-                                            <p class="card-text"><h:outputText value="yazar?????? " /> </p>
+                                            <p class="card-text"> Kategori: <h:outputText value="${category.getById(recipe.getById(item.id).data.categoryNo).data.name}" /> </p>
+                                            <p class="card-text"> Yazar: <h:outputText value="${visitor.getById(recipe.getById(item.id).data.userId).data.username}" /> </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}" width="300px" height="150px"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </h:commandLink>
+                        <br/><br/>
+                    </c:forEach>
+                    <c:forEach items="#{recipe.getDailyMenu(2).data}" begin="1" end="1" var="item"> 
+                        <h:commandLink actionListener="#{recipe.setTempRecipeId(item.id)}" action="recipedetail" style="text-decoration: none;" >
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5 class="card-title"><h:outputText value="${item.name}" />  </h5>
+                                            <p class="card-text"> Puanı: <h:outputText value="${item.score} " style="font-family: serif" /> </p>
+                                            <p class="card-text"> Kategori: <h:outputText value="${category.getById(recipe.getById(item.id).data.categoryNo).data.name}" /> </p>
+                                            <p class="card-text"> Yazar: <h:outputText value="${visitor.getById(recipe.getById(item.id).data.userId).data.username}" /> </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}" width="300px" height="150px"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </h:commandLink>
+                        <br/><br/>
+                    </c:forEach>
+                    <c:forEach items="#{recipe.getDailyMenu(3).data}" begin="2" end="2" var="item"> 
+                        <h:commandLink actionListener="#{recipe.setTempRecipeId(item.id)}" action="recipedetail" style="text-decoration: none;" >
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5 class="card-title"><h:outputText value="${item.name}" />  </h5>
+                                            <p class="card-text"> Puanı: <h:outputText value="${item.score} " style="font-family: serif" /> </p>
+                                            <p class="card-text"> Kategori: <h:outputText value="${category.getById(recipe.getById(item.id).data.categoryNo).data.name}" /> </p>
+                                            <p class="card-text"> Yazar: <h:outputText value="${visitor.getById(recipe.getById(item.id).data.userId).data.username}" /> </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}" width="300px" height="150px"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </h:commandLink>
+                        <br/><br/>
+                    </c:forEach>
+                    <c:forEach items="#{recipe.getDailyMenu(4).data}" begin="3" end="3" var="item"> 
+                        <h:commandLink actionListener="#{recipe.setTempRecipeId(item.id)}" action="recipedetail" style="text-decoration: none;" >
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5 class="card-title"><h:outputText value="${item.name}" />  </h5>
+                                            <p class="card-text"> Puanı: <h:outputText value="${item.score} " style="font-family: serif" /> </p>
+                                            <p class="card-text"> Kategori: <h:outputText value="${category.getById(recipe.getById(item.id).data.categoryNo).data.name}" /> </p>
+                                            <p class="card-text"> Yazar: <h:outputText value="${visitor.getById(recipe.getById(item.id).data.userId).data.username}" /> </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}" width="300px" height="150px"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </h:commandLink>
+                        <br/><br/>
+                    </c:forEach>
+                    <c:forEach items="#{recipe.getDailyMenu(5).data}" begin="4" end="4" var="item"> 
+                        <h:commandLink actionListener="#{recipe.setTempRecipeId(item.id)}" action="recipedetail" style="text-decoration: none;" >
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5 class="card-title"><h:outputText value="${item.name}" />  </h5>
+                                            <p class="card-text"> Puanı: <h:outputText value="${item.score} " style="font-family: serif" /> </p>
+                                            <p class="card-text"> Kategori: <h:outputText value="${category.getById(recipe.getById(item.id).data.categoryNo).data.name}" /> </p>
+                                            <p class="card-text"> Yazar: <h:outputText value="${visitor.getById(recipe.getById(item.id).data.userId).data.username}" /> </p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}" width="300px" height="150px"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </h:commandLink>
+                        <br/><br/>
+                    </c:forEach>
+                    <c:forEach items="#{recipe.getDailyMenu(6).data}" begin="5" end="5" var="item"> 
+                        <h:commandLink actionListener="#{recipe.setTempRecipeId(item.id)}" action="recipedetail" style="text-decoration: none;" >
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5 class="card-title"><h:outputText value="${item.name}" />  </h5>
+                                            <p class="card-text"> Puanı: <h:outputText value="${item.score} " style="font-family: serif" /> </p>
+                                            <p class="card-text"> Kategori: <h:outputText value="${category.getById(recipe.getById(item.id).data.categoryNo).data.name}" /> </p>
+                                            <p class="card-text"> Yazar: <h:outputText value="${visitor.getById(recipe.getById(item.id).data.userId).data.username}" /> </p>
                                         </div>
                                         <div class="col-md-3">
                                             <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}" width="300px" height="150px"/>

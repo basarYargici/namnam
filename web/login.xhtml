@@ -97,7 +97,7 @@
                                 <h:inputSecret class="form-control me-2" value="#{login.visitor.password}" id="passwordInput"/>
                             </div>                                            
 
-                            <h:commandButton id="cmd" value="Giriş Yap"  action="#{login.signIn()}"  class="btn " style=" background-color: orange"/>
+                            <h:commandButton id="cmd" value="Giriş Yap"  actionListener="#{login.signIn()}" action="index"  class="btn " style=" background-color: orange"/>
                         </h:form>                       
                     </div>
                 </div>

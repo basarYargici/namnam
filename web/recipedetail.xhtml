@@ -1,5 +1,3 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-
 <!-- index.html -->
 <!-- Displays an h:dataTable of the addresses in the address book -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -99,6 +97,11 @@
                             <h2 style="font-family: baslik;">Puanı:</h2>  
                             <h:outputText value="${recipe.getById(recipe.tempRecipeId).data.score}" >  </h:outputText>
                         </p>
+                         <p>
+                            <h2 style="font-family: baslik;">  <h:outputText value="Puan Ver"/></h2>  
+                            <h:inputText  value=""/>
+                            &nbsp;&nbsp; <h:button value="Ver" class="btn" outcome="recipedetail.xhtml" style="background-color: orange; font-family: govde; color:white;" >  </h:button>  
+                        </p>
                     </div>
                 </div>
 
@@ -106,7 +109,7 @@
                     <p> 
                         <h2 style=" font-family: baslik;"> Hazırlanışı:</h2>
                         <br/>
-                        <h:outputText value="${recipe.getById(recipe.tempRecipeId).data.description}" style="font-family: govde;font-size: 20px;">  </h:outputText>
+                        <h:outputText value="${recipe.getById(recipe.tempRecipeId).data.description}" style="font-family:serif;font-size: 20px;">  </h:outputText>
                     </p>
                 </div>
 
