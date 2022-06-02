@@ -6,7 +6,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
       <h:head>
         <h:outputStylesheet library="css" name="style.css"/>
@@ -72,7 +73,7 @@
                                 </li>
                             </ul>
                             <form class="d-flex">
-                                <h:inputText id="firstNameInputText" value=""/>
+                                <h:inputText id="firstNameInputText" value="#{recipe.recipe.name}"/>
 
                                 <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
                             </form>
@@ -82,6 +83,28 @@
        </div> <br/>
                 <div class="container py-5" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;">
                     <h1> Arama Sonuçları</h1> <hr/>
+                    <div class="container"><br/>
+                
+                        <c:forEach items="#{recipe.getByName('Keb').data}" var="item"> 
+                            <h:commandLink class="nav-link " actionListener="#{recipe.setTempRecipeId(item.id)}" action="recipedetail.xhtml">
+                                <div class="card">                      
+                                    <div class="card-body">  
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <h5 class="card-title "><b><h:outputText value="${item.name}" style="font-family: govde;"/></b></h5>
+                                                <p class="card-text"> Puanı: <h:outputText value="${item.score} " style="font-family: serif" /> </p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h:graphicImage class="img-fluid mb-1" url="${item.imageLink}" />
+                                            </div>
+                                        </div>                                  
+                                    </div>
+                                </div> 
+                            </h:commandLink> 
+                        </c:forEach>
+                    </div>
+                
+                   
                 </div>
                 <footer style="background-color:#F08819;">
                     <div class=" container justify-content-around mt-5">

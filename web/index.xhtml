@@ -177,8 +177,8 @@
                                 </li>
                             </ul>
                             <form class="d-flex">
-                                <h:inputText class="form-control me-2" value=""/>
-                                <h:button value="Ara" class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button>      
+                                <h:inputText class="form-control me-2" value="#{recipe.recipe.name}"/>
+                                <h:button value="Ara"  class="btn btn-outline-light" outcome="searchdetail.xhtml">  </h:button> 
                             </form>
                         </div>
                     </div>
@@ -262,81 +262,81 @@
             </div>
         </h:form>
         <h:form>
-        <section class="pt-5 pb-5">
+            <section class="pt-5 pb-5">
 
-            <div class="container mt-5 pt-5 pb-5">
-                <div class="wrapper-grey" style="background-color:#f9f5cf; border: #f08819; border-style: solid; border-width: 8px;">
-                    <br/>
-                    <div class="row">
-                        <div class="col-10">
-                            <h1 class="mb-3">&nbsp;&nbsp; En Yeni Tarifler </h1>
+                <div class="container mt-5 pt-5 pb-5">
+                    <div class="wrapper-grey" style="background-color:#f9f5cf; border: #f08819; border-style: solid; border-width: 8px;">
+                        <br/>
+                        <div class="row">
+                            <div class="col-10">
+                                <h1 class="mb-3">&nbsp;&nbsp; En Yeni Tarifler </h1>
+                            </div>
+                            <div class="col-2 ">
+                                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                                    <i class="fa fa-arrow-left">&lt; </i>
+                                </a>
+                                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                                    <i class="fa fa-arrow-right">&gt;</i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-2 ">
-                            <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                                <i class="fa fa-arrow-left">&lt; </i>
-                            </a>
-                            <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                                <i class="fa fa-arrow-right">&gt;</i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner" >
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <c:forEach items="#{recipe.latest.data}" end="2" var="item">
-                                            <div class="col-md-4 mb-3">
-                                                <h:commandLink class="nav-link linkcik" action="recipedetail">
-                                                    <div class="card"  style=" background-color: transparent;">
-                                                        <h:graphicImage class="img-fluid" url="${item.imageLink}" />
-                                                         <div class="card-description">
-                                                            <h4 class="card-title">${item.name}</h4>
+                        <div class="col-12">
+                            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner" >
+                                    <div class="carousel-item active">
+                                        <div class="row">
+                                            <c:forEach items="#{recipe.latest.data}" end="2" var="item">
+                                                <div class="col-md-4 mb-3">
+                                                    <h:commandLink class="nav-link linkcik" action="recipedetail">
+                                                        <div class="card"  style=" background-color: transparent;">
+                                                            <h:graphicImage class="img-fluid" url="${item.imageLink}" />
+                                                            <div class="card-description">
+                                                                <h4 class="card-title">${item.name}</h4>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </h:commandLink>
-                                            </div>
-                                        </c:forEach>
+                                                    </h:commandLink>
+                                                </div>
+                                            </c:forEach>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <c:forEach items="#{recipe.latest.data}" begin ="3" end="5" var="item">
-                                            <div class="col-md-4 mb-3">
-                                                <h:commandLink class="nav-link linkcik" action="recipedetail">
-                                                    <div class="card"  style=" background-color: transparent;">
-                                                        <h:graphicImage class="img-fluid" url="${item.imageLink}" />
-                                                       <div class="card-description">
-                                                            <h4 class="card-title">${item.name}</h4>
+                                    <div class="carousel-item">
+                                        <div class="row">
+                                            <c:forEach items="#{recipe.latest.data}" begin ="3" end="5" var="item">
+                                                <div class="col-md-4 mb-3">
+                                                    <h:commandLink class="nav-link linkcik" action="recipedetail">
+                                                        <div class="card"  style=" background-color: transparent;">
+                                                            <h:graphicImage class="img-fluid" url="${item.imageLink}" />
+                                                            <div class="card-description">
+                                                                <h4 class="card-title">${item.name}</h4>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </h:commandLink>
-                                            </div>
-                                        </c:forEach>
+                                                    </h:commandLink>
+                                                </div>
+                                            </c:forEach>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <c:forEach items="#{recipe.latest.data}" begin ="6" end="8" var="item">
-                                            <div class="col-md-4 mb-3">
-                                                <h:commandLink class="nav-link linkcik" action="recipedetail">
-                                                    <div class="card"  style=" background-color: transparent;">
-                                                        <h:graphicImage class="img-fluid" url="${item.imageLink}" />
-                                                        <div class="card-description">
-                                                            <h4 class="card-title">${item.name}</h4>
+                                    <div class="carousel-item">
+                                        <div class="row">
+                                            <c:forEach items="#{recipe.latest.data}" begin ="6" end="8" var="item">
+                                                <div class="col-md-4 mb-3">
+                                                    <h:commandLink class="nav-link linkcik" action="recipedetail">
+                                                        <div class="card"  style=" background-color: transparent;">
+                                                            <h:graphicImage class="img-fluid" url="${item.imageLink}" />
+                                                            <div class="card-description">
+                                                                <h4 class="card-title">${item.name}</h4>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </h:commandLink>
-                                            </div>
-                                        </c:forEach>
+                                                    </h:commandLink>
+                                                </div>
+                                            </c:forEach>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
             <div class="container justify-content-between pt-5 pb-5 ">
                 <h:commandLink action="whatdoicook">
                     <div class="wrapper-grey carousel cerceve ">	

@@ -33,7 +33,7 @@ public class RecipeController {
     private final RecipeDomain recipeDomain;
     private final Recipe recipe;
     int tempRecipeId;
-    
+    String tempRecipeName;
     public RecipeController() {
         this.recipeDomain = new RecipeDomain();
         this.recipe = new Recipe();
@@ -55,6 +55,19 @@ public class RecipeController {
     public void setTempRecipeId(int tempRecipeId) {
         this.tempRecipeId = tempRecipeId;
     }    
+
+    public String getTempRecipeName() {
+        return tempRecipeName;
+    }
+
+    public void setTempRecipeName(String tempRecipeName) {
+        this.tempRecipeName = tempRecipeName;
+    }
+
+    
+    
+    
+    
     
     /**
      * Check isSuccess in UI. if it is false, pop up the message.
@@ -67,7 +80,7 @@ public class RecipeController {
      * exception, should check.
      * @return
      */
-    public Result add(Recipe recipe) {
+    public Result add() {
         return recipeDomain.save(recipe);
     }
 
@@ -137,5 +150,7 @@ public class RecipeController {
     public Result getById(int id) {
         return recipeDomain.getById(id);
     }
-    
+    public Result getByName(String name){
+        return recipeDomain.getByName(name);
+    }
 }
