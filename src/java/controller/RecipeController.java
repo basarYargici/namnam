@@ -33,6 +33,7 @@ public class RecipeController {
     private final RecipeDomain recipeDomain;
     private final Recipe recipe;
     int tempRecipeId;
+    int dummyScore;
 
     public RecipeController() {
         this.recipeDomain = new RecipeDomain();
@@ -56,6 +57,15 @@ public class RecipeController {
         this.tempRecipeId = tempRecipeId;
     }
 
+    public int getDummyScore() {
+        return dummyScore;
+    }
+
+    public void setDummyScore(int dummyScore) {
+        this.dummyScore = dummyScore;
+    }
+    
+    
     /**
      * Check isSuccess in UI. if it is false, pop up the message.
      *
@@ -100,10 +110,11 @@ public class RecipeController {
      * This method should be called when popular recipes or suggestions are
      * requested.
      *
+     * @param id
      * @return
      */
-    public Result getDailyMenu() {
-        return recipeDomain.getDailyMenu();
+    public Result getDailyMenu(int id) {
+        return recipeDomain.getDailyMenu( id);
     }
 
     /**
@@ -135,5 +146,8 @@ public class RecipeController {
 
     public Result getById(int id) {
         return recipeDomain.getById(id);
+    }
+    public Result dummy(){
+        return recipeDomain.dummy();
     }
 }

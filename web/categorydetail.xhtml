@@ -83,7 +83,7 @@
 
             <div class="container">
                 <div class="row px-1 py-5" style= " background-image: url('images/bosluk.jpg'); border: #F08819; border-style: solid; border-width: 8px;">
-                    <div class="container col-md-8" > <h1 style="font-family: baslik;"> Kategori Adı</h1> <br/>
+                    <div class="container col-md-8" > <h1 style="font-family: baslik;"> <h:outputText value="#{category.getById(category.tempCategoryId).data.name}" /> </h1> <br/>
                         <div class="container">
                             <div class="row">
                                 <c:forEach items="#{recipe.getAllByCategoryId(category.tempCategoryId).data}" var="item">
