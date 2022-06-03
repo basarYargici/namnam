@@ -88,7 +88,7 @@ public class LoginDomain extends BaseDomain {
         }
 
         Result dbVisitorResult = visitorDomain.getByCredentials(visitor);
-        return setVisitorLoggedIn(dbVisitorResult, visitor);
+        return setVisitorLoggedIn(dbVisitorResult);
     }
 
     /**
@@ -108,14 +108,15 @@ public class LoginDomain extends BaseDomain {
 
         if (visitor.getUsername() != null && visitor.getPassword() != null) {
             Result dbVisitorResult = visitorDomain.save(visitor);
-            return setVisitorLoggedIn(dbVisitorResult, visitor);
+            return setVisitorLoggedIn(dbVisitorResult);
         }
         return new Error();
     }
 
-    private Result setVisitorLoggedIn(Result dbVisitorResult, Visitor visitor) {
+    private Result setVisitorLoggedIn(Result dbVisitorResult) {
         if (dbVisitorResult.isSuccess) {
-            query = "UPDATE APP.VISITOR SET IS_LOGGED_IN = 1 WHERE ID = " + visitor.getId();
+            Visitor temp = (Visitor) dbVisitorResult.data;
+            query = "UPDATE APP.VISITOR SET IS_LOGGED_IN = 1 WHERE ID = " + temp.getId();
 
             try (Statement statement = connectionResult.data.createStatement()) {
                 statement.executeUpdate(query);
@@ -126,5 +127,4 @@ public class LoginDomain extends BaseDomain {
         }
         return new Error(dbVisitorResult.message);
     }
-
 }
