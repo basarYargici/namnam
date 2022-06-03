@@ -25,7 +25,6 @@ import model.Error;
 import model.Recipe;
 import model.Result;
 import model.Success;
-import util.TimeUtil;
 
 /**
  *
@@ -34,9 +33,6 @@ import util.TimeUtil;
 public class RecipeDomain extends BaseDomain {
 
     CachedRowSet rowSet = null;
-    Result s;
-    Success success;
-    Error error;
     ArrayList<Recipe> recipeList;
     String query;
     CategoryDomain categoryDomain;
@@ -54,6 +50,7 @@ public class RecipeDomain extends BaseDomain {
      * error occurs, with error message.
      */
     int temp = 0;
+
     public Result save(Recipe recipe) {
         if (dataSourceResult.isSuccess == false) {
             return dataSourceResult;
@@ -61,23 +58,23 @@ public class RecipeDomain extends BaseDomain {
         if (connectionResult.isSuccess == false) {
             return connectionResult;
         }
-        
+
         query = "INSERT INTO APP.RECIPE"
                 + "(recipe.category_id,recipe.DESCRIPTION,recipe.\"NAME\")"
-                + "VALUES (3, '    Uygun bir tencereye, vanilya ve tereyağı hariç puding için gerekli olan diğer malzemeleri alalım.\n" +
-"    Orta ateşte, bir çırpma teli yardımıyla devamlı karıştırarak pişirmeye başlayalım.\n" +
-"    Kıvam alıp, göz göz olmaya başlayınca birkaç dakika daha karıştırarak pişirelim.\n" +
-"    Ateşten aldığımız pudingin içine vanilya ve tereyağı ilavesini yaparak, mikserle bir kaç dakika çırpalım. Burada tel çırpıcı da kullanabilirsiniz ancak mikser ile kıvamı daha güzel olacaktır.\n" +
-"    Hazır olan pudingi kepçe yardımı ile kaselere aktaralım. Ben kullandığım kaseler ile 4 kase elde ettim.\n" +
-"    Oda sıcaklığına gelen pudingimizi buzdolabına kaldırarak bir kaç saat dinlenmeye bırakalım.\n" +
-"    Güzelce dinlenen ve soğuyan pudinglerimizi dilediğimiz gibi süsleyerek servis edelim. Afiyet olsun.', 'Kakaolu Puding')";
+                + "VALUES (3, '    Uygun bir tencereye, vanilya ve tereyağı hariç puding için gerekli olan diğer malzemeleri alalım.\n"
+                + "    Orta ateşte, bir çırpma teli yardımıyla devamlı karıştırarak pişirmeye başlayalım.\n"
+                + "    Kıvam alıp, göz göz olmaya başlayınca birkaç dakika daha karıştırarak pişirelim.\n"
+                + "    Ateşten aldığımız pudingin içine vanilya ve tereyağı ilavesini yaparak, mikserle bir kaç dakika çırpalım. Burada tel çırpıcı da kullanabilirsiniz ancak mikser ile kıvamı daha güzel olacaktır.\n"
+                + "    Hazır olan pudingi kepçe yardımı ile kaselere aktaralım. Ben kullandığım kaseler ile 4 kase elde ettim.\n"
+                + "    Oda sıcaklığına gelen pudingimizi buzdolabına kaldırarak bir kaç saat dinlenmeye bırakalım.\n"
+                + "    Güzelce dinlenen ve soğuyan pudinglerimizi dilediğimiz gibi süsleyerek servis edelim. Afiyet olsun.', 'Kakaolu Puding')";
 
         try (Statement statement = connectionResult.data.createStatement()) {
-            statement.executeUpdate(query);
-            if(temp==0){
+            if (temp == 0) {
                 temp++;
                 return new Error("Error");
             }
+            statement.executeUpdate(query);
             return new Success();
         } catch (SQLException e) {
             return new Error(e.getMessage());
@@ -202,22 +199,22 @@ public class RecipeDomain extends BaseDomain {
         if (connectionResult.isSuccess == false) {
             return connectionResult;
         }
-        
+
         // TODO: Select one recipe for each category
         query = "SELECT r.*, c.IMAGE_LINK "
                 + "FROM RECIPE r, CATEGORY c "
-                + "WHERE r.CATEGORY_ID = c.ID and r.id="+id;
+                + "WHERE r.CATEGORY_ID = c.ID and r.id=" + id;
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
-            Recipe temp;                      
-            
+            Recipe temp;
+
             while (rs.next()) {
                 temp = new Recipe();
                 toRecipe(temp, rs);
                 recipeList.add(temp);
             }
-            
+
             return new Success(recipeList);
         } catch (SQLException e) {
             return new Error(e.getMessage());
@@ -270,7 +267,7 @@ public class RecipeDomain extends BaseDomain {
         query = "SELECT r.*, c.IMAGE_LINK "
                 + "FROM RECIPE r, CATEGORY c "
                 + "WHERE r.CATEGORY_ID = c.ID "
-                + "and r.\"NAME\" like" + "'%"+name+"%'";
+                + "and r.\"NAME\" like" + "'%" + name + "%'";
 
         try (Statement statement = connectionResult.data.createStatement()) {
             ResultSet rs = statement.executeQuery(query);
@@ -281,12 +278,13 @@ public class RecipeDomain extends BaseDomain {
                 toRecipe(temp, rs);
                 recipeList.add(temp);
             }
-            
+
             return new Success(recipeList);
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
     }
+
     /**
      * Check isSuccess in UI. if it is false, pop up the message. You can get
      * data in HTML with recipe.getById(id).data
@@ -412,8 +410,8 @@ public class RecipeDomain extends BaseDomain {
         } catch (SQLException e) {
             return new Error(e.getMessage());
         }
-    }      
-    
+    }
+
     private void toRecipe(Recipe temp, ResultSet rs) throws SQLException {
         temp.setId(rs.getInt("ID"));
         temp.setScore(rs.getString("SCORE"));
