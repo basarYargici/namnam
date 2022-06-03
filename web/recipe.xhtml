@@ -65,9 +65,6 @@
                                     <h:commandLink class="nav-link " action="whatdoicook">Ne Pişirsem?</h:commandLink>
                                 </li>
                                 <li class="nav-item">
-                                    <h:commandLink class="nav-link " action="profile">Profil</h:commandLink>
-                                </li>
-                                <li class="nav-item">
                                     <h:commandLink class="nav-link " action="whoarewe">Biz Kimiz?</h:commandLink>
                                 </li>
                             </ul>
@@ -115,7 +112,9 @@
                                             <h:inputTextarea class="form-control me-2" value="#{recipe.recipe.description}" rows="10" cols="50" id="description" /> </div>
                                     </div>
                                 </div>
-                                <button id="cmd"   onclick="#{recipe.add()}" value="index"  class="btn " style=" background-color: orange"/>
+                                <button id="cmd"   onclick="#{recipe.add()}" value="index"  class="btn " style=" background-color: orange">
+                                    Tarif Ekle
+                                </button>
                             </h:form>
                         </div>
                     </div>
