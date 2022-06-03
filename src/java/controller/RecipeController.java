@@ -63,11 +63,6 @@ public class RecipeController {
     public void setTempRecipeName(String tempRecipeName) {
         this.tempRecipeName = tempRecipeName;
     }
-
-    
-    
-    
-    
     
     /**
      * Check isSuccess in UI. if it is false, pop up the message.
@@ -90,7 +85,7 @@ public class RecipeController {
      * This method should be called when all recipes are requested.
      *
      * @return
-     */
+     */    
     public Result getAll() {
         return recipeDomain.getAll();
     }
